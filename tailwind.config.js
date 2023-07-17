@@ -20,6 +20,11 @@ module.exports = {
         secondary: 'var(--secondary)',
         accent: 'var(--accent)',
         placeholder: 'var(--placeholder)',
+        warning: 'var(--warning)',
+      },
+      fontFamily: {
+        heading: 'var(--font-ibm-plex-sans), sans-serif',
+        body: 'var(--font-nunito), sans-serif',
       },
     },
   },

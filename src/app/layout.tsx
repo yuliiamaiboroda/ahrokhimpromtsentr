@@ -1,8 +1,6 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
 import Link from 'next/link';
-
-const inter = Inter({ subsets: ['latin'] });
+import { IBMPlexSans, nunito } from './fonts';
 
 export const metadata = {
   title: 'Create Next App',
@@ -16,8 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ul className="flex flex-wrap gap-4 justify-center p-4 text-zinc-800 hover:[&_a]:text-sky-600 [&_a]:transition-colors [&_a]:duration-300">
+      <body
+        className={`${IBMPlexSans.variable} ${nunito.variable} font-heading bg-dark-gradient text-primary min-h-screen`}
+      >
+        <ul className="flex flex-wrap gap-4 font-bold text-4xl justify-center p-4 hover:[&_a]:text-sky-600 [&_a]:transition-colors [&_a]:duration-300">
           <li>
             <Link href="/">Головна</Link>
           </li>

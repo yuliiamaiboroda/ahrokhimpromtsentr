@@ -5,8 +5,9 @@
 :root {
   --primary: #ffffff;
   --secondary: #29382d;
-  --accent: #29382d;
+  --accent: #d5ba75;
   --placeholder: rgba(255, 255, 255, 0.7);
+  --warning: #8e0000;
 
   --dark-gradient-start: #394e2d;
   --dark-gradient-end: #29392f;
@@ -14,10 +15,4 @@
   --light-gradient-start: #f2e2ba;
   --light-gradient-end: #d5ba75;
   --light-gradient: linear-gradient(180deg, #f2e2ba 0%, #d5ba75 100%);
-}
-
-body {
-  /* color: rgb(var(--primary));
-  background: var(--dark-gradient); */
-  min-height: 100vh;
 }
