@@ -8,7 +8,7 @@ interface IProps {
   size?: keyof typeof ButtonSizes;
 }
 
-//  Sizes : services(послуги)- s, vacancies(робота) - m, main(головна)- s - так як розміри відрізняються згідно макету на всіх сторінках
+//  Sizes : services(послуги)- s, vacancies(робота) - m, main(головна)- l - так як розміри відрізняються згідно макету на всіх сторінках
 
 // Variants: primary : Кнопка повністю залита золотим градієнтом,secondary: Кнопка залалита темним градієнтом і обведена золотистою рамкою
 
@@ -34,6 +34,7 @@ export default function ButtonLink({
            ? 'text-secondary bg-light-gradient border-transparent'
            : 'relative rounded-xl text-primary m-[1px] bg-dark-gradient after:content-[""] after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:-z-[1] after:-m-[1px] after:bg-light-gradient after:rounded-xl'
        }
+       transition-all	hover:scale-105 focus:scale-105
        `}
     >
       {title}
