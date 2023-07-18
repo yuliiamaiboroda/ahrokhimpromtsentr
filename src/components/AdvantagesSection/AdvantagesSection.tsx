@@ -11,7 +11,7 @@ export default function AdvantagesSection() {
           <Image
             src={ColossusIcon}
             alt="colossus"
-            className="absolute -top-2.5 -left-1.5		h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
+            className="absolute -top-2.5 -left-1.5 h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
           />
           <span className="block h-3/4	 md:mt-[15px]	bg-light-gradient  w-0.5 md:w-1 "></span>
           <span className="py-5  md:py-9 font-body font-bold	text-primary text-base	md:text-xl xl:text-2xl">
@@ -23,7 +23,7 @@ export default function AdvantagesSection() {
           <Image
             src={ColossusIcon}
             alt="colossus"
-            className="absolute -top-2.5 -left-1.5		h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
+            className="absolute -top-2.5 -left-1.5 h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
           />
           <span className="block h-3/4	 md:mt-[15px]	bg-light-gradient  w-0.5 md:w-1 "></span>
           <span className="py-5  md:py-9 font-body font-bold	text-primary text-base	md:text-xl xl:text-2xl">
@@ -35,7 +35,7 @@ export default function AdvantagesSection() {
           <Image
             src={ColossusIcon}
             alt="colossus"
-            className="absolute -top-2.5 -left-1.5		h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
+            className="absolute -top-2.5 -left-1.5 h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
           />
           <span className="block h-3/4	 md:mt-[15px]	bg-light-gradient  w-0.5 md:w-1 "></span>
           <span className="py-5  md:py-9 font-body font-bold	text-primary text-base	md:text-xl xl:text-2xl">
