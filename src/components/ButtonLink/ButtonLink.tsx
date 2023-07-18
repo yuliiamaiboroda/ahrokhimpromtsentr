@@ -34,7 +34,6 @@ export default function ButtonLink({
            ? 'text-secondary bg-light-gradient border-transparent'
            : 'relative rounded-xl text-primary m-[1px] bg-dark-gradient after:content-[""] after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:-z-[1] after:-m-[1px] after:bg-light-gradient after:rounded-xl'
        }
-       transition-all	hover:scale-105 focus:scale-105
        `}
     >
       {title}
