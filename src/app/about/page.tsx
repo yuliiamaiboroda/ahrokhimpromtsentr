@@ -1,4 +1,4 @@
-import SectionTitle from '@/components/SectionTitle/SectionTitle';
+import SectionTitle from '@/components/SectionTitle';
 
 export default function Page() {
   return (
