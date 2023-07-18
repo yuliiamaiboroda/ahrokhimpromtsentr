@@ -13,11 +13,11 @@ export default function SectionTitle({ title }: IProps) {
         alt="icon"
         className="w-6 h-6 md:w-8 md:h-8 xl:w-9 xl:h-9"
       />
-      <div className="max-md:hidden md:h-0.5 md:w-36 bg-light-gradient"></div>
+      <span className="block max-md:hidden md:h-0.5 md:w-36 bg-light-gradient"></span>
       <h2 className="text-primary font-heading text-xl md:text-3xl xl:text-4xl font-bold ">
         {title}
       </h2>
-      <div className="max-md:hidden md:h-0.5 md:w-36 bg-light-gradient"></div>
+      <span className="block max-md:hidden md:h-0.5 md:w-36 bg-light-gradient"></span>
       <Image
         src={ColossusIcon}
         alt="icon"
