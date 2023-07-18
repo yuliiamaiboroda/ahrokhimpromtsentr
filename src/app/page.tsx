@@ -1,4 +1,4 @@
-import AdvantagesSection from '@/components/AdvantagesSection/AdvantagesSection';
+import AdvantagesSection from '@/components/AdvantagesSection';
 
 export default function Home() {
   return (
