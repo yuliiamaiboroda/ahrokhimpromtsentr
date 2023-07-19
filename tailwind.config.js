@@ -39,6 +39,7 @@ module.exports = {
           borderRadius: '0.75rem',
           backgroundImage: theme('backgroundImage.light-gradient'),
           borderColor: 'transparent',
+          transition: 'box-shadow 0.2s',
         },
       });
       addBase({
@@ -48,6 +49,7 @@ module.exports = {
           color: theme('colors.primary'),
           margin: '1px',
           backgroundImage: theme('backgroundImage.dark-gradient'),
+          transition: 'box-shadow 0.2s',
         },
         '.secondary__button::after': {
           content: '""',
@@ -61,6 +63,10 @@ module.exports = {
           borderRadius: '0.75rem',
           backgroundImage: theme('backgroundImage.light-gradient'),
         },
+        '.primary__button:hover, .primary__button:focus, .secondary__button:hover, .secondary__button:focus':
+          {
+            boxShadow: ' 0px 0px 30px 0px rgba(213,186,117,0.41)',
+          },
       });
     }),
   ],
