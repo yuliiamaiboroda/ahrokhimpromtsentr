@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -28,5 +31,37 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addBase, addComponents, addUtilities, theme }) {
+      addComponents({
+        '.primary__button': {
+          color: theme('colors.secondary'),
+          borderRadius: '0.75rem',
+          backgroundImage: theme('backgroundImage.light-gradient'),
+          borderColor: 'transparent',
+        },
+      });
+      addBase({
+        '.secondary__button': {
+          position: 'relative',
+          borderRadius: '0.75rem',
+          color: theme('colors.primary'),
+          margin: '1px',
+          backgroundImage: theme('backgroundImage.dark-gradient'),
+        },
+        '.secondary__button::after': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          left: 0,
+          bottom: 0,
+          zIndex: '-1',
+          margin: '-1px',
+          borderRadius: '0.75rem',
+          backgroundImage: theme('backgroundImage.light-gradient'),
+        },
+      });
+    }),
+  ],
 };

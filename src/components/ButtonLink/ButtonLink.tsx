@@ -31,8 +31,8 @@ export default function ButtonLink({
        ${size === ButtonSizes.l ? 'md:w-[302px] xl:w-[312px]' : ''}    
        ${
          variant === ButtonsVariants.primary
-           ? 'text-secondary bg-light-gradient border-transparent'
-           : 'relative rounded-xl text-primary m-[1px] bg-dark-gradient after:content-[""] after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:-z-[1] after:-m-[1px] after:bg-light-gradient after:rounded-xl'
+           ? 'primary__button '
+           : 'secondary__button'
        }
        `}
     >

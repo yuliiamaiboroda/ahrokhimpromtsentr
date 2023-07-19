@@ -8,6 +8,8 @@ interface IProps {
   onClick: () => void;
 }
 
+// Variants: primary : Кнопка повністю залита золотим градієнтом,secondary: Кнопка залалита темним градієнтом і обведена золотистою рамкою
+
 // TODO transition only on scale, change disabled styled, deside about custom sizes
 
 export default function Button({
@@ -23,11 +25,11 @@ export default function Button({
       onClick={onClick}
       disabled={isDisabled ? true : false}
       className={`
-      flex justify-center items-center w-[178px] md:w-[302px] xl:w-[272px] py-3 md:py-5 xl:py-6 rounded-xl  font-body font-bold text-sm	md:text-2xl	xl:text-3xl
+      flex justify-center items-center w-[178px] md:w-[302px] xl:w-[272px] py-3 md:py-5 xl:py-6 rounded-xl  font-body font-bold text-sm	md:text-2xl	xl:text-[28px]
       ${
         variant === ButtonsVariants.primary
-          ? 'text-secondary bg-light-gradient border-transparent'
-          : 'relative rounded-xl text-primary m-[1px] bg-dark-gradient after:content-[""] after:absolute after:top-0 after:right-0 after:bottom-0 after:left-0 after:-z-[1] after:-m-[1px] after:bg-light-gradient after:rounded-xl'
+          ? 'primary__button'
+          : 'secondary__button'
       }
        `}
     >
