@@ -21,6 +21,7 @@ module.exports = {
         accent: 'var(--accent)',
         placeholder: 'var(--placeholder)',
         warning: 'var(--warning)',
+        navigation: 'var(--navigation)',
       },
       fontFamily: {
         heading: 'var(--font-ibm-plex-sans), sans-serif',
