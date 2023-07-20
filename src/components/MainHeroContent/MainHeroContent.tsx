@@ -2,7 +2,7 @@ import ButtonLink from '../ButtonLink/ButtonLink';
 
 export default function MainHeroContent() {
   return (
-    <div className="absolute left-24 top-80 z-20 w-[271px] text-4xl md:w-[373px] xl:w-[441px]">
+    <div className="absolute left-1/2 top-[75%] z-20 flex w-[271px] -translate-x-1/2 flex-col items-center  justify-center text-4xl md:left-[calc(50%-170px)] md:top-[40%] md:flex md:w-[373px] md:flex-col	 md:items-baseline xl:left-[calc(50%-240px)] xl:w-[441px]">
       <h1 className="mb-0.5	 text-center font-heading text-xl font-bold text-primary md:text-start md:text-3xl xl:text-[40px]/[49px] ">
         АГРОХІМПРОМЦЕНТР
       </h1>
