@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <MainHero />
-      <AdvantagesSection />
+      {/* <AdvantagesSection /> */}
     </div>
   );
 }
