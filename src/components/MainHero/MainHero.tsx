@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
-import bgImage from '../../public/images/bg-main@3x.jpg';
+import bgImage from '../../../public/images/bg-main@3x.jpg';
 
 function Background({ src }: { src: StaticImageData }) {
   return (
@@ -20,9 +20,9 @@ function Background({ src }: { src: StaticImageData }) {
 export default function MainHero() {
   return (
     <section>
-      <div className={`relative w-[1280px] h-[882px] mx-auto`}>
+      <div className={`relative mx-auto h-[882px] w-[1280px]`}>
         <Background src={bgImage} />
-        <h1 className="absolute top-80 left-24 text-4xl">АГРОХІМПРОМЦЕНТР</h1>
+        <h1 className="absolute left-24 top-80 text-4xl">АГРОХІМПРОМЦЕНТР</h1>
       </div>
     </section>
   );
