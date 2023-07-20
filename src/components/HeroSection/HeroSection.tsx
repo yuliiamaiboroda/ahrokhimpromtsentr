@@ -1,11 +1,18 @@
+import { StaticImageData } from 'next/image';
+import BackgroundImage from '../BackgroundImage';
+import HeroTitle from '../HeroTitle';
+
 export default function HeroSection({
-  children,
+  src,
+  alt,
 }: {
-  children: React.ReactNode;
+  src: StaticImageData;
+  alt: string;
 }) {
   return (
     <section className="relative h-[209px] w-screen overflow-hidden md:h-[537px] xl:h-[628px]">
-      {children}
+      <BackgroundImage src={src} alt={alt} />
+      <HeroTitle />
     </section>
   );
 }

@@ -1,4 +1,4 @@
-export default function HeroTitle({ children }: { children: React.ReactNode }) {
+export default function HeroTitle() {
   return (
     <div
       className="absolute
@@ -12,7 +12,7 @@ export default function HeroTitle({ children }: { children: React.ReactNode }) {
                       md:before:[transform:_perspective(400px)_rotateX(40deg)]"
     >
       <h1 className="absolute bottom-[40px] w-full text-center text-xl sm:bottom-[50px] md:bottom-[72px] md:text-3xl xl:text-4xl">
-        {children}
+        АГРОХІМПРОМЦЕНТР
       </h1>
     </div>
   );
