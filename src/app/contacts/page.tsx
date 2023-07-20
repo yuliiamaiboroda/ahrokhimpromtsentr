@@ -1,3 +1,13 @@
+import contactsBackground from '../../../public/images/bg-contacts-screen.jpg';
+import HeroSection from '@/components/HeroSection';
 export default function Page() {
-  return <div>Its CONTACTS page</div>;
+  return (
+    <main>
+      <HeroSection
+        src={contactsBackground}
+        alt="Колоски зернової культури на світанку"
+      />
+      Its CONTACTS page
+    </main>
+  );
 }
