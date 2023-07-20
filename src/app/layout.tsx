@@ -1,6 +1,9 @@
-import './globals.css';
 import Link from 'next/link';
+
+import './globals.css';
 import { IBMPlexSans, nunito } from './fonts';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Create Next App',
@@ -17,27 +20,9 @@ export default function RootLayout({
       <body
         className={`${IBMPlexSans.variable} ${nunito.variable} font-heading bg-dark-gradient text-primary min-h-screen`}
       >
-        <ul className="flex flex-wrap gap-4 font-bold text-4xl justify-center p-4 hover:[&_a]:text-sky-600 [&_a]:transition-colors [&_a]:duration-300">
-          <li>
-            <Link href="/">Головна</Link>
-          </li>
-          <li>
-            <Link href="/about">Про нас</Link>
-          </li>
-          <li>
-            <Link href="/products">Продукти компанії</Link>
-          </li>
-          <li>
-            <Link href="/services">Послуги</Link>
-          </li>
-          <li>
-            <Link href="/vacancies">Робота</Link>
-          </li>
-          <li>
-            <Link href="/contacts">Контакти</Link>
-          </li>
-        </ul>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
