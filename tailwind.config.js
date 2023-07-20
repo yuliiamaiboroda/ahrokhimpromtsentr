@@ -25,6 +25,7 @@ module.exports = {
         placeholder: 'var(--placeholder)',
         warning: 'var(--warning)',
         navigation: 'var(--navigation)',
+        subtitle: 'var(--light-gradient-end)',
       },
       fontFamily: {
         heading: 'var(--font-ibm-plex-sans), sans-serif',
