@@ -27,7 +27,7 @@ export default function Page() {
 
   return (
     <main>
-      <section className="relative h-[628px] w-screen">
+      <section className="relative h-[628px] w-screen overflow-hidden">
         <Image
           src={productsBackground}
           alt="Поле пшениці"
@@ -36,9 +36,16 @@ export default function Page() {
           quality={100}
           style={{ objectFit: 'cover', objectPosition: 'top' }}
         />
-        <h1 className="absolute bottom-[72px] w-full text-center text-4xl">
-          Продукти компанії
-        </h1>
+        <div
+          className="absolute
+                      bottom-0 w-full before:absolute before:-bottom-8 before:left-0 before:h-60 before:w-full 
+                      before:bg-[linear-gradient(180deg,_rgba(65,_85,_40,_0.93)_0%,_#29392F_79.93%)]
+                      before:[transform:_perspective(400px)_rotateX(40deg)]"
+        >
+          <h1 className="absolute bottom-[72px] w-full text-center text-4xl">
+            Продукти компанії
+          </h1>
+        </div>
       </section>
     </main>
   );
