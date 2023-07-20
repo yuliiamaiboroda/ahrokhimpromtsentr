@@ -27,7 +27,7 @@ export default function Page() {
 
   return (
     <main>
-      <section className="relative h-[628px] w-screen overflow-hidden">
+      <section className="relative h-[209px] w-screen overflow-hidden md:h-[537px] xl:h-[628px]">
         <Image
           src={productsBackground}
           alt="Поле пшениці"
@@ -38,11 +38,15 @@ export default function Page() {
         />
         <div
           className="absolute
-                      bottom-0 w-full before:absolute before:-bottom-8 before:left-0 before:h-60 before:w-full 
+                      bottom-0 w-full before:absolute before:-bottom-16 before:-left-0 before:h-60 before:w-full
                       before:bg-[linear-gradient(180deg,_rgba(65,_85,_40,_0.93)_0%,_#29392F_79.93%)]
-                      before:[transform:_perspective(400px)_rotateX(40deg)]"
+                      before:[transform:_perspective(400px)_rotateX(70deg)]
+                      md:before:-bottom-8
+                      md:before:left-0 md:before:h-60 
+                      md:before:w-full
+                      md:before:[transform:_perspective(400px)_rotateX(40deg)]"
         >
-          <h1 className="absolute bottom-[72px] w-full text-center text-4xl">
+          <h1 className="absolute bottom-[40px] w-full text-center text-xl md:bottom-[72px] md:text-3xl xl:text-4xl">
             Продукти компанії
           </h1>
         </div>
