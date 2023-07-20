@@ -1,6 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
 import bgImage from '../../../public/images/bg-main-screen.jpg';
-import bgMobileImage from '../../../public/images/bg-products-screen.jpg';
 import MainHeroContent from '../MainHeroContent/MainHeroContent';
 
 function Background({ src }: { src: StaticImageData }) {

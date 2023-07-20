@@ -14,11 +14,8 @@ export default function AdvantagesList() {
         />
         <span className="block h-3/4	 w-0.5	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
         <span className="py-5  font-body text-base font-bold	text-primary md:py-9	md:text-xl xl:text-2xl">
-          {/* Постійний розвиток */}
-          <p>
-            Протягом 24 років підприємство активно розвивається та збільшує
-            технологічні можливості вирощування, обробки та реалізації культур.
-          </p>
+          Протягом 24 років активного розвитку та збільшує технологічні
+          можливості.
         </span>
       </li>
       <li className="relative flex items-center gap-2.5	md:gap-5 xl:gap-6	">
@@ -29,12 +26,8 @@ export default function AdvantagesList() {
         />
         <span className="block h-3/4	 w-0.5	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
         <span className="py-5  font-body text-base font-bold	text-primary md:py-9	md:text-xl xl:text-2xl">
-          {/* Лідерство та репутація */}
-          <p>
-            Завдяки дотриманню сталих традицій у поєднанні з сучасними
-            принципами, компанія є лідером серед виробників гречки в Сумській
-            області.
-          </p>
+          Дотримання вікових традицій у поєднанні з сучасними принципами, що
+          гарантує якісний результат.
         </span>
       </li>
       <li className="relative flex items-center gap-2.5	md:gap-5 xl:gap-6	">
@@ -45,12 +38,8 @@ export default function AdvantagesList() {
         />
         <span className="block h-3/4	 w-0.5	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
         <span className="py-5  font-body text-base font-bold	text-primary md:py-9	md:text-xl xl:text-2xl">
-          {/* Власні потужності */}
-          <p>
-            АГРОХІМПРОМЦЕНТР має всі можливості та відповідну техніку з метою
-            вирощування, збору, оброблення та зберігання сільськогосподарської
-            продукції.
-          </p>
+          Потужності та відповідна техніка для вирощування, збору, оброблення та
+          зберігання продукції.
         </span>
       </li>
       <li className="relative flex items-center gap-2.5	md:gap-5 xl:gap-6	">
@@ -61,12 +50,8 @@ export default function AdvantagesList() {
         />
         <span className="block h-3/4	 w-0.5	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
         <span className="py-5  font-body text-base font-bold	text-primary md:py-9	md:text-xl xl:text-2xl">
-          {/* Унікальний досвід */}
-          <p>
-            Починаючи з 1999 року і до сьогодні представники підприємства
-            працюють для збереження історичних цінностей сільського господарства
-            України.
-          </p>
+          Вагома праця для збереження історичних цінностей сільського
+          господарства України.
         </span>
       </li>
 
