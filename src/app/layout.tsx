@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${IBMPlexSans.variable} ${nunito.variable} font-heading bg-dark-gradient text-primary min-h-screen`}
+        className={`${IBMPlexSans.variable} ${nunito.variable} min-h-screen bg-[linear-gradient(180deg,_#29392F_66.67%,_#394E2C_100%)] font-heading text-primary`}
       >
         <Header />
         {children}
