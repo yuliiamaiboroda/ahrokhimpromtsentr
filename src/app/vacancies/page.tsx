@@ -1,10 +1,14 @@
 'use client';
 import Button from '@/components/Button';
+import vacanciesBackground from '../../../public/images/bg-vacancies-screen.jpg';
+import HeroSection from '@/components/HeroSection/HeroSection';
+
 export default function Page() {
   return (
-    <div>
+    <main>
+      <HeroSection src={vacanciesBackground} alt="Поля в гірській місцевості" />
       its VACANCIES page
-      <div className="flex items-center gap-5 justify-center">
+      <div className="flex items-center justify-center gap-5">
         <Button
           onClick={() => console.log('click')}
           variant="primary"
@@ -18,6 +22,6 @@ export default function Page() {
           title="Актуальні вакансії"
         />
       </div>
-    </div>
+    </main>
   );
 }
