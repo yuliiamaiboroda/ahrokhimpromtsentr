@@ -25,14 +25,21 @@ module.exports = {
         placeholder: 'var(--placeholder)',
         warning: 'var(--warning)',
         navigation: 'var(--navigation)',
+        subtitle: 'var(--light-gradient-end)',
       },
       fontFamily: {
         heading: 'var(--font-ibm-plex-sans), sans-serif',
         body: 'var(--font-nunito), sans-serif',
       },
+      clipPath: {
+        trapeze:
+          'polygon(0 60%,10% 0,90% 0,100% 60%,100% 100%,90% 100%,10% 100%,0% 100%,0% 100%)',
+        trapezoid: 'polygon(0 0, 70% 0, 100% 100%, 0% 100%)',
+      },
     },
   },
   plugins: [
+    require('tailwind-clip-path'),
     plugin(function ({ addBase, addComponents, addUtilities, theme }) {
       addComponents({
         '.primary__button': {
