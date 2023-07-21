@@ -17,6 +17,7 @@ module.exports = {
 
         'dark-gradient': 'var(--dark-gradient)',
         'light-gradient': 'var(--light-gradient)',
+        'body-gradient': 'var(--body-gradient)',
       },
       colors: {
         primary: 'var(--primary)',
@@ -35,6 +36,10 @@ module.exports = {
         trapeze:
           'polygon(0 60%,10% 0,90% 0,100% 60%,100% 100%,90% 100%,10% 100%,0% 100%,0% 100%)',
         trapezoid: 'polygon(0 0, 70% 0, 100% 100%, 0% 100%)',
+      },
+      boxShadow: {
+        hover: 'var(--hover-shadow)',
+        product: 'var(--product-shadow)',
       },
     },
   },

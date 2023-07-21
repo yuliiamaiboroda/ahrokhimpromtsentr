@@ -16,8 +16,11 @@
   --light-gradient-start: #f2e2ba;
   --light-gradient-end: #d5ba75;
   --light-gradient: linear-gradient(180deg, #f2e2ba 0%, #d5ba75 100%);
+  --body-gradient: linear-gradient(180deg, #29392f 66.67%, #394e2c 100%);
 
   --text-shadow-navigation: 0px 3px 4px rgba(0, 0, 0, 0.3);
+  --hover-shadow: 0px 0px 30px 0px rgba(213, 186, 117, 0.41);
+  --product-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .text-shadow-navigation {
