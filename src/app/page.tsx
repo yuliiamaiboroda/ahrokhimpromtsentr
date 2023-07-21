@@ -3,9 +3,9 @@ import MainHero from '@/components/MainHero';
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <MainHero />
       <AdvantagesSection />
-    </div>
+    </main>
   );
 }
