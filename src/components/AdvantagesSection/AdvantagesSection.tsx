@@ -12,12 +12,12 @@ export default function AdvantagesSection() {
         <AdvantagesList />
         <ButtonLink navigateTo="/about" title="Більше про нас" size="l" />
       </div>
-      {/* <div className="absolute -bottom-[10%] left-0 -z-[1] h-[500px] w-[250px] -translate-x-1/2 blur-[0.9559948444366455px] xl:h-full xl:w-[350px]">
+      <div className="absolute -bottom-[10%] left-0 -z-[1] h-[500px] w-[250px] -translate-x-1/2 blur-[0.9559948444366455px] md:h-full md:w-[360px] xl:-bottom-[10%] xl:h-[110%] xl:w-[450px]">
         <BackgroundImage src={bgLeftBottom} alt="background plants" />
       </div>
-      <div className="absolute -bottom-[10%] right-0 -z-[1] h-[500px] w-[250px] translate-x-1/2 blur-[0.9559948444366455px]  xl:h-full xl:w-auto">
+      <div className="absolute -bottom-[10%] right-0 -z-[1]  h-[500px] w-[250px] translate-x-1/2 blur-[0.9559948444366455px] md:h-full md:w-[360px]  xl:h-[110%] xl:w-[450px]">
         <BackgroundImage src={bgRightBottom} alt="background plants" />
-      </div> */}
+      </div>
     </section>
   );
 }
