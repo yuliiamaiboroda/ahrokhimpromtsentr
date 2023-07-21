@@ -10,7 +10,7 @@ export default function HeroSection({
   alt: string;
 }) {
   return (
-    <section className="relative h-[218px] w-screen overflow-hidden md:h-[537px] xl:h-[628px]">
+    <section className="relative h-[218px] w-full overflow-hidden md:h-[537px] xl:h-[628px]">
       <BackgroundImage src={src} alt={alt} />
       <HeroTitle />
     </section>

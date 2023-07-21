@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import productsBackground from '../../../public/images/bg-products-screen.jpg';
 import HeroSection from '@/components/HeroSection';
 import SectionTitle from '@/components/SectionTitle';
@@ -63,18 +64,26 @@ export default function Page() {
             {response.map(({ _id, title, imageURL }) => (
               <li
                 key={_id}
-                className="relative overflow-hidden rounded-[13px] border-2 border-solid border-transparent bg-light-gradient shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)]"
+                className="overflow-hidden rounded-[13px] bg-light-gradient p-0.5 shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] hover:shadow-hover"
               >
-                <Image
-                  src={imageURL}
-                  alt={title}
-                  width={350}
-                  height={226}
-                  className="h-[186px] w-[266px] object-cover md:h-[226px] md:w-[323px] xl:w-[350px]"
-                />
-                <p className="absolute left-0 top-1/2 w-full -translate-y-1/2 bg-[rgba(47,_64,_48,_0.67)] p-3 text-center font-body text-base font-bold md:p-2 md:text-xl xl:text-2xl">
-                  {title}
-                </p>
+                <Link
+                  href={'/products/' + _id}
+                  className="relative block h-[186px] w-[266px] overflow-hidden 
+                              rounded-[13px] md:h-[226px] md:w-[323px] xl:w-[350px]"
+                >
+                  <Image
+                    src={imageURL}
+                    alt={title}
+                    fill
+                    className="object-cover"
+                  />
+                  <p
+                    className="absolute left-0 top-1/2 w-full -translate-y-1/2 bg-[rgba(47,_64,_48,_0.67)] p-3 
+                                text-center font-body text-base font-bold md:p-2 md:text-xl xl:text-2xl"
+                  >
+                    {title}
+                  </p>
+                </Link>
               </li>
             ))}
           </ul>

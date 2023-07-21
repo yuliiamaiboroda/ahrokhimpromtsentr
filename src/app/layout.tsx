@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import './globals.css';
 import { IBMPlexSans, nunito } from './fonts';
 import Header from '@/components/Header';
@@ -16,9 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="uk">
       <body
-        className={`${IBMPlexSans.variable} ${nunito.variable} min-h-screen bg-[linear-gradient(180deg,_#29392F_66.67%,_#394E2C_100%)] font-heading text-primary`}
+        className={`${IBMPlexSans.variable} ${nunito.variable} min-h-screen bg-body-gradient font-heading text-primary`}
       >
         <Header />
         {children}
