@@ -16,7 +16,7 @@ export default function BackgroundImage({
       placeholder="blur"
       sizes="100vh"
       quality={100}
-      style={{ objectFit: 'cover', objectPosition: 'top' }}
+      className="object-cover object-top"
     />
   );
 }

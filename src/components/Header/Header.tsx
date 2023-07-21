@@ -2,7 +2,7 @@ import Navigation from '../Navigation';
 
 export default function Header() {
   return (
-    <header className="absolute inset-1 z-10">
+    <header className="absolute inset-1 left-0 top-0 z-10 h-20 w-full">
       <Navigation />
     </header>
   );
