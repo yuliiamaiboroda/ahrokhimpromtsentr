@@ -14,8 +14,8 @@ export default function AdvantagesList() {
         />
         <span className="block h-3/4	 w-0.5	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
         <span className="py-5  font-body text-base font-bold	text-primary md:py-9	md:text-xl xl:text-2xl">
-          Протягом 24 років активного розвитку та збільшує технологічні
-          можливості.
+          Активний розвиток та збільшення технологічних можливостей протягом 24
+          років.
         </span>
       </li>
       <li className="relative flex items-center gap-2.5	md:gap-5 xl:gap-6	">
@@ -54,7 +54,6 @@ export default function AdvantagesList() {
           господарства України.
         </span>
       </li>
-
       <li className="relative">
         <Image
           src={ColossusIcon}
