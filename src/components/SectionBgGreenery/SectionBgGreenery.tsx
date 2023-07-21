@@ -8,7 +8,7 @@ export default function SectionBgGreenary({
   children: React.ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative w-full overflow-hidden">
       {children}
       <div className="absolute -bottom-[10%] left-0 -z-[1] h-[500px] w-[250px] -translate-x-1/2 blur-[0.9559948444366455px] md:h-full md:w-[360px]  xl:h-[110%] xl:w-[450px]">
         <BackgroundImage src={bgLeftBottom} alt="background plants" />
