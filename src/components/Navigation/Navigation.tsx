@@ -54,7 +54,9 @@ export default function Navigation() {
               {title}
               <svg
                 className={`h-3.5 w-3.5 stroke-navigation ${
-                  pathname === href ? 'fill-navigation' : 'fill-none'
+                  pathname.split('/')[1] === href.split('/')[1]
+                    ? 'fill-navigation'
+                    : 'fill-none'
                 }`}
               >
                 <use href="/images/icons.svg#point-outline"></use>

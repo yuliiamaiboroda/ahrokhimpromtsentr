@@ -39,6 +39,7 @@ module.exports = {
       },
       boxShadow: {
         hover: 'var(--hover-shadow)',
+        product: 'var(--product-shadow)',
       },
     },
   },

@@ -13,6 +13,7 @@ export default function BackgroundImage({
       src={src}
       alt={alt}
       fill
+      priority
       placeholder="blur"
       sizes="100vh"
       quality={100}
