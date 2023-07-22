@@ -18,6 +18,7 @@ module.exports = {
         'dark-gradient': 'var(--dark-gradient)',
         'light-gradient': 'var(--light-gradient)',
         'body-gradient': 'var(--body-gradient)',
+        'underline-gradient': 'var(--underline-gradient)',
       },
       colors: {
         primary: 'var(--primary)',

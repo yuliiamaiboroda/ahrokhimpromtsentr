@@ -45,7 +45,7 @@ export default async function Page({
             alt={title}
             width={400}
             height={300}
-            className="rounded-2xl"
+            className="h-auto max-w-[400px] rounded-2xl"
           />
         </div>
         <Description description={description} />
