@@ -88,7 +88,7 @@ export default function Page() {
                     className="rounded-xl object-cover object-center"
                   />
                 </div>
-                <div className="flex w-full flex-col items-center gap-5 md:h-full md:w-1/2 md:items-start md:justify-between">
+                <div className="flex w-full flex-col items-center gap-5 md:w-1/2 md:items-start md:justify-between">
                   <h3
                     className="relative block text-2xl before:absolute
                                  before:left-0 before:top-full before:h-1 before:w-full
