@@ -71,13 +71,14 @@ export default function Page() {
             {services.map(({ _id, title, description, imageURL, price }) => (
               <li
                 key={_id}
-                className="flex w-full max-w-[266px] flex-wrap items-center justify-center gap-5 md:w-full md:max-w-full md:gap-8"
+                className="flex w-full max-w-[266px] flex-wrap items-center gap-5 md:max-w-full
+                          md:items-stretch md:gap-8"
               >
                 <div
                   className="relative h-[186px] w-full before:absolute before:-bottom-0.5
                                 before:-left-0.5 before:-right-0.5 before:-top-0.5
                                 before:rounded-xl before:bg-light-gradient md:h-[225px]
-                                md:w-[276px]"
+                                md:w-[276px] xl:h-[256px] xl:w-[350px]"
                 >
                   <Image
                     src={imageURL}
@@ -87,7 +88,7 @@ export default function Page() {
                     className="rounded-xl object-cover object-center"
                   />
                 </div>
-                <div className="flex w-full flex-col items-center gap-5 md:w-1/2 md:items-start">
+                <div className="flex w-full flex-col items-center gap-5 md:h-full md:w-1/2 md:items-start md:justify-between">
                   <h3
                     className="relative block text-2xl before:absolute
                                  before:left-0 before:top-full before:h-1 before:w-full
