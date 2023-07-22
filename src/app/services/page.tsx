@@ -67,14 +67,14 @@ export default function Page() {
       <section className="pb-20">
         <SectionTitle title="Послуги" />
         <div className="mx-auto mt-9 max-w-[480px] px-4 md:mt-12 md:max-w-[755px] xl:mt-20 xl:max-w-[810px]">
-          <ul className="flex flex-col gap-9 font-body font-semibold">
+          <ul className="flex flex-col items-center gap-9 font-body font-semibold md:gap-16">
             {services.map(({ _id, title, description, imageURL, price }) => (
               <li
                 key={_id}
-                className="flex flex-wrap items-center justify-center gap-5"
+                className="flex w-full max-w-[266px] flex-wrap items-center justify-center gap-5 md:w-full md:max-w-full md:gap-8"
               >
                 <div
-                  className="relative h-[186px] w-[266px] before:absolute before:-bottom-0.5
+                  className="relative h-[186px] w-full before:absolute before:-bottom-0.5
                                 before:-left-0.5 before:-right-0.5 before:-top-0.5
                                 before:rounded-xl before:bg-light-gradient md:h-[225px]
                                 md:w-[276px]"
@@ -87,7 +87,7 @@ export default function Page() {
                     className="rounded-xl object-cover object-center"
                   />
                 </div>
-                <div className="flex flex-col items-center gap-5">
+                <div className="flex w-full flex-col items-center gap-5 md:w-1/2 md:items-start">
                   <h3
                     className="relative block text-2xl before:absolute
                                  before:left-0 before:top-full before:h-1 before:w-full
@@ -95,14 +95,17 @@ export default function Page() {
                   >
                     {title}
                   </h3>
-                  <p className="text-center text-lg">{description}</p>
-                  <p className="text-center text-lg">
+                  <p className="text-center text-base md:text-left md:text-lg">
+                    {description}
+                  </p>
+                  <p className="text-center text-base md:text-left md:text-lg">
                     Ціна: {price}
                     {!isNaN(Number(price)) && <span>&#8372;</span>}
                   </p>
                   <ButtonLink
                     navigateTo={`/services/${_id}`}
                     title="Зв‘язатись з нами"
+                    size="s"
                   />
                 </div>
               </li>
