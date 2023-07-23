@@ -67,7 +67,11 @@ export default async function Page({
             className="rounded-2xl object-cover object-center"
           />
         </div>
-        <div className="mb-5 flex flex-col items-center gap-3 text-center font-body text-base font-semibold md:mb-10 md:gap-7 md:text-lg xl:text-xl">
+        <div
+          className="mb-5 flex flex-col items-center gap-3
+                        text-center font-body text-base font-semibold
+                        md:mb-10 md:gap-7 md:text-lg xl:text-xl"
+        >
           <p>{description}</p>
           <p>
             Ціна: {price}
@@ -91,7 +95,7 @@ export default async function Page({
           </a>
         </div>
         <div className="mx-auto w-fit">
-          <ButtonLink navigateTo="/products" title="Послуги компанії" />
+          <ButtonLink navigateTo="/services" title="Послуги компанії" />
         </div>
       </div>
     </section>
