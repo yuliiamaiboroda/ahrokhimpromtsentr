@@ -67,15 +67,15 @@ export default function Page() {
       <section className="pb-20">
         <SectionTitle title="Послуги" />
         <div className="mx-auto mt-9 max-w-[480px] px-4 md:mt-12 md:max-w-[755px] xl:mt-20 xl:max-w-[810px]">
-          <ul className="flex flex-col items-center gap-9 font-body font-semibold md:gap-16">
+          <ul className="font-body font-semibold">
             {services.map(({ _id, title, description, imageURL, price }) => (
               <li
                 key={_id}
-                className="flex w-full max-w-[266px] flex-wrap items-center gap-5 md:max-w-full
-                          md:items-stretch md:gap-8"
+                className="mx-auto mb-9 flex w-full max-w-[266px] flex-col gap-5 last:mb-0 
+                          md:mb-16 md:max-w-full md:flex-row md:gap-8 xl:mb-20 xl:gap-10"
               >
                 <div
-                  className="relative h-[186px] w-full before:absolute before:-bottom-0.5
+                  className="relative h-[186px] w-full shrink-0 before:absolute before:-bottom-0.5
                                 before:-left-0.5 before:-right-0.5 before:-top-0.5
                                 before:rounded-xl before:bg-light-gradient md:h-[225px]
                                 md:w-[276px] xl:h-[256px] xl:w-[350px]"
@@ -84,30 +84,32 @@ export default function Page() {
                     src={imageURL}
                     alt={title}
                     fill
-                    sizes="100vh"
+                    sizes="(min-width: 1280px) 350px, (mi-width: 768px) 276px, 226px"
                     className="rounded-xl object-cover object-center"
                   />
                 </div>
-                <div className="flex w-full flex-col items-center gap-5 md:w-1/2 md:items-start md:justify-between">
+                <div className="flex flex-col  ">
                   <h3
-                    className="relative block text-2xl before:absolute
-                                 before:left-0 before:top-full before:h-1 before:w-full
-                                  before:rounded-sm before:bg-underline-gradient"
+                    className="relative mx-auto mb-5 w-fit text-xl before:absolute before:left-0 before:top-full
+                                 before:h-1 before:w-full before:rounded-sm before:bg-underline-gradient
+                                  md:mx-0 xl:text-2xl"
                   >
                     {title}
                   </h3>
-                  <p className="text-center text-base md:text-left md:text-lg">
+                  <p className="mb-2 text-center text-base md:text-left md:text-lg xl:text-xl">
                     {description}
                   </p>
-                  <p className="text-center text-base md:text-left md:text-lg">
+                  <p className="text-center text-base md:text-left md:text-lg xl:text-xl">
                     Ціна: {price}
                     {!isNaN(Number(price)) && <span>&#8372;</span>}
                   </p>
-                  <ButtonLink
-                    navigateTo={`/services/${_id}`}
-                    title="Зв‘язатись з нами"
-                    size="s"
-                  />
+                  <div className="mx-auto mt-6 w-fit md:mx-0 md:mt-auto">
+                    <ButtonLink
+                      navigateTo={`/services/${_id}`}
+                      title="Зв‘язатись з нами"
+                      size="s"
+                    />
+                  </div>
                 </div>
               </li>
             ))}
