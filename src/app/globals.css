@@ -27,3 +27,18 @@
 .text-shadow-navigation {
   text-shadow: var(--text-shadow-navigation);
 }
+
+.golden-edge {
+  border: 2px solid transparent;
+}
+
+.golden-edge::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: -2px;
+  bottom: -2px;
+  background: var(--light-gradient);
+  border-radius: 0.75rem;
+}

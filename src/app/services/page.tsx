@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import SectionTitle from '@/components/SectionTitle';
 import ButtonLink from '@/components/ButtonLink';
+import Section from '@/components/Section';
+import Container from '@/components/Container';
 
 interface IServiceItem {
   _id: string;
@@ -29,9 +31,9 @@ export default async function Page() {
   const services = await getServices();
   return (
     <>
-      <section className="pb-20">
-        <SectionTitle title="Послуги" />
-        <div className="mx-auto mt-9 max-w-[480px] px-4 md:mt-12 md:max-w-[755px] xl:mt-20 xl:max-w-[810px]">
+      <Section>
+        <Container>
+          <SectionTitle title="Послуги" />
           <ul className="font-body font-semibold">
             {services.map(({ _id, title, description, imageURL, price }) => (
               <li
@@ -40,9 +42,7 @@ export default async function Page() {
                           md:mb-16 md:max-w-full md:flex-row md:gap-8 xl:mb-20 xl:gap-10"
               >
                 <div
-                  className="relative h-[186px] w-full shrink-0 before:absolute before:-bottom-0.5
-                                before:-left-0.5 before:-right-0.5 before:-top-0.5
-                                before:rounded-xl before:bg-light-gradient md:h-[225px]
+                  className="golden-edge relative h-[186px] w-full shrink-0 md:h-[225px]
                                 md:w-[276px] xl:h-[256px] xl:w-[350px]"
                 >
                   <Image
@@ -53,7 +53,7 @@ export default async function Page() {
                     className="rounded-xl object-cover object-center"
                   />
                 </div>
-                <div className="flex flex-col  ">
+                <div className="flex flex-col">
                   <h3
                     className="relative mx-auto mb-5 w-fit text-xl before:absolute before:left-0 before:top-full
                                  before:h-1 before:w-full before:rounded-sm before:bg-underline-gradient
@@ -77,8 +77,8 @@ export default async function Page() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }
