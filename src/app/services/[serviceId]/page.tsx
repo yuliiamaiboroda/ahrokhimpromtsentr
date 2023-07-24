@@ -4,7 +4,7 @@ import SectionTitle from '@/components/SectionTitle';
 import DetailsImage from '@/components/DetailsImage';
 import ButtonLink from '@/components/ButtonLink';
 import Description from '@/components/Description';
-import ContactLink from '@/components/ContactLink';
+import Contacts from '@/components/Contacts';
 
 interface IServiceItem {
   _id: string;
@@ -61,20 +61,7 @@ export default async function Page({
           <Description
             description={` Ціна: ${price}${!isNaN(Number(price)) && '₴'}`}
           />
-          <div className="flex w-full flex-wrap items-center justify-center gap-8">
-            <ContactLink href={`mailto:${contactMail}`}>
-              {contactMail.toLowerCase()}
-            </ContactLink>
-            <ContactLink href={`tel:${contactPhone}`}>
-              {`${contactPhone.slice(0, 3)} (${contactPhone.slice(
-                3,
-                6
-              )}) ${contactPhone.slice(6, 9)}-${contactPhone.slice(
-                9,
-                11
-              )}-${contactPhone.slice(11)}`}
-            </ContactLink>
-          </div>
+          <Contacts email={contactMail} phone={contactPhone} />
         </div>
         <div className="mx-auto w-fit">
           <ButtonLink navigateTo="/services" title="Послуги компанії" />
