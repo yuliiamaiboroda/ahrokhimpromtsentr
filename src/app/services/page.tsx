@@ -1,8 +1,6 @@
-import Image from 'next/image';
-import SectionTitle from '@/components/SectionTitle';
-import ButtonLink from '@/components/ButtonLink';
 import Section from '@/components/Section';
 import Container from '@/components/Container';
+import SectionTitle from '@/components/SectionTitle';
 import OfferingsGallery from '@/components/OfferingsGallery';
 
 interface IServiceItem {
