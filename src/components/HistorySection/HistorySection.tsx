@@ -5,7 +5,7 @@ import ButtonLink from '../ButtonLink';
 
 export default function HistorySection() {
   return (
-    <section className="justify-cente flex flex-col items-center gap-[86px]">
+    <section className="justify-cente flex flex-col items-center gap-[48px] md:gap-[68px] xl:gap-[86px]">
       <SectionTitle title="Історичні періоди розвитку" />
       <ul className="mx-auto grid max-w-[210px] md:max-w-2xl md:gap-x-[76px] xl:max-w-[752px]">
         <li className="relative flex items-center gap-2.5 md:gap-5 xl:gap-6 ">
@@ -90,7 +90,7 @@ export default function HistorySection() {
           />
         </li>
       </ul>
-      <ButtonLink title="Зв’язатися з нами" navigateTo="/contacts" />
+      <ButtonLink title="Зв’язатися з нами" navigateTo="/contacts" size="l" />
     </section>
   );
 }
