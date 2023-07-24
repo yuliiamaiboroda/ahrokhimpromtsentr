@@ -16,6 +16,7 @@
   --light-gradient-start: #f2e2ba;
   --light-gradient-end: #d5ba75;
   --light-gradient: linear-gradient(180deg, #f2e2ba 0%, #d5ba75 100%);
+  --underline-gradient: linear-gradient(90deg, #f2e2ba 0%, #d5ba75 100%);
   --body-gradient: linear-gradient(180deg, #29392f 66.67%, #394e2c 100%);
 
   --text-shadow-navigation: 0px 3px 4px rgba(0, 0, 0, 0.3);
