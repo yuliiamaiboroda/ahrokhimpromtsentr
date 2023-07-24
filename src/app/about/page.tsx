@@ -1,8 +1,8 @@
-import SectionTitle from '@/components/SectionTitle';
 import aboutBackground from '../../../public/images/bg-about-screen.jpg';
 import HeroSection from '@/components/HeroSection';
 import Description from '@/components/Description';
 import HistorySection from '@/components/HistorySection';
+import AwardsSection from '@/components/AwardsSection';
 
 export default function Page() {
   return (
@@ -14,7 +14,7 @@ export default function Page() {
 "
       />
       <HistorySection />
-      {/* <SectionTitle title="Наші нагороди" /> */}
+      <AwardsSection />
     </main>
   );
 }

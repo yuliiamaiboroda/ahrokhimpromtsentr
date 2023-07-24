@@ -7,7 +7,7 @@ interface IProps {
 
 export default function SectionTitle({ title }: IProps) {
   return (
-    <div className="flex items-center	justify-center	gap-4">
+    <div className="mb-12 flex	items-center	justify-center gap-4 md:mb-[84px]">
       <Image
         src={ColossusIcon}
         alt="icon"
