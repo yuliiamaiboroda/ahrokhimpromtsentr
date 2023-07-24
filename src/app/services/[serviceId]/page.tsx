@@ -3,6 +3,7 @@ import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import DetailsImage from '@/components/DetailsImage';
 import ButtonLink from '@/components/ButtonLink';
+import Description from '@/components/Description';
 
 interface IServiceItem {
   _id: string;
@@ -53,14 +54,12 @@ export default async function Page({
         <DetailsImage src={imageURL} alt={title} />
         <div
           className="mb-5 flex flex-col items-center gap-3
-                        text-center font-body text-base font-semibold
-                        md:mb-10 md:gap-7 md:text-lg xl:text-xl"
+                        md:mb-10 md:gap-7"
         >
-          <p>{description}</p>
-          <p>
-            Ціна: {price}
-            {!isNaN(Number(price)) && '₴'}
-          </p>
+          <Description description={description} />
+          <Description
+            description={` Ціна: ${price}${!isNaN(Number(price)) && '₴'}`}
+          />
           <a href={`mailto:${contactMail}`} className="hover:font-bold">
             Пошта:{' '}
             <span className="underline">{contactMail.toLowerCase()}</span>

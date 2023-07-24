@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import Section from '@/components/Section';
 import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import DetailsImage from '@/components/DetailsImage';
 import ButtonLink from '@/components/ButtonLink';
+import Description from '@/components/Description';
 
 interface IProductItem {
   _id: string;
@@ -38,14 +38,8 @@ export default async function Page({
       <Container>
         <SectionTitle title={title} />
         <DetailsImage src={imageURL} alt={title} />
-        <p
-          className="text- mb-5 text-center font-body 
-                      text-base font-semibold md:mb-10
-                      md:text-lg xl:text-xl"
-        >
-          {description}
-        </p>
-        <div className="mx-auto w-fit">
+        <Description description={description} />
+        <div className="mx-auto mt-5 w-fit md:mt-10">
           <ButtonLink navigateTo="/products" title="Продукти компанії" />
         </div>
       </Container>
