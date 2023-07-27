@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
-const NAVIGATION_LINKS = [
+export const NAVIGATION_LINKS = [
   { href: '/', title: 'Головна' },
   { href: '/about', title: 'Про нас' },
   { href: '/products', title: 'Продукти компанії' },
@@ -16,10 +16,10 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <nav>
+    <nav className="hidden md:block">
       <ul
-        className="hidden flex-wrap  justify-center gap-9 
-                    p-4 md:flex xl:gap-20"
+        className="hidden flex-wrap  justify-center gap-5 
+                    p-1 md:flex md:pl-3 xl:gap-20 xl:p-4"
       >
         {NAVIGATION_LINKS.map(({ href, title }) => (
           <li
@@ -48,7 +48,7 @@ export default function Navigation() {
             <Link
               href={href}
               className="text-shadow-navigation flex flex-col items-center 
-                        gap-1.5 font-body text-lg font-bold text-navigation
+                        gap-1.5 font-body text-base font-bold text-navigation
                         xl:gap-1 xl:text-xl "
             >
               {title}
