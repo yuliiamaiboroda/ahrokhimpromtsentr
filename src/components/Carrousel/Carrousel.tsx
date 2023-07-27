@@ -54,7 +54,13 @@ export default function Carrousel() {
               `}
               key={index}
             >
-              <Image src={el} alt="awards" objectFit="contain" layout="fill" />
+              <Image
+                src={el}
+                alt="awards"
+                fill
+                sizes="(min-width: 768px) 210px, 174px"
+                className="object-contain"
+              />
             </li>
           );
         })}
