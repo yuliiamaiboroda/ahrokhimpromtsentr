@@ -28,6 +28,7 @@ module.exports = {
         warning: 'var(--warning)',
         navigation: 'var(--navigation)',
         subtitle: 'var(--light-gradient-end)',
+        phoneScreenBtn: 'var(--dark-gradient-end)',
       },
       fontFamily: {
         heading: 'var(--font-ibm-plex-sans), sans-serif',
