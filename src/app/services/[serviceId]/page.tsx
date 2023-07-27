@@ -1,6 +1,10 @@
-import Image from 'next/image';
+import Section from '@/components/Section';
+import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
+import DetailsImage from '@/components/DetailsImage';
 import ButtonLink from '@/components/ButtonLink';
+import Description from '@/components/Description';
+import Contacts from '@/components/Contacts';
 
 interface IServiceItem {
   _id: string;
@@ -45,59 +49,24 @@ export default async function Page({
     product;
 
   return (
-    <section className="pb-16 md:pb-32 xl:pb-40">
-      <SectionTitle title={title} />
-      <div
-        className="mx-auto mt-9 max-w-[480px] px-4 
-                  md:mt-12 md:max-w-[755px] 
-                  xl:mt-20 xl:max-w-[810px]"
-      >
-        <div
-          className="relative mx-auto mb-5 h-[200px] w-full max-w-[300px] before:absolute 
-                       before:-bottom-0.5 before:-left-0.5
-                       before:-right-0.5 before:-top-0.5 before:rounded-2xl 
-                       before:bg-light-gradient before:shadow-product
-                       md:mb-10 md:h-[300px] md:max-w-[400px]"
-        >
-          <Image
-            src={imageURL}
-            alt={title}
-            fill
-            sizes="(min-widht: 480px) 400px, 300px"
-            className="rounded-2xl object-cover object-center"
-          />
-        </div>
+    <Section>
+      <Container>
+        <SectionTitle title={title} />
+        <DetailsImage src={imageURL} alt={title} />
         <div
           className="mb-5 flex flex-col items-center gap-3
-                        text-center font-body text-base font-semibold
-                        md:mb-10 md:gap-7 md:text-lg xl:text-xl"
+                        md:mb-10 md:gap-7"
         >
-          <p>{description}</p>
-          <p>
-            Ціна: {price}
-            {!isNaN(Number(price)) && '₴'}
-          </p>
-          <a href={`mailto:${contactMail}`} className="hover:font-bold">
-            Пошта:{' '}
-            <span className="underline">{contactMail.toLowerCase()}</span>
-          </a>
-          <a href={`tel:${contactPhone}`} className="hover:font-bold">
-            Телефон:{' '}
-            <span className="underline">
-              {`${contactPhone.slice(0, 3)} (${contactPhone.slice(
-                3,
-                6
-              )}) ${contactPhone.slice(6, 9)}-${contactPhone.slice(
-                9,
-                11
-              )}-${contactPhone.slice(11)}`}
-            </span>
-          </a>
+          <Description description={description} />
+          <Description
+            description={` Ціна: ${price}${!isNaN(Number(price)) && '₴'}`}
+          />
+          <Contacts email={contactMail} phone={contactPhone} />
         </div>
         <div className="mx-auto w-fit">
           <ButtonLink navigateTo="/services" title="Послуги компанії" />
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }
