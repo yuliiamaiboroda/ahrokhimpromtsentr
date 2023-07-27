@@ -19,7 +19,7 @@ export default function Navigation() {
     <nav className="hidden md:block">
       <ul
         className="hidden flex-wrap  justify-center gap-5 
-                    p-1 md:flex xl:gap-20 xl:p-4"
+                    p-1 md:flex md:pl-3 xl:gap-20 xl:p-4"
       >
         {NAVIGATION_LINKS.map(({ href, title }) => (
           <li
