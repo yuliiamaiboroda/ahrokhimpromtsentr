@@ -1,6 +1,7 @@
 'use client';
 
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, useField } from 'formik';
+import { InputHTMLAttributes, TextareaHTMLAttributes } from 'react';
 import * as Yup from 'yup';
 
 export const feedbackSchema = Yup.object({
@@ -67,11 +68,49 @@ const INITIAL_STATE = {
   name: '',
   comment: '',
   contactMail: '',
-  contactPhone: '+380',
+  contactPhone: '',
   agreement: false,
 };
 
 interface IProps {}
+
+interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string;
+}
+
+function FormField({ name, ...props }: IInputProps) {
+  const [field, meta] = useField(name);
+  return (
+    <>
+      <input
+        {...field}
+        {...props}
+        className="rounded-xl border-2 border-solid border-yellow-300 bg-transparent 
+                  px-3 py-5 placeholder:text-placeholder md:px-4 md:py-6 xl:px-6"
+      />
+      {meta.touched && meta.error ? <div>{meta.error}</div> : null}
+    </>
+  );
+}
+
+interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  name: string;
+}
+
+function TextareaField({ name, ...props }: ITextareaProps) {
+  const [field, meta] = useField(name);
+  return (
+    <>
+      <textarea
+        {...field}
+        {...props}
+        className="resize-none rounded-xl border-2 border-solid border-yellow-300 
+                  bg-transparent px-3 py-5 placeholder:text-placeholder md:px-4 md:py-6 xl:px-6"
+      />
+      {meta.touched && meta.error ? <div>{meta.error}</div> : null}
+    </>
+  );
+}
 
 export default function FeedbackForm({}: IProps) {
   return (
@@ -83,15 +122,24 @@ export default function FeedbackForm({}: IProps) {
         console.log('values', values);
       }}
     >
-      <Form className="flex flex-col gap-5 text-zinc-500">
-        <Field type="text" name="name" />
-        <ErrorMessage name="name" />
-        <Field type="text" name="contactPhone" />
-        <ErrorMessage name="contactPhone" />
-        <Field type="email" name="contactMail" />
-        <ErrorMessage name="contactMail" />
-        <Field name="comment" cols={32} rows={5} as="textarea" />
-        <ErrorMessage name="comment" />
+      <Form
+        className="mx-auto flex max-w-full flex-col gap-7 font-body 
+                  text-base font-bold md:max-w-[532px] 
+                  md:gap-8 md:text-2xl xl:max-w-[576px] xl:text-3xl"
+      >
+        <FormField type="text" name="name" placeholder="Ім‘я" />
+        <FormField
+          type="text"
+          name="contactPhone"
+          placeholder="Контактний телефон"
+        />
+        <FormField type="email" name="contactMail" placeholder="Email" />
+        <TextareaField
+          name="comment"
+          cols={32}
+          rows={5}
+          placeholder="Коментар"
+        />
         <label>
           <Field name="agreement" type="checkbox" />Я даю згоду на обробку
           персональний даних
