@@ -79,6 +79,12 @@ module.exports = {
           {
             boxShadow: ' 0px 0px 30px 0px rgba(213,186,117,0.41)',
           },
+        '.scrollbar': {
+          overflowY: 'auto',
+        },
+        '.scrollbar::-webkit-scrollbar': {
+          display: 'none',
+        },
       });
     }),
   ],
