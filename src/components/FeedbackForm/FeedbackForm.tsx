@@ -81,15 +81,17 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 function FormField({ name, ...props }: IInputProps) {
   const [field, meta] = useField(name);
   return (
-    <>
+    <label className="contact">
       <input
         {...field}
         {...props}
-        className="rounded-xl border-2 border-solid border-yellow-300 bg-transparent 
+        className="w-full  rounded-xl bg-transparent
                   px-3 py-5 placeholder:text-placeholder md:px-4 md:py-6 xl:px-6"
       />
-      {meta.touched && meta.error ? <div>{meta.error}</div> : null}
-    </>
+      {meta.touched && meta.error ? (
+        <div className="absolute left-0 top-full">{meta.error}</div>
+      ) : null}
+    </label>
   );
 }
 
@@ -97,18 +99,27 @@ interface ITextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string;
 }
 
-function TextareaField({ name, ...props }: ITextareaProps) {
+function TextareaField({
+  name,
+  rows = 5,
+  cols = 32,
+  ...props
+}: ITextareaProps) {
   const [field, meta] = useField(name);
   return (
-    <>
+    <label className="contact">
       <textarea
         {...field}
         {...props}
-        className="resize-none rounded-xl border-2 border-solid border-yellow-300 
+        rows={rows}
+        cols={cols}
+        className="block w-full resize-none rounded-xl
                   bg-transparent px-3 py-5 placeholder:text-placeholder md:px-4 md:py-6 xl:px-6"
       />
-      {meta.touched && meta.error ? <div>{meta.error}</div> : null}
-    </>
+      {meta.touched && meta.error ? (
+        <div className="left-) absolute top-full">{meta.error}</div>
+      ) : null}
+    </label>
   );
 }
 
@@ -134,12 +145,7 @@ export default function FeedbackForm({}: IProps) {
           placeholder="Контактний телефон"
         />
         <FormField type="email" name="contactMail" placeholder="Email" />
-        <TextareaField
-          name="comment"
-          cols={32}
-          rows={5}
-          placeholder="Коментар"
-        />
+        <TextareaField name="comment" placeholder="Коментар" />
         <label>
           <Field name="agreement" type="checkbox" />Я даю згоду на обробку
           персональний даних
