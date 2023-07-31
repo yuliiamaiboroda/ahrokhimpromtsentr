@@ -67,7 +67,11 @@ const awardsList: IImage[] = [
 
 export default function Carrousel() {
   const [isActive, setIsActive] = useState(3);
-  const [fullImage, setFullImage] = useState<IImage | null>(null);
+  const [fullImage, setFullImage] = useState<{
+    src: StaticImageData;
+    alt: string;
+    index: number;
+  } | null>(null);
   const ref = useRef<HTMLUListElement>(null);
 
   const handleScrollLeft = () => {
@@ -86,8 +90,12 @@ export default function Carrousel() {
     setIsActive(isActive + 1);
   };
 
-  const handleOpenImage = (src: StaticImageData, alt: string) => {
-    src ? setFullImage({ src, alt }) : null;
+  const handleOpenImage = (
+    src: StaticImageData,
+    alt: string,
+    index: number
+  ) => {
+    src && window.innerWidth >= 1280 ? setFullImage({ src, alt, index }) : null;
   };
 
   const handleCloseImage = () => {
@@ -112,7 +120,9 @@ export default function Carrousel() {
            xl:transition-[width]
               `}
               key={index}
-              onClick={() => handleOpenImage(src, alt)}
+              onClick={() => {
+                handleOpenImage(src, alt, index);
+              }}
             >
               <Image
                 src={src}
@@ -147,9 +157,61 @@ export default function Carrousel() {
           </svg>
         </li>
       </ul>
-      {fullImage ? (
+      {fullImage && window.innerWidth >= 1280 ? (
         <Modal onClose={handleCloseImage}>
-          <Image src={fullImage.src} alt={fullImage.alt} />
+          <div className="flex items-center justify-center gap-5">
+            <div className={`${fullImage.index === 0 ? 'xl:blur-[2px]' : ''}`}>
+              <button
+                onClick={() => {
+                  fullImage.index !== 0
+                    ? setFullImage({
+                        ...awardsList[fullImage.index - 1],
+                        index: fullImage.index - 1,
+                      })
+                    : null;
+                }}
+                className={` xl:transition-all xl:hover:scale-[1.2] xl:${
+                  fullImage.index === 0 ? 'xl:blur-sm xl:hover:scale-[1]' : ''
+                }`}
+                type="button"
+                disabled={fullImage.index === 0 ? true : false}
+              >
+                <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
+                  <use href="/images/icons.svg#left-arrow"></use>
+                </svg>
+              </button>
+            </div>
+            <Image src={fullImage.src} alt={fullImage.alt} />
+            <div
+              className={` ${
+                awardsList.length === fullImage.index + 1 ? 'xl:blur-[2px]	' : ''
+              }`}
+            >
+              <button
+                onClick={() => {
+                  awardsList.length !== fullImage.index + 1
+                    ? setFullImage({
+                        ...awardsList[fullImage.index + 1],
+                        index: fullImage.index + 1,
+                      })
+                    : null;
+                }}
+                type="button"
+                className={`xl:transition-all xl:hover:scale-[1.2] xl:${
+                  awardsList.length === fullImage.index + 1
+                    ? 'xl:blur-sm	 xl:hover:scale-[1]'
+                    : ''
+                }`}
+                disabled={
+                  awardsList.length === fullImage.index + 1 ? true : false
+                }
+              >
+                <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
+                  <use href="/images/icons.svg#right-arrow"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
         </Modal>
       ) : null}
     </div>
