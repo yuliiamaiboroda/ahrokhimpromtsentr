@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import awardFirstImage from '../../../public/images/1.jpg';
 import awardSecImage from '../../../public/images/2.jpg';
@@ -72,6 +72,7 @@ export default function Carrousel() {
     alt: string;
     index: number;
   } | null>(null);
+
   const ref = useRef<HTMLUListElement>(null);
 
   const handleScrollLeft = () => {
@@ -158,7 +159,7 @@ export default function Carrousel() {
         </li>
       </ul>
       {fullImage && window.innerWidth >= 1280 ? (
-        <Modal onClose={handleCloseImage}>
+        <Modal onClose={handleCloseImage} isModalOpen={true}>
           <div className="flex items-center justify-center gap-5">
             <div className={`${fullImage.index === 0 ? 'xl:blur-[2px]' : ''}`}>
               <button
