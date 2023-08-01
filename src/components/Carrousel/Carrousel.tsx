@@ -1,10 +1,11 @@
 'use client';
 import { useRef, useState } from 'react';
-import Image, { StaticImageData } from 'next/image';
+import { StaticImageData } from 'next/image';
 import Modal from '../Modal';
 import { useModal } from '@/hooks';
 import { IImage, awardsList } from '@/helpers/constants';
 import CarrusselModal from '../CarrouselModal';
+import CarrouselItem from '../CarrouselItem';
 
 export default function Carrousel() {
   const [isActive, setIsActive] = useState(3);
@@ -34,8 +35,11 @@ export default function Carrousel() {
     setIsActive(isActive - 1);
   };
 
-  const handleScrollRight = (lenght: number) => {
-    if (lenght - 3 === isActive && currentAwardsArray.length) {
+  const handleScrollRight = () => {
+    if (
+      currentAwardsArray.length - 3 === isActive &&
+      currentAwardsArray.length
+    ) {
       setCurrentArray([
         ...currentAwardsArray,
         currentAwardsArray[indexAddedRight],
@@ -65,32 +69,18 @@ export default function Carrousel() {
     <div className="xl:mx-auto  xl:w-[1326px]">
       <ul
         ref={ref}
-        className={`flex snap-mandatory items-center gap-[30px] overflow-auto scroll-smooth xl:scrollbar md:gap-[50px] xl:mx-auto xl:gap-[70px]`}
+        className={`flex snap-mandatory items-center gap-[30px] overflow-auto xl:scrollbar md:gap-[50px] xl:mx-auto xl:gap-[70px]`}
       >
         {currentAwardsArray.map(({ src, alt }, index) => {
           return (
-            <li
-              className={`relative h-[242px] w-[174px] flex-shrink-0 md:h-[292px] md:w-[210px]
-           xl:${
-             isActive === index + 1
-               ? 'xl:flex-srink-[2] xl:h-[328px] xl:w-[236px]'
-               : ' xl:h-[284px] xl:w-[204px]'
-           }
-           xl:transition-[width]
-              `}
+            <CarrouselItem
+              alt={alt}
+              src={src}
+              index={index}
+              isActive={isActive}
+              handleOpenImage={handleOpenImage}
               key={index}
-              onClick={() => {
-                handleOpenImage(src, alt, index);
-              }}
-            >
-              <Image
-                src={src}
-                alt={alt}
-                fill
-                sizes="(min-width: 768px) 210px, 174px"
-                className="object-contain"
-              />
-            </li>
+            />
           );
         })}
       </ul>
@@ -113,7 +103,7 @@ export default function Carrousel() {
           <button
             type="button"
             onClick={() => {
-              handleScrollRight(currentAwardsArray.length);
+              handleScrollRight();
             }}
             className="xl:cursor-pointer xl:transition-all xl:hover:scale-[1.2]"
             aria-label="arrow right"
