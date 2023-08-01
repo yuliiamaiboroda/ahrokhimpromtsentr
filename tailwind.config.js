@@ -19,6 +19,7 @@ module.exports = {
         'light-gradient': 'var(--light-gradient)',
         'body-gradient': 'var(--body-gradient)',
         'underline-gradient': 'var(--underline-gradient)',
+        'not-found-gradient': 'var(--not-found-gradient)',
       },
       colors: {
         primary: 'var(--primary)',
@@ -29,6 +30,7 @@ module.exports = {
         navigation: 'var(--navigation)',
         subtitle: 'var(--light-gradient-end)',
         phoneScreenBtn: 'var(--dark-gradient-end)',
+        footer: 'var(--dark-gradient-start)',
       },
       fontFamily: {
         heading: 'var(--font-ibm-plex-sans), sans-serif',
