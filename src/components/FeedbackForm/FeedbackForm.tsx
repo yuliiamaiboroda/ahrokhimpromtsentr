@@ -72,7 +72,25 @@ const INITIAL_STATE = {
   agreement: false,
 };
 
-interface IProps {}
+function InputError({
+  className = '',
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <p
+      className={`${className} absolute left-0 top-[calc(100%+0.5rem)] z-20 w-full 
+                rounded-xl border-2 border-solid border-transparent
+                bg-accent px-3 py-3 font-body text-sm 
+                text-warning shadow-hover transition duration-1000
+                hover:-translate-y-2/3 md:px-4 md:text-base xl:px-6 `}
+    >
+      {children}
+    </p>
+  );
+}
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -81,20 +99,29 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 function FormField({ name, ...props }: IInputProps) {
   const [field, meta] = useField(name);
   return (
-    <label
-      className={`golden-edge ${
-        meta.touched && meta.error ? 'warning-edge' : ''
-      }`}
-    >
-      <input
-        {...field}
-        {...props}
-        className="block h-full w-full bg-transparent px-3
-                  py-5 outline-none transition duration-200 focus:shadow-hover md:px-4 md:py-6 xl:px-6"
-      />
-      {meta.touched && meta.error ? (
-        <div className="absolute left-0 top-full text-white">{meta.error}</div>
-      ) : null}
+    <label className="relative">
+      <div
+        className={`golden-edge ${
+          meta.touched && meta.error ? 'warning-edge' : ''
+        }`}
+      >
+        <input
+          {...field}
+          {...props}
+          className="block h-full w-full bg-transparent px-3
+                  py-5 outline-none transition duration-200 
+                  focus:shadow-hover md:px-4 md:py-6 xl:px-6"
+        />
+      </div>
+      <InputError
+        className={
+          meta.touched && meta.error
+            ? 'translate-y-0 scale-100'
+            : ' -translate-y-full scale-0'
+        }
+      >
+        {meta.error}
+      </InputError>
     </label>
   );
 }
@@ -111,25 +138,73 @@ function TextareaField({
 }: ITextareaProps) {
   const [field, meta] = useField(name);
   return (
-    <label
-      className={`golden-edge ${
-        meta.touched && meta.error ? 'warning-edge' : ''
-      }`}
-    >
-      <textarea
-        {...field}
-        {...props}
-        rows={rows}
-        cols={cols}
-        className="block h-full w-full resize-none bg-transparent px-3 py-5 outline-none
+    <label className="relative">
+      <div
+        className={`golden-edge ${
+          meta.touched && meta.error ? 'warning-edge' : ''
+        }`}
+      >
+        <textarea
+          {...field}
+          {...props}
+          rows={rows}
+          cols={cols}
+          className="block h-full w-full resize-none bg-transparent px-3 py-5 outline-none
                   transition duration-200 focus:shadow-hover md:px-4 md:py-6 xl:px-6"
-      />
-      {meta.touched && meta.error ? (
-        <div className="absolute left-0 top-full text-white">{meta.error}</div>
-      ) : null}
+        />
+      </div>
+      <InputError
+        className={
+          meta.touched && meta.error
+            ? 'translate-y-0 scale-100'
+            : ' -translate-y-full scale-0'
+        }
+      >
+        {meta.error}
+      </InputError>
     </label>
   );
 }
+
+interface ICheckobxProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  name: string;
+}
+
+function CheckboxField({ label, name }: ICheckobxProps) {
+  const [field, meta] = useField(name);
+  return (
+    <label className="relative flex cursor-pointer items-center gap-2">
+      <input {...field} type="checkbox" className="absolute -z-0 scale-0" />
+      <div className="relative">
+        <svg className="h-6 w-6 fill-none stroke-accent stroke-2">
+          <use href="/images/icons.svg#check-box"></use>
+        </svg>
+        <svg
+          className={`${
+            field.value ? 'opacity-100' : 'opacity-0'
+          } absolute left-1/2 top-1/2 h-6 w-6 
+                    -translate-x-1/2 -translate-y-1/2 fill-accent
+                    stroke-accent transition duration-200 hover:shadow-hover`}
+        >
+          <use href="/images/icons.svg#check-mark"></use>
+        </svg>
+      </div>
+      {label}
+      <InputError
+        className={
+          meta.touched && meta.error
+            ? 'translate-y-0 scale-100'
+            : ' -translate-y-full scale-0'
+        }
+      >
+        {meta.error}
+      </InputError>
+    </label>
+  );
+}
+
+interface IProps {}
 
 export default function FeedbackForm({}: IProps) {
   return (
@@ -154,12 +229,19 @@ export default function FeedbackForm({}: IProps) {
         />
         <FormField type="email" name="contactMail" placeholder="Email" />
         <TextareaField name="comment" placeholder="Коментар" />
-        <label>
-          <Field name="agreement" type="checkbox" />Я даю згоду на обробку
-          персональний даних
-          <ErrorMessage name="agreement" />
-        </label>
-        <button type="submit">Accept</button>
+        <CheckboxField
+          name="agreement"
+          label="Я даю згоду на обробку
+          персональний даних"
+        />
+        <button
+          type="submit"
+          className="mx-auto min-w-[200px] rounded-xl bg-light-gradient
+                    px-2 py-3 text-center font-body text-base 
+                    font-bold text-secondary hover:shadow-hover md:text-xl xl:text-2xl"
+        >
+          Надіслати
+        </button>
       </Form>
     </Formik>
   );
