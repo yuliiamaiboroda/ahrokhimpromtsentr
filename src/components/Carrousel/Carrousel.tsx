@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Modal from '../Modal';
 import { useModal } from '@/hooks';
-import { awardsList } from '@/helpers/constants';
+import { IImage, awardsList } from '@/helpers/constants';
 import CarrusselModal from '../CarrouselModal';
 
 export default function Carrousel() {
@@ -13,13 +13,21 @@ export default function Carrousel() {
     alt: string;
     index: number;
   } | null>(null);
+  const [currentAwardsArray, setCurrentArray] = useState<IImage[]>(awardsList);
+  const [indexAddedLeft, setIndexAddedLeft] = useState(1);
+  const [indexAddedRight, setIndexAddedRight] = useState(0);
 
   const { isModalOpen, openModal, closeModal } = useModal();
 
   const ref = useRef<HTMLUListElement>(null);
 
   const handleScrollLeft = () => {
-    if (isActive <= 3) {
+    if (isActive <= 3 && currentAwardsArray.length) {
+      setCurrentArray([
+        currentAwardsArray[currentAwardsArray.length - indexAddedLeft],
+        ...currentAwardsArray,
+      ]);
+      setIndexAddedLeft(indexAddedLeft + 1);
       return null;
     }
     ref.current ? (ref.current.scrollLeft -= 274) : null;
@@ -27,8 +35,12 @@ export default function Carrousel() {
   };
 
   const handleScrollRight = (lenght: number) => {
-    if (lenght - 2 === isActive) {
-      return null;
+    if (lenght - 3 === isActive && currentAwardsArray.length) {
+      setCurrentArray([
+        ...currentAwardsArray,
+        currentAwardsArray[indexAddedRight],
+      ]);
+      setIndexAddedRight(indexAddedRight + 1);
     }
     ref.current ? (ref.current.scrollLeft += 274) : null;
     setIsActive(isActive + 1);
@@ -55,7 +67,7 @@ export default function Carrousel() {
         ref={ref}
         className={`flex snap-mandatory items-center gap-[30px] overflow-auto scroll-smooth xl:scrollbar md:gap-[50px] xl:mx-auto xl:gap-[70px]`}
       >
-        {awardsList.map(({ src, alt }, index) => {
+        {currentAwardsArray.map(({ src, alt }, index) => {
           return (
             <li
               className={`relative h-[242px] w-[174px] flex-shrink-0 md:h-[292px] md:w-[210px]
@@ -101,7 +113,7 @@ export default function Carrousel() {
           <button
             type="button"
             onClick={() => {
-              handleScrollRight(awardsList.length);
+              handleScrollRight(currentAwardsArray.length);
             }}
             className="xl:cursor-pointer xl:transition-all xl:hover:scale-[1.2]"
             aria-label="arrow right"
@@ -116,7 +128,7 @@ export default function Carrousel() {
         <Modal onClose={handleCloseImage} isModalOpen={isModalOpen}>
           <CarrusselModal
             fullImage={fullImage}
-            awardsList={awardsList}
+            awardsList={currentAwardsArray}
             setFullImage={setFullImage}
           />
         </Modal>

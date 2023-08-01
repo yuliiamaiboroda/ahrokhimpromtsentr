@@ -18,7 +18,7 @@ import awardSeventeenImage from '../../../public/images/17.jpg';
 import awardEighteenImage from '../../../public/images/18.jpg';
 import { StaticImageData } from 'next/image';
 
-interface IImage {
+export interface IImage {
   src: StaticImageData;
   alt: string;
 }
