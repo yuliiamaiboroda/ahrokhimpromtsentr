@@ -19,6 +19,7 @@ module.exports = {
         'light-gradient': 'var(--light-gradient)',
         'body-gradient': 'var(--body-gradient)',
         'underline-gradient': 'var(--underline-gradient)',
+        'not-found-gradient': 'var(--not-found-gradient)',
       },
       colors: {
         primary: 'var(--primary)',
@@ -29,6 +30,7 @@ module.exports = {
         navigation: 'var(--navigation)',
         subtitle: 'var(--light-gradient-end)',
         phoneScreenBtn: 'var(--dark-gradient-end)',
+        footer: 'var(--dark-gradient-start)',
       },
       fontFamily: {
         heading: 'var(--font-ibm-plex-sans), sans-serif',
@@ -79,6 +81,12 @@ module.exports = {
           {
             boxShadow: ' 0px 0px 30px 0px rgba(213,186,117,0.41)',
           },
+        '.scrollbar': {
+          overflowY: 'auto',
+        },
+        '.scrollbar::-webkit-scrollbar': {
+          display: 'none',
+        },
       });
     }),
   ],
