@@ -37,6 +37,7 @@ export default function Modal({ children, onClose, isModalOpen }: IProps) {
       clearAllBodyScrollLocks();
       window.removeEventListener('keydown', escapeModal);
     }
+    return () => clearAllBodyScrollLocks();
   }, [onClose, isModalOpen]);
 
   const handleBackdropCloseModal = ({
