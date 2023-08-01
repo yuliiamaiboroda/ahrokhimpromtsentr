@@ -81,15 +81,15 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 function FormField({ name, ...props }: IInputProps) {
   const [field, meta] = useField(name);
   return (
-    <label className="contact">
+    <label className="golden-edge">
       <input
         {...field}
         {...props}
-        className="w-full  rounded-xl bg-transparent
-                  px-3 py-5 placeholder:text-placeholder md:px-4 md:py-6 xl:px-6"
+        className="w-full  rounded-lg bg-transparent px-3
+                  py-5 outline-none focus:shadow-hover  md:px-4 md:py-6 xl:px-6"
       />
       {meta.touched && meta.error ? (
-        <div className="absolute left-0 top-full">{meta.error}</div>
+        <div className="absolute left-0 top-full text-white">{meta.error}</div>
       ) : null}
     </label>
   );
@@ -107,17 +107,17 @@ function TextareaField({
 }: ITextareaProps) {
   const [field, meta] = useField(name);
   return (
-    <label className="contact">
+    <label className="golden-edge">
       <textarea
         {...field}
         {...props}
         rows={rows}
         cols={cols}
-        className="block w-full resize-none rounded-xl
-                  bg-transparent px-3 py-5 placeholder:text-placeholder md:px-4 md:py-6 xl:px-6"
+        className="block w-full resize-none rounded-lg bg-transparent px-3
+                  py-5 outline-none focus:shadow-hover md:px-4 md:py-6 xl:px-6"
       />
       {meta.touched && meta.error ? (
-        <div className="left-) absolute top-full">{meta.error}</div>
+        <div className="absolute left-0 top-full text-white">{meta.error}</div>
       ) : null}
     </label>
   );
@@ -135,7 +135,7 @@ export default function FeedbackForm({}: IProps) {
     >
       <Form
         className="mx-auto flex max-w-full flex-col gap-7 font-body 
-                  text-base font-bold md:max-w-[532px] 
+                  text-base font-bold text-placeholder placeholder:text-placeholder md:max-w-[532px] 
                   md:gap-8 md:text-2xl xl:max-w-[576px] xl:text-3xl"
       >
         <FormField type="text" name="name" placeholder="Ім‘я" />
