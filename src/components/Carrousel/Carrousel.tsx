@@ -4,6 +4,7 @@ import Image, { StaticImageData } from 'next/image';
 import Modal from '../Modal';
 import { useModal } from '@/hooks';
 import { awardsList } from '@/helpers/constants';
+import CarrusselModal from '../CarrouselModal';
 
 export default function Carrousel() {
   const [isActive, setIsActive] = useState(3);
@@ -82,82 +83,42 @@ export default function Carrousel() {
         })}
       </ul>
       <ul className="max-xl:hidden xl:mx-auto xl:flex xl:items-center xl:justify-center xl:gap-[62px] ">
-        <li
-          onClick={() => {
-            handleScrollLeft();
-          }}
-          className="xl:cursor-pointer xl:transition-all xl:hover:scale-[1.2]"
-        >
-          <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
-            <use href="/images/icons.svg#left-arrow"></use>
-          </svg>
+        <li>
+          <button
+            type="button"
+            onClick={() => {
+              handleScrollLeft();
+            }}
+            className="xl:cursor-pointer xl:transition-all xl:hover:scale-[1.2]"
+            aria-label="arrow left"
+          >
+            <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
+              <use href="/images/icons.svg#left-arrow"></use>
+            </svg>
+          </button>
         </li>
-        <li
-          onClick={() => {
-            handleScrollRight(awardsList.length);
-          }}
-          className="xl:cursor-pointer xl:transition-all xl:hover:scale-[1.2]"
-        >
-          <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
-            <use href="/images/icons.svg#right-arrow"></use>
-          </svg>
+        <li>
+          <button
+            type="button"
+            onClick={() => {
+              handleScrollRight(awardsList.length);
+            }}
+            className="xl:cursor-pointer xl:transition-all xl:hover:scale-[1.2]"
+            aria-label="arrow right"
+          >
+            <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
+              <use href="/images/icons.svg#right-arrow"></use>
+            </svg>
+          </button>
         </li>
       </ul>
       {fullImage && window.innerWidth >= 1280 ? (
         <Modal onClose={handleCloseImage} isModalOpen={isModalOpen}>
-          <div className="flex items-center justify-center gap-5">
-            <div className={`${fullImage.index === 0 ? 'xl:blur-[2px]' : ''}`}>
-              <button
-                onClick={() => {
-                  fullImage.index !== 0
-                    ? setFullImage({
-                        ...awardsList[fullImage.index - 1],
-                        index: fullImage.index - 1,
-                      })
-                    : null;
-                }}
-                className={` xl:transition-all xl:hover:scale-[1.2] xl:${
-                  fullImage.index === 0 ? 'xl:blur-sm xl:hover:scale-[1]' : ''
-                }`}
-                type="button"
-                disabled={fullImage.index === 0 ? true : false}
-              >
-                <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
-                  <use href="/images/icons.svg#left-arrow"></use>
-                </svg>
-              </button>
-            </div>
-            <Image src={fullImage.src} alt={fullImage.alt} />
-            <div
-              className={` ${
-                awardsList.length === fullImage.index + 1 ? 'xl:blur-[2px]	' : ''
-              }`}
-            >
-              <button
-                onClick={() => {
-                  awardsList.length !== fullImage.index + 1
-                    ? setFullImage({
-                        ...awardsList[fullImage.index + 1],
-                        index: fullImage.index + 1,
-                      })
-                    : null;
-                }}
-                type="button"
-                className={`xl:transition-all xl:hover:scale-[1.2] xl:${
-                  awardsList.length === fullImage.index + 1
-                    ? 'xl:blur-sm	 xl:hover:scale-[1]'
-                    : ''
-                }`}
-                disabled={
-                  awardsList.length === fullImage.index + 1 ? true : false
-                }
-              >
-                <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
-                  <use href="/images/icons.svg#right-arrow"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
+          <CarrusselModal
+            fullImage={fullImage}
+            awardsList={awardsList}
+            setFullImage={setFullImage}
+          />
         </Modal>
       ) : null}
     </div>
