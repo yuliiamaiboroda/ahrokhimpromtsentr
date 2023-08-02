@@ -1,7 +1,10 @@
 'use client';
 
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import Yup from 'yup';
+import { Formik, Form } from 'formik';
+import { feedbackSchema } from '@/helpers/schemas';
+import FormField from '../FormField';
+import TextareaField from '../TextareaField';
+import CheckboxField from '../CheckboxField';
 
 interface IFeedback {
   name: string;
@@ -15,7 +18,7 @@ const INITIAL_STATE = {
   name: '',
   comment: '',
   contactMail: '',
-  contactPhone: '+380',
+  contactPhone: '',
   agreement: false,
 };
 
@@ -26,29 +29,37 @@ export default function FeedbackForm({}: IProps) {
     <Formik
       initialValues={INITIAL_STATE}
       validateOnBlur
-      // validationSchema={feedbackSchema}
+      validationSchema={feedbackSchema}
       onSubmit={(values, actions) => {
         console.log('values', values);
       }}
     >
-      <Form className="flex flex-col gap-5 text-zinc-500">
-        <label>
-          Name:
-          <Field type="text" name="name" />
-        </label>
-        <label>
-          Phone:
-          <Field type="text" name="contactPhone" />
-        </label>
-        <label>
-          Email:
-          <Field type="email" name="contactMail" />
-        </label>
-        <label>
-          Comment:
-          <Field name="comment" cols={32} rows={5} as="textarea" />
-        </label>
-        <button type="submit">Accept</button>
+      <Form
+        className="mx-auto flex max-w-full flex-col gap-7 font-body 
+                  text-base font-bold text-primary placeholder:text-placeholder md:max-w-[532px] 
+                  md:gap-8 md:text-2xl xl:max-w-[576px] xl:text-3xl"
+      >
+        <FormField type="text" name="name" placeholder="Ім‘я" />
+        <FormField
+          type="text"
+          name="contactPhone"
+          placeholder="Контактний телефон"
+        />
+        <FormField type="email" name="contactMail" placeholder="Email" />
+        <TextareaField name="comment" placeholder="Коментар" />
+        <CheckboxField
+          name="agreement"
+          label="Я даю згоду на обробку
+          персональний даних"
+        />
+        <button
+          type="submit"
+          className="mx-auto min-w-[200px] rounded-xl bg-light-gradient
+                    px-2 py-3 text-center font-body text-base 
+                    font-bold text-secondary hover:shadow-hover md:text-xl xl:text-2xl"
+        >
+          Надіслати
+        </button>
       </Form>
     </Formik>
   );
