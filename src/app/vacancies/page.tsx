@@ -1,7 +1,13 @@
 'use client';
 import Button from '@/components/Button';
 import vacanciesBackground from '../../../public/images/bg-vacancies-screen.jpg';
-import HeroSection from '@/components/HeroSection/HeroSection';
+import HeroSection from '@/components/HeroSection';
+import Section from '@/components/Section';
+import Container from '@/components/Container';
+import SectionTitle from '@/components/SectionTitle';
+import Description from '@/components/Description';
+import SmallCotainer from '@/components/SmallContainer';
+import ResumeForm from '@/components/ResumeForm';
 
 export default function Page() {
   return (
@@ -22,6 +28,15 @@ export default function Page() {
           title="Актуальні вакансії"
         />
       </div>
+      <Section>
+        <Container>
+          <SectionTitle title="Відгукнутися" />
+          <SmallCotainer>
+            <Description description="Вкажіть свої контактні дані і ми надамо зворотній зв’язок" />
+          </SmallCotainer>
+          <ResumeForm />
+        </Container>
+      </Section>
     </main>
   );
 }
