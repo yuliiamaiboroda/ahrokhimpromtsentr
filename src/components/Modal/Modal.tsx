@@ -13,6 +13,8 @@ interface IProps {
 
 const ESCAPE_KEY = 'Escape';
 
+// ToDo rewrite button with golden borders , replace x on svg
+
 export default function Modal({ children, onClose, isModalOpen }: IProps) {
   const backdrop = useRef(null);
   const modal = useRef(null);
@@ -55,17 +57,17 @@ export default function Modal({ children, onClose, isModalOpen }: IProps) {
       onClick={handleBackdropCloseModal}
       ref={backdrop}
     >
+      <button
+        type="button"
+        onClick={onClose}
+        className="absolute right-0 top-0 h-[50px] w-[50px] rounded text-primary"
+      >
+        X
+      </button>
       <div
-        className="relative w-[300px] rounded-2xl  p-8 md:w-[600px] xl:w-[800px]"
+        className="relative w-[300px]  rounded-2xl p-8 md:w-[600px]"
         ref={modal}
       >
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute right-0 top-0 h-[50px] w-[50px] text-primary"
-        >
-          X
-        </button>
         {children}
       </div>
     </div>
