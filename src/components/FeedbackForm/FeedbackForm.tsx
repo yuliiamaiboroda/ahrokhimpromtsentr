@@ -31,13 +31,19 @@ export default function FeedbackForm({}: IProps) {
       validateOnBlur
       validationSchema={feedbackSchema}
       onSubmit={(values, actions) => {
-        console.log('values', values);
+        fetch('https://ahrokhimpromtsentr.cyclic.app/api/feedback', {
+          body: JSON.stringify(values),
+          headers: { 'Content-type': 'application/json' },
+          method: 'POST',
+        })
+          .then(() => actions.resetForm())
+          .catch(res => console.log('Post error\n', res));
       }}
     >
       <Form
-        className="mx-auto flex max-w-full flex-col gap-7 font-body 
-                  text-base font-bold text-primary placeholder:text-placeholder md:max-w-[532px] 
-                  md:gap-8 md:text-2xl xl:max-w-[576px] xl:text-3xl"
+        className="mx-auto mt-8 flex max-w-full flex-col gap-7 
+                  font-body text-base font-bold text-primary placeholder:text-placeholder 
+                  md:max-w-[532px] md:gap-8 md:text-2xl xl:max-w-[576px] xl:text-3xl"
       >
         <FormField type="text" name="name" placeholder="Ім‘я" />
         <FormField
