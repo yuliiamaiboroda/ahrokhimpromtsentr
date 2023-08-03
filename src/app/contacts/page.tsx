@@ -6,14 +6,7 @@ import Container from '@/components/Container/Container';
 import SectionTitle from '@/components/SectionTitle';
 import Description from '@/components/Description';
 import Contacts from '@/components/Contacts';
-
-interface IProps {
-  children: React.ReactNode;
-}
-
-function SmallCotainer({ children }: IProps) {
-  return <div className="mx-auto mb-8 w-4/5 md:w-1/2">{children}</div>;
-}
+import SmallCotainer from '@/components/SmallContainer';
 
 export default function Page() {
   return (
