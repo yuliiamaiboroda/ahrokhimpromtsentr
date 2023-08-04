@@ -41,7 +41,7 @@ export default function FeedbackForm({}: IProps) {
       }}
     >
       <Form
-        className="mx-auto mt-8 flex max-w-full flex-col gap-7 
+        className="mx-auto flex max-w-full flex-col gap-7 
                   font-body text-base font-bold text-primary placeholder:text-placeholder 
                   md:max-w-[532px] md:gap-8 md:text-2xl xl:max-w-[576px] xl:text-3xl"
       >

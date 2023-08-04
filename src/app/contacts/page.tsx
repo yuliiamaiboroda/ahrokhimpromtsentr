@@ -5,6 +5,8 @@ import Section from '@/components/Section/Section';
 import Container from '@/components/Container/Container';
 import SectionTitle from '@/components/SectionTitle';
 import Description from '@/components/Description';
+import Contacts from '@/components/Contacts';
+import SmallCotainer from '@/components/SmallContainer';
 
 export default function Page() {
   return (
@@ -15,10 +17,19 @@ export default function Page() {
       />
       <Section>
         <Container>
+          <SectionTitle title="Контакти" />
+          <SmallCotainer>
+            <Description description="2972 Westheimer Rd. Santa Ana, Illinois 85486 " />
+          </SmallCotainer>
+          <Contacts phone="+380777777777" email="example@mail.com" />
+        </Container>
+      </Section>
+      <Section>
+        <Container>
           <SectionTitle title="Відгукнутися" />
-          <div className="mx-auto w-4/5 md:w-1/2">
+          <SmallCotainer>
             <Description description="Вкажіть свої контактні дані і ми надамо зворотній зв’язок" />
-          </div>
+          </SmallCotainer>
           <FeedbackForm />
         </Container>
       </Section>
