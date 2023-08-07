@@ -2,7 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { fileFormat, fileSize } from '@/utils';
 
-export const resumeShema = (fileField: React.RefObject<HTMLInputElement>) =>
+export const resumeSchema = (fileField: React.RefObject<HTMLInputElement>) =>
   Yup.object({
     name: Yup.string().trim().min(2).max(62).required(),
     phone: Yup.string()

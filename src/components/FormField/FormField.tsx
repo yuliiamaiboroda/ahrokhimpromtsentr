@@ -20,7 +20,7 @@ export default function FormField({ name, ...props }: IProps) {
           {...props}
           className="block h-full w-full bg-transparent px-3
                   py-5 outline-none transition duration-200 
-                  focus:shadow-hover md:px-4 md:py-6 xl:px-6"
+                  placeholder:text-placeholder focus:shadow-hover md:px-4 md:py-6 xl:px-6"
         />
       </div>
       <InputError

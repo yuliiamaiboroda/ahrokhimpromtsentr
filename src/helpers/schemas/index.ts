@@ -1,2 +1,2 @@
 export { feedbackSchema } from './feedback-schema';
-export { resumeShema } from './resume-schama';
+export { resumeSchema } from './resume-schema';

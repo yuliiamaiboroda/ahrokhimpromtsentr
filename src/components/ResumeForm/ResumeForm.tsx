@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { Formik, Form } from 'formik';
-import { resumeShema } from '@/helpers/schemas';
+import { resumeSchema } from '@/helpers/schemas';
 import FormField from '../FormField';
 import TextareaField from '../TextareaField';
 import CheckboxField from '../CheckboxField';
@@ -26,7 +26,7 @@ export default function ResumeForm({ vacancies }: IProps) {
         comment: '',
         agreement: false,
       }}
-      validationSchema={resumeShema(fileInput)}
+      validationSchema={resumeSchema(fileInput)}
       onSubmit={(values, action) => {
         console.log('values', values);
         action.resetForm();
@@ -35,7 +35,7 @@ export default function ResumeForm({ vacancies }: IProps) {
       {({ values, setFieldValue }) => (
         <Form
           className="mx-auto flex max-w-full flex-col gap-7 
-                  font-body text-base font-bold text-primary placeholder:text-placeholder 
+                  font-body text-base font-bold text-primary 
                   md:max-w-[532px] md:gap-8 md:text-2xl xl:max-w-[576px] xl:text-3xl"
         >
           <FormField name="name" type="text" placeholder="Ім‘я" />

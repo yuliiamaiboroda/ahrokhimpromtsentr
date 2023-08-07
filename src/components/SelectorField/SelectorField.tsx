@@ -24,6 +24,7 @@ export default function SelectorField({
   return (
     <div className="relative">
       <Selector
+        id={name}
         options={options}
         placeholder={placeholder}
         onChange={option => {

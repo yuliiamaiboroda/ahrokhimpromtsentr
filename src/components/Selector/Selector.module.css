@@ -1,0 +1,87 @@
+/* @tailwind components;
+
+@layer components {
+  .select {
+    @apply h-full w-full bg-transparent  
+    transition duration-200;
+  }
+
+  .select.selector__control {
+    background-color: transparent;
+  }
+} */
+
+/* .select > .select__control {
+  background-color: transparent;
+} */
+
+/* .select .selector__control {
+  border-width: 2px;
+  border-style: solid;
+  border-color:;
+  color:;
+  cursor: pointer;
+  transition: box-shadow 250ms linear;
+
+  :hover {
+    border-color:;
+    box-shadow:;
+  }
+}
+
+.select .selector__placeholder {
+  font-weight:;
+}
+
+.select .selector__indicator-separator {
+  width: 2px;
+  background-color:;
+}
+
+.select .selector__indicator {
+  color:;
+  transition: opacity 250ms linear;
+
+  :hover {
+    color:;
+    opacity: 0.7;
+  }
+}
+
+.select .selector__menu {
+  overflow: hidden;
+}
+
+.select .selector__menu-list {
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color:;
+    border-radius:;
+
+    :hover {
+      background-color:;
+    }
+  }
+}
+
+.select .selector__option {
+  color:;
+  font-size:;
+}
+
+.select .selector__option--is-focused {
+  color:;
+  background:;
+}
+
+.select .selector__option--is-selected {
+  color:;
+  background:;
+} */

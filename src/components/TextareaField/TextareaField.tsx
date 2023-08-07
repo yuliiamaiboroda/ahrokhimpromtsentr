@@ -25,8 +25,8 @@ export default function TextareaField({
           {...props}
           rows={rows}
           cols={cols}
-          className="block h-full w-full resize-none bg-transparent px-3 py-5
-                  outline-none transition duration-200 focus:shadow-hover md:px-4 md:py-6 xl:px-6"
+          className="block h-full w-full resize-none bg-transparent px-3 py-5 outline-none
+                  transition duration-200 placeholder:text-placeholder focus:shadow-hover md:px-4 md:py-6 xl:px-6"
         />
       </div>
       <InputError
