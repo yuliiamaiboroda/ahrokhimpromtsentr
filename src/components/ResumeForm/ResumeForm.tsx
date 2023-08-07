@@ -6,7 +6,7 @@ import { resumeShema } from '@/helpers/schemas';
 import FormField from '../FormField';
 import TextareaField from '../TextareaField';
 import CheckboxField from '../CheckboxField';
-import PositionSelector from '../PositionSelector';
+import SelectorField from '../SelectorField';
 
 interface IProps {
   vacancies: { _id: string; title: string }[];
@@ -45,13 +45,16 @@ export default function ResumeForm({ vacancies }: IProps) {
             placeholder="Контактний телефон"
           />
           <FormField name="email" type="text" placeholder="Email" />
-          <PositionSelector
+          <SelectorField
             name="position"
-            options={vacancies.map(({ title }) => ({
-              label: title,
-              value: title,
-            }))}
-            onChange={option => setFieldValue('position', option?.value)}
+            placeholder="Вакансія"
+            options={[
+              ...vacancies.map(({ title }) => ({
+                label: title,
+                value: title,
+              })),
+              { label: 'Інше', value: 'other' },
+            ]}
           />
           <TextareaField name="comment" placeholder="Коментар" />
           <CheckboxField

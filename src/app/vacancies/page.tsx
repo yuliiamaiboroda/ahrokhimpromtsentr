@@ -1,6 +1,6 @@
 // 'use client';
 
-import Button from '@/components/Button';
+// import Button from '@/components/Button';
 import vacanciesBackground from '../../../public/images/bg-vacancies-screen.jpg';
 import HeroSection from '@/components/HeroSection';
 import Section from '@/components/Section';
