@@ -1,5 +1,5 @@
+import { useState } from 'react';
 import { useField } from 'formik';
-import Selector from '../Selector/Selector';
 import InputError from '../InputError';
 
 interface ISelectOption {
@@ -21,17 +21,64 @@ export default function SelectorField({
   initialValue,
 }: IProps) {
   const [, meta, helpers] = useField(name);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(
+    initialValue || { label: '', value: '' }
+  );
+  const [optionsList] = useState(() =>
+    options.filter(
+      (option, index, array) =>
+        array.findIndex(({ value }) => value === option.value) === index
+    )
+  );
   return (
-    <div className="relative">
-      <Selector
-        id={name}
-        options={options}
-        placeholder={placeholder}
-        onChange={option => {
-          helpers.setValue(option?.value, true);
-        }}
-        defaultValue={initialValue || null}
-      />
+    <label className="relative cursor-pointer">
+      <div
+        className={`golden-edge ${
+          meta.touched && meta.error ? 'warning-edge' : ''
+        }`}
+      >
+        <input
+          type="text"
+          readOnly
+          onClick={() => setIsMenuOpen(prevState => !prevState)}
+          placeholder={placeholder}
+          value={selectedOption.label}
+          className="block h-full w-full cursor-pointer bg-transparent
+                  px-3 py-5 outline-none transition 
+                  duration-200 placeholder:text-placeholder 
+                  focus:shadow-hover md:px-4 md:py-6 xl:px-6"
+        />
+      </div>
+      {isMenuOpen && (
+        <div
+          className="absolute left-0
+                    top-[110%] z-30 h-80 w-full overflow-hidden
+                    rounded-xl border-2 border-solid border-accent
+                    bg-dark-gradient"
+        >
+          <ul className="scroll h-full w-full overflow-y-auto">
+            {optionsList.map(({ label, value }) => (
+              <li
+                key={value}
+                onClick={() => {
+                  setSelectedOption({ label, value });
+                  helpers.setValue(value, true);
+                  // setIsMenuOpen(false);
+                }}
+                className={`${
+                  value === selectedOption.value
+                    ? 'bg-accent text-secondary'
+                    : 'bg-transparent'
+                } px-3 py-1 transition duration-200 hover:bg-accent hover:text-secondary
+                md:px-4 md:py-2 xl:px-6`}
+              >
+                <p>{label}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       <InputError
         className={
           meta.touched && meta.error
@@ -41,6 +88,6 @@ export default function SelectorField({
       >
         {meta.error}
       </InputError>
-    </div>
+    </label>
   );
 }
