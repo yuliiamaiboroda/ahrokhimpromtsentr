@@ -24,11 +24,11 @@ export default function Carrousel() {
 
   const handleScrollLeft = () => {
     if (isActive <= 3 && currentAwardsArray.length) {
-      setCurrentArray([
-        currentAwardsArray[currentAwardsArray.length - indexAddedLeft],
-        ...currentAwardsArray,
-      ]);
-      setIndexAddedLeft(indexAddedLeft + 1);
+      // setCurrentArray([
+      //   currentAwardsArray[currentAwardsArray.length - indexAddedLeft],
+      //   ...currentAwardsArray,
+      // ]);
+      // setIndexAddedLeft(indexAddedLeft + 1);
       return null;
     }
     ref.current ? (ref.current.scrollLeft -= 274) : null;
@@ -69,7 +69,7 @@ export default function Carrousel() {
     <div className="xl:mx-auto  xl:w-[1326px]">
       <ul
         ref={ref}
-        className={`flex snap-mandatory items-center gap-[30px] overflow-auto xl:scrollbar md:gap-[50px] xl:mx-auto xl:gap-[70px]`}
+        className={`flex snap-mandatory items-center gap-[30px] overflow-auto scroll-smooth xl:scrollbar md:gap-[50px] xl:mx-auto xl:gap-[70px]`}
       >
         {currentAwardsArray.map(({ src, alt }, index) => {
           return (
@@ -86,18 +86,30 @@ export default function Carrousel() {
       </ul>
       <ul className="max-xl:hidden xl:mx-auto xl:flex xl:items-center xl:justify-center xl:gap-[62px] ">
         <li>
-          <button
-            type="button"
-            onClick={() => {
-              handleScrollLeft();
-            }}
-            className="xl:cursor-pointer xl:transition-all xl:hover:scale-[1.2]"
-            aria-label="arrow left"
+          <div
+            className={` ${
+              isActive <= 3 && currentAwardsArray.length
+                ? 'xl:cursor-default	xl:blur-[2px]'
+                : ''
+            }`}
           >
-            <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
-              <use href="/images/icons.svg#left-arrow"></use>
-            </svg>
-          </button>
+            <button
+              type="button"
+              onClick={() => {
+                handleScrollLeft();
+              }}
+              className={` xl:${
+                isActive <= 3 && currentAwardsArray.length
+                  ? 'cursor-default	 xl:blur-sm xl:hover:scale-[1]'
+                  : ' xl:transition-all xl:hover:scale-[1.2]'
+              }`}
+              aria-label="arrow left"
+            >
+              <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
+                <use href="/images/icons.svg#left-arrow"></use>
+              </svg>
+            </button>
+          </div>
         </li>
         <li>
           <button
