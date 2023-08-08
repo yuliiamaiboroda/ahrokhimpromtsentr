@@ -9,7 +9,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 export default function FormField({ name, ...props }: IProps) {
   const [field, meta] = useField(name);
   return (
-    <label className="relative">
+    <label className="relative cursor-text">
       <div
         className={`golden-edge ${
           meta.touched && meta.error ? 'warning-edge' : ''
