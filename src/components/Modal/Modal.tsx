@@ -65,7 +65,7 @@ export default function Modal({ children, onClose, isModalOpen }: IProps) {
         X
       </button>
       <div
-        className="relative w-[300px]  rounded-2xl p-8 md:w-[600px]"
+        className="absolute left-1/2 top-1/2 w-[300px] -translate-x-1/2 -translate-y-1/2  rounded-2xl p-8 md:w-[600px]"
         ref={modal}
       >
         {children}
