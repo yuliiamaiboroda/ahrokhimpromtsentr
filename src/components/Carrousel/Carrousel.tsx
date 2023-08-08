@@ -69,7 +69,7 @@ export default function Carrousel() {
     <div className="xl:mx-auto  xl:w-[1326px]">
       <ul
         ref={ref}
-        className={`flex snap-mandatory items-center gap-[30px] overflow-auto xl:scrollbar md:gap-[50px] xl:mx-auto xl:gap-[70px]`}
+        className={`scroll-smooth flex snap-mandatory items-center gap-[30px] overflow-auto xl:scrollbar md:gap-[50px] xl:mx-auto xl:gap-[70px]`}
       >
         {currentAwardsArray.map(({ src, alt }, index) => {
           return (
