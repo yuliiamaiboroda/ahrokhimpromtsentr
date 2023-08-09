@@ -6,7 +6,7 @@ export default function Footer() {
       <footer className="flex w-full flex-col items-center justify-center gap-2 border-t border-subtitle bg-footer text-center md:flex-row md:gap-20 lg:gap-40 xl:gap-60 ">
         <p className="inline-block">&copy; Агрохімпромцентр 2023</p>
         <Link
-          href="/"
+          href="/privacy-notice"
           className="inline-block hover:text-accent active:text-accent"
         >
           Політика конфіденційності

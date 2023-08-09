@@ -12,7 +12,7 @@ export default function AdvantagesList() {
           alt="colossus"
           className="absolute -left-1.5 -top-2.5 h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
         />
-        <span className="block h-3/4	 w-0.5	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
+        <span className="block h-3/4	 w-[4px]	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
         <span className="py-5  font-body text-base font-bold	text-primary md:py-9	md:text-xl xl:text-2xl">
           Активний розвиток та збільшення технологічних можливостей протягом 24
           років.
@@ -24,7 +24,7 @@ export default function AdvantagesList() {
           alt="colossus"
           className="absolute -left-1.5 -top-2.5 h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
         />
-        <span className="block h-3/4	 w-0.5	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
+        <span className="block h-3/4  w-[4px]	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
         <span className="py-5  font-body text-base font-bold	text-primary md:py-9	md:text-xl xl:text-2xl">
           Дотримання вікових традицій у поєднанні з сучасними принципами, що
           гарантує якісний результат.
@@ -36,7 +36,7 @@ export default function AdvantagesList() {
           alt="colossus"
           className="absolute -left-1.5 -top-2.5 h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
         />
-        <span className="block h-3/4	 w-0.5	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
+        <span className="block h-3/4	 w-[4px]	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
         <span className="py-5  font-body text-base font-bold	text-primary md:py-9	md:text-xl xl:text-2xl">
           Потужності та відповідна техніка для вирощування, збору, оброблення та
           зберігання продукції.
@@ -48,7 +48,7 @@ export default function AdvantagesList() {
           alt="colossus"
           className="absolute -left-1.5 -top-2.5	h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
         />
-        <span className="block h-3/4	 w-0.5	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
+        <span className="block h-3/4	 w-[4px]	bg-light-gradient  md:mt-[15px] md:w-1 "></span>
         <span className="py-5  font-body text-base font-bold	text-primary md:py-9	md:text-xl xl:text-2xl">
           Вагома праця для збереження історичних цінностей сільського
           господарства України.
