@@ -2,10 +2,7 @@ interface IProps {
   onClick: () => void;
 }
 
-export function PrevArrow(props: any) {
-  const { onClick } = props;
-  console.log(props);
-
+export function PrevArrow({ onClick }: IProps) {
   return (
     <button className="custom_arrow prev-arrow " onClick={onClick}>
       <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
@@ -15,9 +12,7 @@ export function PrevArrow(props: any) {
   );
 }
 
-export function NextArrow(props: any) {
-  const { onClick } = props;
-
+export function NextArrow({ onClick }: IProps) {
   return (
     <button className="custom_arrow next-arrow" onClick={onClick}>
       <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">

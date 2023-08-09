@@ -15,8 +15,7 @@ export default function CarrouselItem({
 }: IProps) {
   return (
     <div
-      className={`carousel-item relative h-[242px] w-[174px]  md:h-[292px]
-         
+      className={`carousel-item relative h-[242px] w-[174px]  max-xl:flex-shrink-0 md:h-[292px]
            md:w-[210px]
               `}
       onClick={() => {
