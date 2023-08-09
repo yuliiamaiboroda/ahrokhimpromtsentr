@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import SectionTitle from '../SectionTitle';
-import ColossusIcon from 'public/mainPage/colossus.svg';
+import ColossusIcon from 'public/images/colossus.svg';
 import ButtonLink from '../ButtonLink';
 
 export default function HistorySection() {
   return (
-    <section className="justify-cente my-[48px] flex flex-col items-center md:my-[68px] xl:my-[86px] ">
+    <div className="justify-cente  flex flex-col items-center ">
       <SectionTitle title="Історичні періоди розвитку" />
       <ul className="mx-auto mb-[48px] grid max-w-[210px] md:mb-[68px] md:max-w-2xl xl:mb-[86px] xl:max-w-[752px]">
         <li className="relative flex items-center gap-2.5 md:gap-5 xl:gap-6 ">
@@ -91,6 +91,6 @@ export default function HistorySection() {
         </li>
       </ul>
       <ButtonLink title="Зв’язатися з нами" navigateTo="/contacts" size="l" />
-    </section>
+    </div>
   );
 }

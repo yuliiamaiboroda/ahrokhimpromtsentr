@@ -20,8 +20,6 @@ function Background({ src }: { src: StaticImageData }) {
   );
 }
 
-// change positions
-
 export default function MainHero() {
   return (
     <section>

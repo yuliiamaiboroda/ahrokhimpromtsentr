@@ -21,10 +21,10 @@ export default function ButtonLink({
   return (
     <Link
       href={navigateTo}
-      className={`flex justify-center items-center w-[178px] py-3 md:py-5 rounded-xl  font-body font-bold text-sm	md:text-2xl	xl:text-3xl
+      className={`flex w-[178px] items-center justify-center rounded-xl py-3 font-body  text-sm font-bold md:py-5	md:text-2xl	xl:text-3xl 
        ${
          size === ButtonSizes.s
-           ? 'md:w-[176px] xl:w-[206px] md:text-lg xl:text-xl md:py-4 xl:py-5'
+           ? 'md:w-[176px] md:py-4 md:text-lg xl:w-[206px] xl:py-5 xl:text-xl'
            : ''
        } 
        ${size === ButtonSizes.m ? 'md:w-[302px] xl:w-[272px] xl:py-6' : ''}
