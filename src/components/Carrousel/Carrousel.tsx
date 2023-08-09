@@ -9,49 +9,50 @@ import CarrouselItem from '../CarrouselItem';
 import Slider from 'react-slick';
 import '../../../public/css/slick.css';
 import '../../../public/css/slick-theme.css';
+import { NextArrow, PrevArrow } from '../ArrowButtons';
 
 export default function Carrousel() {
-  const [isActive, setIsActive] = useState(3);
+  // const [isActive, setIsActive] = useState(3);
   const [fullImage, setFullImage] = useState<{
     src: StaticImageData;
     alt: string;
     index: number;
   } | null>(null);
   const [currentAwardsArray, setCurrentArray] = useState<IImage[]>(awardsList);
-  const [indexAddedLeft, setIndexAddedLeft] = useState(1);
-  const [indexAddedRight, setIndexAddedRight] = useState(0);
+  // const [indexAddedLeft, setIndexAddedLeft] = useState(1);
+  // const [indexAddedRight, setIndexAddedRight] = useState(0);
 
   const { isModalOpen, openModal, closeModal } = useModal();
 
-  const ref = useRef<HTMLUListElement>(null);
+  // const ref = useRef<HTMLUListElement>(null);
 
-  const handleScrollLeft = () => {
-    if (isActive <= 3 && currentAwardsArray.length) {
-      // setCurrentArray([
-      //   currentAwardsArray[currentAwardsArray.length - indexAddedLeft],
-      //   ...currentAwardsArray,
-      // ]);
-      // setIndexAddedLeft(indexAddedLeft + 1);
-      return null;
-    }
-    ref.current ? (ref.current.scrollLeft -= 274) : null;
-    setIsActive(isActive - 1);
-  };
+  // const handleScrollLeft = () => {
+  //   if (isActive <= 3 && currentAwardsArray.length) {
+  //     // setCurrentArray([
+  //     //   currentAwardsArray[currentAwardsArray.length - indexAddedLeft],
+  //     //   ...currentAwardsArray,
+  //     // ]);
+  //     // setIndexAddedLeft(indexAddedLeft + 1);
+  //     return null;
+  //   }
+  //   ref.current ? (ref.current.scrollLeft -= 274) : null;
+  //   setIsActive(isActive - 1);
+  // };
 
-  const handleScrollRight = () => {
-    if (
-      currentAwardsArray.length - 3 === isActive &&
-      currentAwardsArray.length
-    ) {
-      setCurrentArray([
-        ...currentAwardsArray,
-        currentAwardsArray[indexAddedRight],
-      ]);
-      setIndexAddedRight(indexAddedRight + 1);
-    }
-    ref.current ? (ref.current.scrollLeft += 274) : null;
-    setIsActive(isActive + 1);
-  };
+  // const handleScrollRight = () => {
+  //   if (
+  //     currentAwardsArray.length - 3 === isActive &&
+  //     currentAwardsArray.length
+  //   ) {
+  //     setCurrentArray([
+  //       ...currentAwardsArray,
+  //       currentAwardsArray[indexAddedRight],
+  //     ]);
+  //     setIndexAddedRight(indexAddedRight + 1);
+  //   }
+  //   ref.current ? (ref.current.scrollLeft += 274) : null;
+  //   setIsActive(isActive + 1);
+  // };
 
   const handleOpenImage = (
     src: StaticImageData,
@@ -67,16 +68,19 @@ export default function Carrousel() {
     setFullImage(null);
     closeModal();
   };
+
   const settings = {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
     variableWidth: true,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
   };
 
   return (
-    <div className="xl:mx-auto  xl:w-[1326px]">
+    <div className="xl:mx-auto  xl:mb-[210px] xl:w-[1326px]">
       {/* <ul
         ref={ref}
         className={`flex snap-mandatory items-center gap-[30px] overflow-auto scroll-smooth xl:scrollbar md:gap-[50px] xl:mx-auto xl:gap-[70px]`}

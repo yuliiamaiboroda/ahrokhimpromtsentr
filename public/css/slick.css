@@ -145,3 +145,32 @@
     }
       
 }
+
+.custom_arrow {
+    display: none;
+    @media screen and (min-width: 1280px) {
+        position: absolute;
+        top: calc(50% + 256px);
+        transform: translateY(-50%);
+        display: inline-block;
+        width: 84px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 100;
+    }
+}
+
+.prev-arrow {
+    
+    @media screen and (min-width: 1280px) {
+        left: 500px;}
+}
+
+.next-arrow {
+   
+    @media screen and (min-width: 1280px) { 
+        right: 500px;}
+}
