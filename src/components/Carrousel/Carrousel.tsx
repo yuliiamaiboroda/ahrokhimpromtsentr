@@ -56,6 +56,10 @@ export default function Carrousel() {
     variableWidth: true,
     prevArrow: <PrevArrow onClick={() => sliderRef?.current?.slickPrev()} />,
     nextArrow: <NextArrow onClick={() => sliderRef?.current?.slickNext()} />,
+    autoplay: true,
+    speed: 1500,
+    autoplaySpeed: 1500,
+    cssEase: 'linear',
   };
 
   const resizeHanlder = () => {
