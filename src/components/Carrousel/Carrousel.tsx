@@ -6,6 +6,9 @@ import { useModal } from '@/hooks';
 import { IImage, awardsList } from '@/helpers/constants';
 import CarrusselModal from '../CarrouselModal';
 import CarrouselItem from '../CarrouselItem';
+import Slider from 'react-slick';
+import '../../../public/css/slick.css';
+import '../../../public/css/slick-theme.css';
 
 export default function Carrousel() {
   const [isActive, setIsActive] = useState(3);
@@ -64,27 +67,35 @@ export default function Carrousel() {
     setFullImage(null);
     closeModal();
   };
+  const settings = {
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    variableWidth: true,
+  };
 
   return (
     <div className="xl:mx-auto  xl:w-[1326px]">
-      <ul
+      {/* <ul
         ref={ref}
         className={`flex snap-mandatory items-center gap-[30px] overflow-auto scroll-smooth xl:scrollbar md:gap-[50px] xl:mx-auto xl:gap-[70px]`}
-      >
+      > */}
+      <Slider {...settings}>
         {currentAwardsArray.map(({ src, alt }, index) => {
           return (
             <CarrouselItem
               alt={alt}
               src={src}
-              index={index}
-              isActive={isActive}
               handleOpenImage={handleOpenImage}
               key={index}
+              index={index}
             />
           );
         })}
-      </ul>
-      <ul className="max-xl:hidden xl:mx-auto xl:flex xl:items-center xl:justify-center xl:gap-[62px] ">
+      </Slider>
+      {/* </ul> */}
+      {/* <ul className="max-xl:hidden xl:mx-auto xl:flex xl:items-center xl:justify-center xl:gap-[62px] ">
         <li>
           <div
             className={` ${
@@ -125,7 +136,7 @@ export default function Carrousel() {
             </svg>
           </button>
         </li>
-      </ul>
+      </ul> */}
       {fullImage && window.innerWidth >= 1280 ? (
         <Modal onClose={handleCloseImage} isModalOpen={isModalOpen}>
           <CarrusselModal
