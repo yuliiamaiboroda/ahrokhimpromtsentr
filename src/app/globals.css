@@ -18,10 +18,20 @@
   --light-gradient: linear-gradient(180deg, #f2e2ba 0%, #d5ba75 100%);
   --underline-gradient: linear-gradient(90deg, #f2e2ba 0%, #d5ba75 100%);
   --body-gradient: linear-gradient(180deg, #29392f 66.67%, #394e2c 100%);
+  --not-found-gradient: linear-gradient(180deg, #cccccc 0%, #394e2d 100%);
 
   --text-shadow-navigation: 0px 3px 4px rgba(0, 0, 0, 0.3);
   --hover-shadow: 0px 0px 30px 0px rgba(213, 186, 117, 0.41);
   --card-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .text-shadow-navigation {
@@ -29,30 +39,20 @@
 }
 
 .golden-edge {
-  border: 2px solid transparent;
+  position: relative;
+  z-index: 0;
   border-radius: 0.75rem;
+  border: 2px solid transparent;
+}
+
+.golden-edge > *:first-child {
+  border-radius: 0.5rem;
 }
 
 .golden-edge::before {
   content: '';
   position: absolute;
-  left: -2px;
-  right: -2px;
-  top: -2px;
-  bottom: -2px;
-  background: var(--light-gradient);
-  border-radius: 0.75rem;
-  box-shadow: var(--card-shadow);
-}
-
-.contact {
-  position: relative;
-  z-index: 0;
-}
-.contact:before {
-  content: '';
-  position: absolute;
-  z-index: -1;
+  z-index: 10;
   top: -2px;
   bottom: -2px;
   left: -2px;
@@ -70,3 +70,9 @@
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
+
+.warning-edge.golden-edge::before {
+  background: var(--warning);
+}
+
+
