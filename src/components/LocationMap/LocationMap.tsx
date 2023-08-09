@@ -17,7 +17,7 @@ export default function LocationMap() {
   );
 
   return (
-    <Section>
+    <div className="mt-8">
       <Container>
         {!isLoaded ? (
           <h1>Loading...</h1>
@@ -33,6 +33,6 @@ export default function LocationMap() {
           </div>
         )}
       </Container>
-    </Section>
+    </div>
   );
 }

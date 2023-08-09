@@ -20,9 +20,9 @@ export default function Page() {
         <Container>
           <SectionTitle title="Контакти" />
           <SmallCotainer>
-            <Description description="2972 Westheimer Rd. Santa Ana, Illinois 85486 " />
+            <Description description="Покровська площа, 13, Суми, Сумська область, 40030" />
           </SmallCotainer>
-          <Contacts phone="+380777777777" email="example@mail.com" />
+          <Contacts phone="+380542225196" email="30452338@ukr.net" />
           <LocationMap />
         </Container>
       </Section>
