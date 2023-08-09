@@ -13,7 +13,7 @@ export default function PrivacyNoticeContactsList() {
       <Container>
         <SectionTitle title="Контактна інформація" />
         <Description description="Якщо у користувача виникли питання або складнощі, пропонується звернутись до представників компанії наступними способами:" />
-        <ul className=" grid max-w-[210px] pt-9	md:max-w-2xl  md:gap-x-[76px]  md:pt-11 xl:max-w-[752px] ">
+        <ul className="grid max-w-[210px] pt-9 max-md:mx-auto	md:max-w-2xl  md:gap-x-[76px]  md:pt-11 xl:max-w-[752px] ">
           <li className="relative flex items-center gap-2.5	md:gap-5 xl:gap-6	">
             <Image
               src={ColossusIcon}
