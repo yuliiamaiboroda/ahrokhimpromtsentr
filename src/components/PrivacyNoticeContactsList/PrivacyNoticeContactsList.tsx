@@ -3,7 +3,7 @@ import Description from '../Description';
 import Section from '../Section';
 import SectionTitle from '../SectionTitle';
 import Image from 'next/image';
-import ColossusIcon from 'public/mainPage/colossus.svg';
+import ColossusIcon from 'public/images/colossus.svg';
 
 // ToDo after domen bought change subject in a href mailto
 

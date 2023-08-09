@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import SectionTitle from '../SectionTitle';
-import ColossusIcon from 'public/mainPage/colossus.svg';
+import ColossusIcon from 'public/images/colossus.svg';
 import ButtonLink from '../ButtonLink';
 
 export default function HistorySection() {

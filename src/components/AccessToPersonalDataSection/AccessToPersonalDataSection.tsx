@@ -3,7 +3,7 @@ import Container from '../Container';
 import Description from '../Description';
 import Section from '../Section';
 import SectionTitle from '../SectionTitle';
-import ColossusIcon from 'public/mainPage/colossus.svg';
+import ColossusIcon from 'public/images/colossus.svg';
 
 export default function AccessToPersonalDataSection() {
   return (
