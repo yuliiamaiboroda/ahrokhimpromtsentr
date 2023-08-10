@@ -71,8 +71,10 @@ input:-webkit-autofill:active {
   mask-composite: exclude;
 }
 
+.golden-edge.round::before {
+  @apply border-2 md:border-4 border-solid border-transparent rounded-full
+}
+
 .warning-edge.golden-edge::before {
   background: var(--warning);
 }
-
-
