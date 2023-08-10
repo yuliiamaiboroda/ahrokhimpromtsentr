@@ -1,4 +1,6 @@
-import { useState } from 'react';
+'use client';
+
+import { useState, useRef, useEffect } from 'react';
 import { useField } from 'formik';
 import InputError from '../InputError';
 
@@ -31,8 +33,28 @@ export default function SelectorField({
         array.findIndex(({ value }) => value === option.value) === index
     )
   );
+  const selector = useRef<HTMLLabelElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      console.log('handleOutsideClick');
+      if (
+        event.target &&
+        selector.current &&
+        !selector.current.contains(event.target as HTMLElement)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
+
   return (
-    <label className="relative cursor-pointer">
+    <label className="relative cursor-pointer" ref={selector}>
       <div
         className={`golden-edge ${
           meta.touched && meta.error ? 'warning-edge' : ''
@@ -64,7 +86,6 @@ export default function SelectorField({
                 onClick={() => {
                   setSelectedOption({ label, value });
                   helpers.setValue(value, true);
-                  // setIsMenuOpen(false);
                 }}
                 className={`${
                   value === selectedOption.value
