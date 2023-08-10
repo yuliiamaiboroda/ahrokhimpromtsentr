@@ -28,7 +28,6 @@ export default function FeedbackForm({}: IProps) {
   return (
     <Formik
       initialValues={INITIAL_STATE}
-      validateOnBlur
       validationSchema={feedbackSchema}
       onSubmit={(values, actions) => {
         fetch('https://ahrokhimpromtsentr.cyclic.app/api/feedback', {
