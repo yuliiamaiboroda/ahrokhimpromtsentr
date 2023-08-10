@@ -77,10 +77,18 @@ export default function SelectorField({
             switchDropdown();
           }}
           className="block h-full w-full cursor-pointer bg-transparent
-                  px-3 py-5 outline-none transition 
-                  duration-200 placeholder:text-placeholder 
-                  focus:shadow-hover md:px-4 md:py-6 xl:px-6"
+                  py-5 pl-3 pr-9 outline-none transition duration-200 placeholder:text-placeholder 
+                  focus:shadow-hover md:py-6 
+                  md:pl-4 md:pr-12 xl:pl-6 xl:pr-14"
         />
+        <svg
+          className={`${
+            isMenuOpen ? '-rotate-90' : 'rotate-90'
+          } absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 fill-accent transition duration-200 md:right-5 md:h-5 md:w-5
+          xl:right-6 xl:h-6 xl:w-6`}
+        >
+          <use href="/images/icons.svg#next"></use>
+        </svg>
       </div>
       {isMenuOpen && (
         <div
