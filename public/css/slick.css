@@ -163,14 +163,15 @@
     }
 }
 
-.prev-arrow {
-    
+.prev-arrow { 
+    left: 500px;
     @media screen and (min-width: 1280px) {
-        left: 500px;}
+        left: 500px;
+       }
 }
 
 .next-arrow {
-   
+    right: 500px;
     @media screen and (min-width: 1280px) { 
         right: 500px;}
 }
