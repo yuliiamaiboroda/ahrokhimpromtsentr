@@ -1,6 +1,4 @@
-// 'use client';
-
-// import Button from '@/components/Button';
+import { useState } from 'react';
 import vacanciesBackground from '../../../public/images/bg-vacancies-screen.jpg';
 import HeroSection from '@/components/HeroSection';
 import Section from '@/components/Section';
@@ -9,6 +7,7 @@ import SectionTitle from '@/components/SectionTitle';
 import Description from '@/components/Description';
 import SmallCotainer from '@/components/SmallContainer';
 import ResumeForm from '@/components/ResumeForm';
+import Notification from '@/components/Notification';
 
 interface IVacancyTitle {
   _id: string;
@@ -76,25 +75,18 @@ const vacancyTitles = [
 
 export default async function Page() {
   // const vacancyTitles = await getVacancyTitles();
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
 
   return (
     <main>
       <HeroSection src={vacanciesBackground} alt="Поля в гірській місцевості" />
-      its VACANCIES page
-      <div className="flex items-center justify-center gap-5">
-        {/* <Button
-          onClick={() => console.log('click')}
-          variant="primary"
-          type="button"
-          title="Всі вакансіїї"
+      {isNotificationOpen && (
+        <Notification
+          setIsNotificationOpen={setIsNotificationOpen}
+          isNotificationOpen={isNotificationOpen}
+          status="success"
         />
-        <Button
-          onClick={() => console.log('click')}
-          variant="secondary"
-          type="button"
-          title="Актуальні вакансії"
-        /> */}
-      </div>
+      )}
       <Section>
         <Container>
           <SectionTitle title="Відгукнутися" />

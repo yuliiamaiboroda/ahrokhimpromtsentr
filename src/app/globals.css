@@ -73,6 +73,14 @@ input:-webkit-autofill:active {
   pointer-events: none;
 }
 
+.golden-edge.round::before {
+  @apply rounded-full border-2 border-solid border-transparent md:border-4;
+}
+
+.golden-edge.round::before {
+  @apply rounded-full border-2 border-solid border-transparent md:border-4;
+}
+
 .warning-edge.golden-edge::before {
   background: var(--warning);
 }
