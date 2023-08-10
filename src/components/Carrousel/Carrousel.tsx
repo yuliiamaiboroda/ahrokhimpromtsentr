@@ -1,54 +1,37 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { StaticImageData } from 'next/image';
-import Modal from '../Modal';
+
+import Slider from 'react-slick';
+import '../../../public/css/slick.css';
+import '../../../public/css/slick-theme.css';
+
 import { useModal } from '@/hooks';
-import { IImage, awardsList } from '@/helpers/constants';
+import { awardsList } from '@/helpers/constants';
+
 import CarrusselModal from '../CarrouselModal';
 import CarrouselItem from '../CarrouselItem';
+import Modal from '../Modal';
+import { NextArrow, PrevArrow } from '../ArrowButtons';
+
+interface Size {
+  width: number;
+  height: number;
+}
+
+// TODO Remove resize listener on prod
 
 export default function Carrousel() {
-  const [isActive, setIsActive] = useState(3);
   const [fullImage, setFullImage] = useState<{
     src: StaticImageData;
     alt: string;
     index: number;
   } | null>(null);
-  const [currentAwardsArray, setCurrentArray] = useState<IImage[]>(awardsList);
-  const [indexAddedLeft, setIndexAddedLeft] = useState(1);
-  const [indexAddedRight, setIndexAddedRight] = useState(0);
+  const [size, setSize] = useState<Size>();
+
+  const sliderRef = useRef<Slider>(null);
 
   const { isModalOpen, openModal, closeModal } = useModal();
-
-  const ref = useRef<HTMLUListElement>(null);
-
-  const handleScrollLeft = () => {
-    if (isActive <= 3 && currentAwardsArray.length) {
-      // setCurrentArray([
-      //   currentAwardsArray[currentAwardsArray.length - indexAddedLeft],
-      //   ...currentAwardsArray,
-      // ]);
-      // setIndexAddedLeft(indexAddedLeft + 1);
-      return null;
-    }
-    ref.current ? (ref.current.scrollLeft -= 274) : null;
-    setIsActive(isActive - 1);
-  };
-
-  const handleScrollRight = () => {
-    if (
-      currentAwardsArray.length - 3 === isActive &&
-      currentAwardsArray.length
-    ) {
-      setCurrentArray([
-        ...currentAwardsArray,
-        currentAwardsArray[indexAddedRight],
-      ]);
-      setIndexAddedRight(indexAddedRight + 1);
-    }
-    ref.current ? (ref.current.scrollLeft += 274) : null;
-    setIsActive(isActive + 1);
-  };
 
   const handleOpenImage = (
     src: StaticImageData,
@@ -65,72 +48,75 @@ export default function Carrousel() {
     closeModal();
   };
 
+  const settings = {
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    variableWidth: true,
+    prevArrow: <PrevArrow onClick={() => sliderRef?.current?.slickPrev()} />,
+    nextArrow: <NextArrow onClick={() => sliderRef?.current?.slickNext()} />,
+    autoplay: true,
+    speed: 1500,
+    autoplaySpeed: 1500,
+    cssEase: 'linear',
+  };
+
+  const resizeHanlder = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    setSize({
+      width: width,
+      height: height,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', resizeHanlder);
+    return () => {
+      window.removeEventListener('resize', resizeHanlder);
+    };
+  }, []);
+
   return (
-    <div className="xl:mx-auto  xl:w-[1326px]">
-      <ul
-        ref={ref}
-        className={`flex snap-mandatory items-center gap-[30px] overflow-auto scroll-smooth xl:scrollbar md:gap-[50px] xl:mx-auto xl:gap-[70px]`}
-      >
-        {currentAwardsArray.map(({ src, alt }, index) => {
-          return (
-            <CarrouselItem
-              alt={alt}
-              src={src}
-              index={index}
-              isActive={isActive}
-              handleOpenImage={handleOpenImage}
-              key={index}
-            />
-          );
-        })}
-      </ul>
-      <ul className="max-xl:hidden xl:mx-auto xl:flex xl:items-center xl:justify-center xl:gap-[62px] ">
-        <li>
-          <div
-            className={` ${
-              isActive <= 3 && currentAwardsArray.length
-                ? 'xl:cursor-default	xl:blur-[2px]'
-                : ''
-            }`}
-          >
-            <button
-              type="button"
-              onClick={() => {
-                handleScrollLeft();
-              }}
-              className={` xl:${
-                isActive <= 3 && currentAwardsArray.length
-                  ? 'cursor-default	 xl:blur-sm xl:hover:scale-[1]'
-                  : ' xl:transition-all xl:hover:scale-[1.2]'
-              }`}
-              aria-label="arrow left"
-            >
-              <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
-                <use href="/images/icons.svg#left-arrow"></use>
-              </svg>
-            </button>
-          </div>
-        </li>
-        <li>
-          <button
-            type="button"
-            onClick={() => {
-              handleScrollRight();
-            }}
-            className="xl:cursor-pointer xl:transition-all xl:hover:scale-[1.2]"
-            aria-label="arrow right"
-          >
-            <svg className="xl:h-auto xl:w-[84px] xl:fill-accent xl:stroke-accent">
-              <use href="/images/icons.svg#right-arrow"></use>
-            </svg>
-          </button>
-        </li>
-      </ul>
-      {fullImage && window.innerWidth >= 1280 ? (
+    <div className="xl:mx-auto  xl:mb-[135px] xl:w-[1326px]">
+      {!size || size?.width >= 1280 ? (
+        <Slider {...settings}>
+          {awardsList.map(({ src, alt }, index) => {
+            return (
+              <CarrouselItem
+                alt={alt}
+                src={src}
+                handleOpenImage={handleOpenImage}
+                key={index}
+                index={index}
+              />
+            );
+          })}
+        </Slider>
+      ) : (
+        <div
+          className={`flex snap-mandatory items-center overflow-auto scroll-smooth `}
+        >
+          {awardsList.map(({ src, alt }, index) => {
+            return (
+              <CarrouselItem
+                alt={alt}
+                src={src}
+                handleOpenImage={handleOpenImage}
+                key={index}
+                index={index}
+              />
+            );
+          })}
+        </div>
+      )}
+      {fullImage && (!size || size?.width >= 1280) ? (
         <Modal onClose={handleCloseImage} isModalOpen={isModalOpen}>
           <CarrusselModal
             fullImage={fullImage}
-            awardsList={currentAwardsArray}
+            awardsList={awardsList}
             setFullImage={setFullImage}
           />
         </Modal>

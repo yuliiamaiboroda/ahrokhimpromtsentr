@@ -3,7 +3,7 @@ import Container from '../Container';
 import Description from '../Description';
 import Section from '../Section';
 import SectionTitle from '../SectionTitle';
-import ColossusIcon from 'public/mainPage/colossus.svg';
+import ColossusIcon from 'public/images/colossus.svg';
 
 export default function AccessToPersonalDataSection() {
   return (
@@ -11,7 +11,7 @@ export default function AccessToPersonalDataSection() {
       <Container>
         <SectionTitle title="Доступ до персональних даних користувача" />
         <Description description="В розділі сайту “Контакти” користувач може подати запит для отримання інформації щодо своїх персональних даних. Що отримує користувач після запиту:" />
-        <ul className=" grid max-w-[210px] py-9	md:max-w-2xl  md:gap-x-[76px]  md:py-11 xl:max-w-[752px] ">
+        <ul className=" grid max-w-[210px] py-9 max-md:mx-auto	md:max-w-2xl  md:gap-x-[76px]  md:py-11 xl:max-w-[752px] ">
           <li className="relative flex items-center gap-2.5	md:gap-5 xl:gap-6	">
             <Image
               src={ColossusIcon}
@@ -53,7 +53,7 @@ export default function AccessToPersonalDataSection() {
             />
           </li>
         </ul>
-        <ul className="flex flex-col gap-9 md:gap-11">
+        <ul className="flex flex-col gap-9 md:gap-11 ">
           <li>
             <Description description="За допомогою налаштувань у браузері кожен користувач має право відмовитись або обмежити використання файлів Cookie. Однак слід розуміти, що в разі повної відмови, деякі особливості та функціонал сайту можуть не працювати або працювати обмежено." />
           </li>
@@ -62,7 +62,7 @@ export default function AccessToPersonalDataSection() {
           </li>
         </ul>
 
-        <ul className=" grid max-w-[210px] py-9	md:max-w-2xl  md:gap-x-[76px]  md:py-11 xl:max-w-[752px] ">
+        <ul className=" grid max-w-[210px] py-9	max-md:mx-auto  md:max-w-2xl  md:gap-x-[76px] md:py-11 xl:max-w-[752px]">
           <li className="relative flex items-center	gap-2.5 md:gap-5	xl:gap-6">
             <Image
               src={ColossusIcon}

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ColossusIcon from 'public/mainPage/colossus.svg';
+import ColossusIcon from 'public/images/colossus.svg';
 
 // TODO: rewrite on real text  , check sizes, rewrite on svg sprite
 
