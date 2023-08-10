@@ -90,24 +90,33 @@ export default function SelectorField({
                     p-0.5"
         >
           <ul className="scroll  max-h-80 w-full overflow-y-auto rounded-xl bg-dark-gradient">
-            {optionsList.map(({ label, value }) => (
-              <li
-                key={value}
-                onClick={() => {
-                  setSelectedOption({ label, value });
-                  helpers.setValue(value, true);
-                  closeDropdown();
-                }}
-                className={`${
-                  value === selectedOption.value
-                    ? 'bg-light-gradient text-secondary'
-                    : 'bg-transparent'
-                } px-3 py-1 transition duration-200 hover:bg-accent hover:text-secondary
+            {optionsList.length ? (
+              optionsList.map(({ label, value }) => (
+                <li
+                  key={value}
+                  onClick={() => {
+                    setSelectedOption({ label, value });
+                    helpers.setValue(value, true);
+                    closeDropdown();
+                  }}
+                  className={`${
+                    value === selectedOption.value
+                      ? 'bg-light-gradient text-secondary'
+                      : 'bg-transparent'
+                  } px-3 py-1 transition duration-200 hover:bg-accent hover:text-secondary
                 md:px-4 md:py-2 xl:px-6`}
+                >
+                  <p>{label}</p>
+                </li>
+              ))
+            ) : (
+              <li
+                className="px-3 py-1 text-placeholder
+                          md:px-4 md:py-2 xl:px-6"
               >
-                <p>{label}</p>
+                <p>Немає списку: {placeholder}</p>
               </li>
-            ))}
+            )}
           </ul>
         </div>
       )}

@@ -7,7 +7,7 @@ import SectionTitle from '@/components/SectionTitle';
 import Description from '@/components/Description';
 import SmallCotainer from '@/components/SmallContainer';
 import ResumeForm from '@/components/ResumeForm';
-import Notification from '@/components/Notification';
+// import Notification from '@/components/Notification';
 
 interface IVacancyTitle {
   _id: string;
@@ -75,18 +75,18 @@ const vacancyTitles = [
 
 export default async function Page() {
   // const vacancyTitles = await getVacancyTitles();
-  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  // const [isNotificationOpen, setIsNotificationOpen] = useState(false);
 
   return (
     <main>
       <HeroSection src={vacanciesBackground} alt="Поля в гірській місцевості" />
-      {isNotificationOpen && (
+      {/* {isNotificationOpen && (
         <Notification
           setIsNotificationOpen={setIsNotificationOpen}
           isNotificationOpen={isNotificationOpen}
           status="success"
         />
-      )}
+      )} */}
       <Section>
         <Container>
           <SectionTitle title="Відгукнутися" />
