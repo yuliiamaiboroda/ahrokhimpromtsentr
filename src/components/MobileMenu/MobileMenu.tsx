@@ -1,6 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect } from 'react';
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from 'body-scroll-lock-upgrade';
 import { NAVIGATION_LINKS } from '../Navigation/Navigation';
 import { usePathname } from 'next/navigation';
 
@@ -14,6 +20,15 @@ export default function MobileMenu({
   isMobileMenuShown,
 }: IProps) {
   const pathname = usePathname();
+
+  useEffect(() => {
+    disableBodyScroll(document.body);
+
+    return () => {
+      enableBodyScroll(document.body);
+      clearAllBodyScrollLocks();
+    };
+  }, []);
 
   return (
     <div className="z-100 fixed bottom-0 left-0 right-0 top-0 flex h-screen w-full items-center justify-center bg-dark-gradient md:hidden">
