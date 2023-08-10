@@ -1,6 +1,4 @@
-'use client';
-
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { useField } from 'formik';
 import InputError from '../InputError';
 
@@ -33,28 +31,39 @@ export default function SelectorField({
         array.findIndex(({ value }) => value === option.value) === index
     )
   );
-  const selector = useRef<HTMLLabelElement>(null);
 
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      console.log('handleOutsideClick');
-      if (
-        event.target &&
-        selector.current &&
-        !selector.current.contains(event.target as HTMLElement)
-      ) {
-        setIsMenuOpen(false);
+  const handleOutsideClick = () => {
+    closeDropdown();
+  };
+
+  const handleEscapePress = (e: KeyboardEvent) => {
+    const ESCAPE_CODE = 'Escape';
+    if (e.code === ESCAPE_CODE) {
+      closeDropdown();
+    }
+  };
+
+  const closeDropdown = () => {
+    setIsMenuOpen(false);
+    document.removeEventListener('click', handleOutsideClick);
+    window.removeEventListener('keydown', handleEscapePress);
+  };
+
+  const switchDropdown = () => {
+    setIsMenuOpen(prevState => {
+      if (prevState) {
+        document.removeEventListener('click', handleOutsideClick);
+        return false;
+      } else {
+        document.addEventListener('click', handleOutsideClick);
+        window.addEventListener('keydown', handleEscapePress);
+        return true;
       }
-    };
-
-    document.addEventListener('click', handleOutsideClick);
-    return () => {
-      document.removeEventListener('click', handleOutsideClick);
-    };
-  }, []);
+    });
+  };
 
   return (
-    <label className="relative cursor-pointer" ref={selector}>
+    <div className="relative cursor-pointer">
       <div
         className={`golden-edge ${
           meta.touched && meta.error ? 'warning-edge' : ''
@@ -63,9 +72,11 @@ export default function SelectorField({
         <input
           type="text"
           readOnly
-          onClick={() => setIsMenuOpen(prevState => !prevState)}
           placeholder={placeholder}
           value={selectedOption.label}
+          onClick={() => {
+            switchDropdown();
+          }}
           className="block h-full w-full cursor-pointer bg-transparent
                   px-3 py-5 outline-none transition 
                   duration-200 placeholder:text-placeholder 
@@ -86,10 +97,11 @@ export default function SelectorField({
                 onClick={() => {
                   setSelectedOption({ label, value });
                   helpers.setValue(value, true);
+                  closeDropdown();
                 }}
                 className={`${
                   value === selectedOption.value
-                    ? 'bg-accent text-secondary'
+                    ? 'bg-light-gradient text-secondary'
                     : 'bg-transparent'
                 } px-3 py-1 transition duration-200 hover:bg-accent hover:text-secondary
                 md:px-4 md:py-2 xl:px-6`}
@@ -109,6 +121,6 @@ export default function SelectorField({
       >
         {meta.error}
       </InputError>
-    </label>
+    </div>
   );
 }
