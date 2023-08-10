@@ -5,7 +5,6 @@ interface IProps {
   index: number;
   src: StaticImageData;
   handleOpenImage: (src: StaticImageData, alt: string, index: number) => void;
-  isActive: number;
 }
 
 export default function CarrouselItem({
@@ -13,18 +12,12 @@ export default function CarrouselItem({
   src,
   handleOpenImage,
   index,
-  isActive,
 }: IProps) {
   return (
-    <li
-      className={`relative h-[242px] w-[174px] flex-shrink-0 md:h-[292px] md:w-[210px]
-           xl:${
-             isActive === index + 1
-               ? 'xl:flex-srink-[2] transition-[width] xl:h-[328px] xl:w-[236px]'
-               : ' xl:h-[284px] xl:w-[204px]'
-           }
+    <div
+      className={`carousel-item relative h-[242px] w-[174px]  max-xl:flex-shrink-0 md:h-[292px]
+           md:w-[210px]
               `}
-      key={index}
       onClick={() => {
         handleOpenImage(src, alt, index);
       }}
@@ -36,6 +29,6 @@ export default function CarrouselItem({
         sizes="(min-width: 768px) 210px, 174px"
         className="object-contain"
       />
-    </li>
+    </div>
   );
 }
