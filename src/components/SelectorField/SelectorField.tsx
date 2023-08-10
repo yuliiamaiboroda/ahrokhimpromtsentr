@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useField } from 'formik';
 import InputError from '../InputError';
 
@@ -61,7 +61,6 @@ export default function SelectorField({
       }
     });
   };
-
   return (
     <div className="relative cursor-pointer">
       <div
@@ -85,12 +84,12 @@ export default function SelectorField({
       </div>
       {isMenuOpen && (
         <div
-          className="absolute left-0
-                    top-[110%] z-30 h-80 w-full overflow-hidden
-                    rounded-xl border-2 border-solid border-accent
-                    bg-dark-gradient"
+          className="absolute left-0 top-[110%] z-30 flex
+                    w-full items-center justify-center overflow-hidden rounded-xl
+                    bg-light-gradient
+                    p-0.5"
         >
-          <ul className="scroll h-full w-full overflow-y-auto">
+          <ul className="scroll  max-h-80 w-full overflow-y-auto rounded-xl bg-dark-gradient">
             {optionsList.map(({ label, value }) => (
               <li
                 key={value}
