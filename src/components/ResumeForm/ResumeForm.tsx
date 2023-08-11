@@ -59,6 +59,7 @@ export default function ResumeForm({ vacancies }: IProps) {
           />
           <UploadFileField
             name="resume"
+            label="Завантажити файл"
             placeholder="Прикріпити резюме"
             fileRef={fileInput}
           />
