@@ -17,7 +17,7 @@ export default function UploadFileField({
   const [field, meta] = useField(name);
 
   return (
-    <label>
+    <label className="relative cursor-pointer">
       <input type="file" ref={fileRef} {...field} hidden />
       <div
         className={`golden-edge ${
@@ -26,7 +26,7 @@ export default function UploadFileField({
       >
         <div
           placeholder={placeholder}
-          className="flex h-full w-full cursor-pointer 
+          className="flex h-full w-full
                     justify-between bg-transparent
                     outline-none transition 
                     duration-200 placeholder:text-placeholder 

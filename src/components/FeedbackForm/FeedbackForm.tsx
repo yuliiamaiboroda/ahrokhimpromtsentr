@@ -35,8 +35,13 @@ export default function FeedbackForm({}: IProps) {
           headers: { 'Content-type': 'application/json' },
           method: 'POST',
         })
+          .then(res => {
+            if (!res.ok) {
+              throw new Error('Error sending feedback form data');
+            }
+          })
           .then(() => actions.resetForm())
-          .catch(res => console.log('Post error\n', res));
+          .catch(err => console.log('Post error\n', err));
       }}
     >
       <Form
