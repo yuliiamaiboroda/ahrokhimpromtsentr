@@ -26,21 +26,32 @@ export default function UploadFileField({
       >
         <div
           placeholder={placeholder}
-          className="h-full w-full cursor-pointer bg-transparent
-                    py-5 pl-3 pr-28 outline-none transition 
+          className="flex h-full w-full cursor-pointer 
+                    justify-between bg-transparent
+                    outline-none transition 
                     duration-200 placeholder:text-placeholder 
-                    hover:shadow-hover md:py-6 md:pl-4 md:pr-52 xl:pl-6"
+                    hover:shadow-hover "
         >
           {field.value ? (
-            <p className="break-words">{field.value.split('\\').slice(-1)}</p>
+            <p
+              className="w-2/3 break-words py-5 pl-3 pr-2 md:w-3/5 
+                        md:py-6 md:pl-4 xl:pl-6"
+            >
+              {field.value.split('\\').slice(-1)}
+            </p>
           ) : (
-            <p className="text-placeholder">{placeholder}</p>
+            <p
+              className="w-2/3 break-words py-5 pl-3 pr-2 text-placeholder md:w-3/5 
+                        md:py-6 md:pl-4 xl:pl-6"
+            >
+              {placeholder}
+            </p>
           )}
           <div
-            className="absolute right-0 top-0 flex h-full 
-                      items-center justify-center rounded-md
-                      bg-light-gradient px-8 py-3 text-secondary
-                      md:px-2 md:py-7 md:text-xl xl:text-2xl"
+            className="flex w-1/3 items-center justify-center 
+                      rounded-md bg-light-gradient
+                      p-2 text-secondary md:w-2/5
+                      md:text-xl"
           >
             <svg className="h-8 w-8 fill-current md:hidden">
               <use href="/images/icons.svg#plus"></use>
