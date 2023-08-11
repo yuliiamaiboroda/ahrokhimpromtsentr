@@ -7,6 +7,7 @@ import FormField from '../FormField';
 import TextareaField from '../TextareaField';
 import CheckboxField from '../CheckboxField';
 import SelectorField from '../SelectorField';
+import UploadFileField from '../UploadFileField';
 
 interface IProps {
   vacancies: { _id: string; title: string }[];
@@ -55,6 +56,11 @@ export default function ResumeForm({ vacancies }: IProps) {
               })),
               { label: 'Інше', value: 'other' },
             ]}
+          />
+          <UploadFileField
+            name="resume"
+            placeholder="Прикріпити резюме"
+            fileRef={fileInput}
           />
           <TextareaField name="comment" placeholder="Коментар" />
           <CheckboxField
