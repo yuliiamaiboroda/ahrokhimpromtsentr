@@ -1,11 +1,11 @@
-import HeroSection from '@/components/HeroSection/HeroSection';
+import HeroSection from '@/components/HeroSection';
 import vacanciesBackground from '../../../public/images/bg-vacancies-screen.jpg';
 import Section from '@/components/Section/Section';
-import Container from '@/components/Container/Container';
-import SectionTitle from '@/components/SectionTitle/SectionTitle';
-import SmallCotainer from '@/components/SmallContainer/SmallContainer';
-import Description from '@/components/Description/Description';
-import ResumeForm from '@/components/ResumeForm/ResumeForm';
+import Container from '@/components/Container';
+import SectionTitle from '@/components/SectionTitle';
+import SmallCotainer from '@/components/SmallContainer';
+import Description from '@/components/Description';
+import ResumeForm from '@/components/ResumeForm';
 
 interface IVacancyTitle {
   _id: string;

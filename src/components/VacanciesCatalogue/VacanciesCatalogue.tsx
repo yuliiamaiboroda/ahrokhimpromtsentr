@@ -59,7 +59,7 @@ export default function VacanciesCatalogue({ vacancies }: IProps) {
       </div>
       <ul className="mt-9 md:mt-16">
         {visibleVacancies.length ? (
-          visibleVacancies.map(({ _id, title }) => (
+          visibleVacancies.map(({ _id, title, ...rest }) => (
             <li
               key={_id}
               className="flex justify-between gap-1 font-body text-base md:text-xl
@@ -73,7 +73,11 @@ export default function VacanciesCatalogue({ vacancies }: IProps) {
                 {title}
               </p>
               <Link
-                href={`/vacancies/${_id}`}
+                href={{
+                  pathname: `/vacancies/${_id}`,
+                  query: { _id, title, ...rest },
+                }}
+                as={`vacancies/${_id}`}
                 className="relative font-bold transition-colors
                         duration-200 before:absolute before:bottom-0 before:left-0
                         before:h-0.5 before:w-full before:bg-underline-gradient 

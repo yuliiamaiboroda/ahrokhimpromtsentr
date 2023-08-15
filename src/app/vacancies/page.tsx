@@ -2,8 +2,6 @@ import Section from '@/components/Section';
 import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import Description from '@/components/Description';
-import SmallCotainer from '@/components/SmallContainer';
-import ResumeForm from '@/components/ResumeForm';
 import ButtonLink from '@/components/ButtonLink';
 import VacanciesCatalogue from '@/components/VacanciesCatalogue';
 
