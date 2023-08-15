@@ -1,5 +1,3 @@
-import vacanciesBackground from '../../../public/images/bg-vacancies-screen.jpg';
-import HeroSection from '@/components/HeroSection';
 import Section from '@/components/Section';
 import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
@@ -8,11 +6,6 @@ import SmallCotainer from '@/components/SmallContainer';
 import ResumeForm from '@/components/ResumeForm';
 import ButtonLink from '@/components/ButtonLink';
 import VacanciesCatalogue from '@/components/VacanciesCatalogue';
-
-interface IVacancyTitle {
-  _id: string;
-  title: string;
-}
 
 interface IVacancy {
   _id: string;
@@ -25,18 +18,6 @@ interface IVacancy {
   contactPhone: string;
   workExperienceRequired: string;
   location: string;
-}
-
-async function getVacancyTitles() {
-  const res = await fetch(
-    'https://ahrokhimpromtsentr.cyclic.app/api/vacancies/titles'
-  );
-
-  if (!res.ok) {
-    throw new Error('Error fetching vacancies titles');
-  }
-
-  return res.json() as Promise<IVacancyTitle[]>;
 }
 
 async function getVacancies() {
@@ -52,12 +33,10 @@ async function getVacancies() {
 }
 
 export default async function Page() {
-  const vacancyTitles = await getVacancyTitles();
   const vacanciesList = await getVacancies();
 
   return (
-    <main>
-      <HeroSection src={vacanciesBackground} alt="Поля в гірській місцевості" />
+    <>
       <Section>
         <Container>
           <SectionTitle title="Робота" />
@@ -81,17 +60,6 @@ export default async function Page() {
           <VacanciesCatalogue vacancies={vacanciesList} />
         </Container>
       </Section>
-      <div id="resumeform">
-        <Section>
-          <Container>
-            <SectionTitle title="Відгукнутися" />
-            <SmallCotainer>
-              <Description description="Вкажіть свої контактні дані і ми надамо зворотній зв’язок" />
-            </SmallCotainer>
-            <ResumeForm vacancies={vacancyTitles} />
-          </Container>
-        </Section>
-      </div>
-    </main>
+    </>
   );
 }
