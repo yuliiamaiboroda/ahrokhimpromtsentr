@@ -74,9 +74,10 @@ export default function VacanciesCatalogue({ vacancies }: IProps) {
               </p>
               <Link
                 href="/vacancies"
-                className="relative font-bold before:absolute
-                        before:bottom-0 before:left-0 before:h-0.5 before:w-full
-                        before:bg-underline-gradient"
+                className="relative font-bold transition-colors
+                        duration-200 before:absolute before:bottom-0 before:left-0
+                        before:h-0.5 before:w-full before:bg-underline-gradient 
+                        hover:text-accent"
               >
                 Детальніше
               </Link>
