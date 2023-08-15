@@ -7,10 +7,24 @@ import Description from '@/components/Description';
 import SmallCotainer from '@/components/SmallContainer';
 import ResumeForm from '@/components/ResumeForm';
 import ButtonLink from '@/components/ButtonLink';
+import VacanciesCatalogue from '@/components/VacanciesCatalogue';
 
 interface IVacancyTitle {
   _id: string;
   title: string;
+}
+
+interface IVacancy {
+  _id: string;
+  category: string;
+  title: string;
+  description: string;
+  sallary: string;
+  education: string;
+  contactMail: string;
+  contactPhone: string;
+  workExperienceRequired: string;
+  location: string;
 }
 
 async function getVacancyTitles() {
@@ -25,9 +39,21 @@ async function getVacancyTitles() {
   return res.json() as Promise<IVacancyTitle[]>;
 }
 
+async function getVacancies() {
+  const res = await fetch(
+    'https://ahrokhimpromtsentr.cyclic.app/api/vacancies/category/all-vacancies'
+  );
+
+  if (!res.ok) {
+    throw new Error('Error fetching vacancies titles');
+  }
+
+  return res.json() as Promise<IVacancy[]>;
+}
+
 export default async function Page() {
   const vacancyTitles = await getVacancyTitles();
-  // const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const vacanciesList = await getVacancies();
 
   return (
     <main>
@@ -47,6 +73,12 @@ export default async function Page() {
               title="Залишити заявку"
             />
           </div>
+        </Container>
+      </Section>
+      <Section>
+        <Container>
+          <SectionTitle title="Вакансії" />
+          <VacanciesCatalogue vacancies={vacanciesList} />
         </Container>
       </Section>
       <div id="resumeform">

@@ -25,7 +25,7 @@ export default function Button({
         type={type}
         onClick={onClick}
         disabled={isDisabled ? true : false}
-        className={` flex justify-center items-center w-[178px] md:w-[302px] xl:w-[272px] py-3 md:py-5 xl:py-6 rounded-xl  font-body font-bold text-sm md:text-2xl	xl:text-[28px]
+        className={` flex w-[178px] items-center justify-center rounded-xl py-3 font-body text-sm font-bold md:w-[302px]  md:py-5 md:text-2xl xl:w-[272px] xl:py-6	xl:text-[28px]
         ${
           variant === ButtonsVariants.primary
             ? 'primary__button'
