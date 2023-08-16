@@ -3,21 +3,36 @@ import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import Contacts from '@/components/Contacts';
 
-const vacancy = {
-  _id: '646e1584a5f81586b187fad3',
-  category: 'actual-vacancies',
-  title: 'Вантажник',
-  description:
-    'Потрібен вантажник Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam unde nulla ipsa blanditiis culpa omnis mollitia? Incidunt necessitatibus cumque assumenda!',
-  sallary: '10000-12000',
-  education: 'неповна',
-  contactMail: 'test@mail.com',
-  contactPhone: '+380503561436',
-  workExperienceRequired: '1',
-  location: 'Суми,Суми',
-};
+interface IVacancy {
+  _id: string;
+  category: string;
+  title: string;
+  description: string;
+  sallary: string;
+  education: string;
+  contactMail: string;
+  contactPhone: string;
+  workExperienceRequired: string;
+  location: string;
+}
 
-export default function Page() {
+async function getCurrentVacancy(vacancyId: string) {
+  const res = await fetch(
+    `https://ahrokhimpromtsentr.cyclic.app/api/vacancies/certain/${vacancyId}`
+  );
+
+  if (!res.ok) {
+    throw new Error('Error fetching vacancies');
+  }
+
+  return res.json() as Promise<IVacancy>;
+}
+
+export default async function Page({
+  params,
+}: {
+  params: { vacancyId: string };
+}) {
   const {
     title,
     description,
@@ -27,7 +42,7 @@ export default function Page() {
     location,
     contactMail,
     contactPhone,
-  } = vacancy;
+  } = await getCurrentVacancy(params.vacancyId);
 
   const vacancyDetails = [
     { label: 'Опис', value: description },
