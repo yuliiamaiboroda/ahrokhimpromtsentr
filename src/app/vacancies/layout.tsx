@@ -6,6 +6,7 @@ import SectionTitle from '@/components/SectionTitle';
 import SmallCotainer from '@/components/SmallContainer';
 import Description from '@/components/Description';
 import ResumeForm from '@/components/ResumeForm';
+import BushUpperDecoration from '@/components/BushUpperDecoration';
 import CornDecoration from '@/components/CornDecoration';
 
 interface IVacancyTitle {
@@ -47,6 +48,7 @@ export default async function Layout({ children }: IProps) {
           </Container>
         </Section>
       </div>
+      <BushUpperDecoration />
       <CornDecoration />
     </main>
   );
