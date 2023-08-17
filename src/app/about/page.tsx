@@ -5,10 +5,11 @@ import HistorySection from '@/components/HistorySection';
 import AwardsSection from '@/components/AwardsSection';
 import Container from '@/components/Container';
 import Section from '@/components/Section';
+import CornDecoration from '@/components/CornDecoration';
 
 export default function Page() {
   return (
-    <main>
+    <main className="relative overflow-hidden">
       <HeroSection src={aboutBackground} alt="Рука в колосках ячменю" />
       <Container>
         <Section>
@@ -25,6 +26,7 @@ export default function Page() {
       <Section>
         <AwardsSection />
       </Section>
+      <CornDecoration />
     </main>
   );
 }
