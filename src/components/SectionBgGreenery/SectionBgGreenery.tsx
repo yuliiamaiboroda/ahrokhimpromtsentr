@@ -2,6 +2,8 @@ import bgRightBottom from '../../../public/images/right-bottom-image@3x.png';
 import bgLeftBottom from '../../../public/images/left-bottom-image@3x.png';
 import BackgroundImage from '../BackgroundImage';
 
+// TODO: remove this file and parent folder
+
 export default function SectionBgGreenary({
   children,
 }: {
