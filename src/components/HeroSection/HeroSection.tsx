@@ -11,7 +11,7 @@ export default function HeroSection({
 }) {
   return (
     <section className="relative h-[218px] w-full overflow-hidden md:h-[537px] xl:h-[628px]">
-      <BackgroundImage src={src} alt={alt} />
+      <BackgroundImage src={src} alt={alt} placeholder="blur" priority />
       <HeroTitle />
     </section>
   );
