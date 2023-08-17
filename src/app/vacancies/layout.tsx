@@ -6,6 +6,8 @@ import SectionTitle from '@/components/SectionTitle';
 import SmallCotainer from '@/components/SmallContainer';
 import Description from '@/components/Description';
 import ResumeForm from '@/components/ResumeForm';
+import BushUpperDecoration from '@/components/BushUpperDecoration';
+import CornDecoration from '@/components/CornDecoration';
 
 interface IVacancyTitle {
   _id: string;
@@ -32,7 +34,7 @@ export default async function Layout({ children }: IProps) {
   const vacancyTitles = await getVacancyTitles();
 
   return (
-    <main>
+    <main className="relative overflow-hidden">
       <HeroSection src={vacanciesBackground} alt="Поля в гірській місцевості" />
       {children}
       <div id="resumeform">
@@ -46,6 +48,8 @@ export default async function Layout({ children }: IProps) {
           </Container>
         </Section>
       </div>
+      <BushUpperDecoration />
+      <CornDecoration />
     </main>
   );
 }

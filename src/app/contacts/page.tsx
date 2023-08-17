@@ -8,10 +8,11 @@ import Description from '@/components/Description';
 import Contacts from '@/components/Contacts';
 import SmallCotainer from '@/components/SmallContainer';
 import LocationMap from '@/components/LocationMap';
+import BushDecoration from '@/components/BushDecoration';
 
 export default function Page() {
   return (
-    <main>
+    <main className="relative overflow-hidden">
       <HeroSection
         src={contactsBackground}
         alt="Колоски зернової культури на світанку"
@@ -35,6 +36,7 @@ export default function Page() {
           <FeedbackForm />
         </Container>
       </Section>
+      <BushDecoration />
     </main>
   );
 }
