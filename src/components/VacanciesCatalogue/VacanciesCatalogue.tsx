@@ -73,11 +73,7 @@ export default function VacanciesCatalogue({ vacancies }: IProps) {
                 {title}
               </p>
               <Link
-                href={{
-                  pathname: `/vacancies/${_id}`,
-                  query: { _id, title, ...rest },
-                }}
-                as={`vacancies/${_id}`}
+                href={`vacancies/${_id}`}
                 className="relative font-bold transition-colors
                         duration-200 before:absolute before:bottom-0 before:left-0
                         before:h-0.5 before:w-full before:bg-underline-gradient 
