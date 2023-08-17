@@ -2,6 +2,7 @@ import Section from '@/components/Section';
 import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import OfferingsGallery from '@/components/OfferingsGallery';
+import Description from '@/components/Description';
 
 interface IProductItem {
   _id: string;
@@ -30,8 +31,11 @@ export default async function Page() {
     <>
       <Section>
         <Container>
-          <SectionTitle title="Продукти компанії" />
-          <OfferingsGallery offers={products} navigateTo="/products" />
+          <SectionTitle title="Продукція компанії" />
+          <Description description="Агрохімпромцентр пропонує дізнатись про ключові продукти, які вирощуються, обробляються, зберігаються на власних потужностях. Підприємство пропонує до реалізації наступні культури: " />
+          <div className="mt-9 md:mt-12 xl:mt-20">
+            <OfferingsGallery offers={products} navigateTo="/products" />
+          </div>
         </Container>
       </Section>
     </>
