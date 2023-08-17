@@ -2,7 +2,6 @@ import servicesBackgound from '../../../public/images/bg-services-screen.jpg';
 import HeroSection from '@/components/HeroSection';
 import BackgroundImage from '@/components/BackgroundImage/BackgroundImage';
 import cornFlowerLeft from '../../../public/images/corn-flower-left@3x.png';
-import cornFlowerRight from '../../../public/images/corn-flower-right@3x.png';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

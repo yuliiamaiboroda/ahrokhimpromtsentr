@@ -2,7 +2,6 @@ import productsBackground from '../../../public/images/bg-products-screen.jpg';
 import HeroSection from '@/components/HeroSection';
 import BackgroundImage from '@/components/BackgroundImage';
 import bushLeft from '../../../public/images/left-bottom-image@3x.png';
-import bushRight from '../../../public/images/right-bottom-image@3x.png';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
