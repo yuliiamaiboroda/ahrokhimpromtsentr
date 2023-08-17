@@ -9,11 +9,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <main className="relative overflow-hidden">
       <HeroSection src={servicesBackgound} alt="Комбайни в ряд на полі" />
       {children}
-      <div className="absolute -left-[30px] bottom-0 -z-10 h-[253px] w-[115px] md:h-[550px] md:w-[250px] xl:h-[651px] xl:w-[326px]">
+      <div
+        className="absolute -left-[37px] bottom-0 -z-10 h-[253px] w-[115px] 
+                  md:-left-[18px] md:h-[550px] md:w-[250px] 
+                  xl:-bottom-[24px] xl:-left-[51px] xl:h-[651px] xl:w-[326px]"
+      >
         <BackgroundImage src={cornFlowerLeft} alt="Цвіт кукурудзи" />
       </div>
-      <div className="absolute -right-[30px] bottom-0 -z-10 h-[253px] w-[115px] md:h-[550px] md:w-[250px] xl:h-[651px] xl:w-[326px]">
-        <BackgroundImage src={cornFlowerRight} alt="Цвіт кукурудзи" />
+      <div
+        className="absolute -right-[37px] bottom-0 -z-10 h-[253px] w-[115px] -scale-x-100
+                  md:-right-[18px] md:h-[550px] md:w-[250px] 
+                  xl:-bottom-[24px] xl:-right-[51px] xl:h-[651px] xl:w-[326px]"
+      >
+        <BackgroundImage src={cornFlowerLeft} alt="Цвіт кукурудзи" />
       </div>
     </main>
   );
