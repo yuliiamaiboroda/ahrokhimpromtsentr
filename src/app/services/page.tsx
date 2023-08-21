@@ -2,6 +2,7 @@ import Section from '@/components/Section';
 import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import OfferingsGallery from '@/components/OfferingsGallery';
+import Description from '@/components/Description';
 
 interface IServiceItem {
   _id: string;
@@ -33,7 +34,10 @@ export default async function Page() {
       <Section>
         <Container>
           <SectionTitle title="Послуги" />
-          <OfferingsGallery offers={services} navigateTo="/services" />
+          <Description description="Підприємство надає комплекс послуг для аграріїв, котрим необхідно здійснити оброблення земель чи транспортування, збір та зберігання врожаю. " />
+          <div className="mt-9 md:mt-12 xl:mt-20">
+            <OfferingsGallery offers={services} navigateTo="/services" />
+          </div>
         </Container>
       </Section>
     </>

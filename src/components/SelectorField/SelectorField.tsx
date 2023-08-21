@@ -18,13 +18,9 @@ export default function SelectorField({
   name,
   options,
   placeholder = 'Обрати...',
-  initialValue,
 }: IProps) {
-  const [, meta, helpers] = useField(name);
+  const [field, meta, helpers] = useField(name);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(
-    initialValue || { label: '', value: '' }
-  );
   const [optionsList] = useState(() =>
     options.filter(
       (option, index, array) =>
@@ -61,6 +57,11 @@ export default function SelectorField({
       }
     });
   };
+
+  const selectedOption = useMemo(() => {
+    return optionsList.find(option => option.value === field.value);
+  }, [optionsList, field.value]);
+
   return (
     <div className="relative cursor-pointer">
       <div
@@ -72,7 +73,7 @@ export default function SelectorField({
           type="text"
           readOnly
           placeholder={placeholder}
-          value={selectedOption.label}
+          value={selectedOption ? selectedOption.label : ''}
           onClick={() => {
             switchDropdown();
           }}
@@ -103,12 +104,11 @@ export default function SelectorField({
                 <li
                   key={value}
                   onClick={() => {
-                    setSelectedOption({ label, value });
                     helpers.setValue(value, true);
                     closeDropdown();
                   }}
                   className={`${
-                    value === selectedOption.value
+                    value === field.value
                       ? 'bg-light-gradient text-secondary'
                       : 'bg-transparent'
                   } px-3 py-1 transition duration-200 hover:bg-accent hover:text-secondary

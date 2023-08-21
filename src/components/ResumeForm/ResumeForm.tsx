@@ -1,38 +1,67 @@
 'use client';
 
-import { useRef } from 'react';
+import {
+  // useState,
+  useRef,
+} from 'react';
 import { Formik, Form } from 'formik';
 import { resumeSchema } from '@/helpers/schemas';
 import FormField from '../FormField';
 import TextareaField from '../TextareaField';
 import CheckboxField from '../CheckboxField';
 import SelectorField from '../SelectorField';
+import UploadFileField from '../UploadFileField';
+// import Notification from '../Notification';
 
 interface IProps {
   vacancies: { _id: string; title: string }[];
 }
 
 export default function ResumeForm({ vacancies }: IProps) {
+  // const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
 
   return (
-    <Formik
-      initialValues={{
-        name: '',
-        phone: '',
-        email: '',
-        position: '',
-        resume: '',
-        comment: '',
-        agreement: false,
-      }}
-      validationSchema={resumeSchema(fileInput)}
-      onSubmit={(values, action) => {
-        console.log('values', values);
-        action.resetForm();
-      }}
-    >
-      {({ values, setFieldValue }) => (
+    <>
+      <Formik
+        initialValues={{
+          name: '',
+          phone: '',
+          email: '',
+          position: '',
+          resume: '',
+          comment: '',
+          agreement: false,
+        }}
+        validationSchema={resumeSchema(fileInput)}
+        onSubmit={(formValues, actions) => {
+          const formData = new FormData();
+          Object.entries(formValues).forEach(([key, value]) => {
+            if (key !== 'resume') {
+              formData.append(key, String(value));
+            }
+          });
+
+          if (fileInput.current?.files?.length) {
+            formData.append('resume', fileInput.current.files[0]);
+          }
+
+          fetch('https://ahrokhimpromtsentr.cyclic.app/api/resumes', {
+            body: formData,
+            method: 'POST',
+          })
+            .then(res => {
+              if (!res.ok) {
+                throw new Error('Error sending resume from data');
+              }
+            })
+            .then(() => {
+              actions.resetForm();
+              // setIsNotificationOpen(true);
+            })
+            .catch(err => console.log('Post error\n', err.message));
+        }}
+      >
         <Form
           className="mx-auto flex max-w-full flex-col gap-7 
                   font-body text-base font-bold text-primary 
@@ -56,6 +85,12 @@ export default function ResumeForm({ vacancies }: IProps) {
               { label: 'Інше', value: 'other' },
             ]}
           />
+          <UploadFileField
+            name="resume"
+            label="Завантажити файл"
+            placeholder="Прикріпити резюме"
+            fileRef={fileInput}
+          />
           <TextareaField name="comment" placeholder="Коментар" />
           <CheckboxField
             name="agreement"
@@ -70,7 +105,17 @@ export default function ResumeForm({ vacancies }: IProps) {
             Надіслати
           </button>
         </Form>
-      )}
-    </Formik>
+      </Formik>
+      {/* <button type="button" onClick={() => setIsNotificationOpen(true)}>
+        Notification
+      </button>
+      {isNotificationOpen && (
+        <Notification
+          setIsNotificationOpen={setIsNotificationOpen}
+          isNotificationOpen={isNotificationOpen}
+          status="success"
+        />
+      )} */}
+    </>
   );
 }
