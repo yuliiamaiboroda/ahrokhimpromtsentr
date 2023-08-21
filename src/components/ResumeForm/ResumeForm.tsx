@@ -1,9 +1,6 @@
 'use client';
 
-import {
-  // useState,
-  useRef,
-} from 'react';
+import { useState, useRef } from 'react';
 import { Formik, Form } from 'formik';
 import { resumeSchema } from '@/helpers/schemas';
 import FormField from '../FormField';
@@ -11,14 +8,17 @@ import TextareaField from '../TextareaField';
 import CheckboxField from '../CheckboxField';
 import SelectorField from '../SelectorField';
 import UploadFileField from '../UploadFileField';
-// import Notification from '../Notification';
+import Notification from '../Notification';
 
 interface IProps {
   vacancies: { _id: string; title: string }[];
 }
 
 export default function ResumeForm({ vacancies }: IProps) {
-  // const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const [notificationeType, setNotificationType] = useState<
+    'success' | 'failure'
+  >('success');
   const fileInput = useRef<HTMLInputElement>(null);
 
   return (
@@ -106,16 +106,30 @@ export default function ResumeForm({ vacancies }: IProps) {
           </button>
         </Form>
       </Formik>
-      {/* <button type="button" onClick={() => setIsNotificationOpen(true)}>
-        Notification
+      <button
+        type="button"
+        className="mr-20"
+        onClick={() => {
+          setNotificationType('success');
+          setIsNotificationOpen(true);
+        }}
+      >
+        Success
       </button>
-      {isNotificationOpen && (
-        <Notification
-          setIsNotificationOpen={setIsNotificationOpen}
-          isNotificationOpen={isNotificationOpen}
-          status="success"
-        />
-      )} */}
+      <button
+        type="button"
+        onClick={() => {
+          setNotificationType('failure');
+          setIsNotificationOpen(true);
+        }}
+      >
+        Failure
+      </button>
+      <Notification
+        onClose={() => setIsNotificationOpen(false)}
+        isShown={isNotificationOpen}
+        status={notificationeType}
+      />
     </>
   );
 }
