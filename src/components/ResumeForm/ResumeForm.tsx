@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import { resumeSchema } from '@/helpers/schemas';
 import FormField from '../FormField';
@@ -9,16 +9,14 @@ import CheckboxField from '../CheckboxField';
 import SelectorField from '../SelectorField';
 import UploadFileField from '../UploadFileField';
 import Notification from '../Notification';
+import { useNotification } from '@/hooks';
 
 interface IProps {
   vacancies: { _id: string; title: string }[];
 }
 
 export default function ResumeForm({ vacancies }: IProps) {
-  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [notificationeType, setNotificationType] = useState<
-    'success' | 'failure'
-  >('success');
+  const { showSuccess, showFailure, ...state } = useNotification();
   const fileInput = useRef<HTMLInputElement>(null);
 
   return (
@@ -57,9 +55,9 @@ export default function ResumeForm({ vacancies }: IProps) {
             })
             .then(() => {
               actions.resetForm();
-              // setIsNotificationOpen(true);
+              showSuccess();
             })
-            .catch(err => console.log('Post error\n', err.message));
+            .catch(err => showFailure());
         }}
       >
         <Form
@@ -106,30 +104,7 @@ export default function ResumeForm({ vacancies }: IProps) {
           </button>
         </Form>
       </Formik>
-      <button
-        type="button"
-        className="mr-20"
-        onClick={() => {
-          setNotificationType('success');
-          setIsNotificationOpen(true);
-        }}
-      >
-        Success
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          setNotificationType('failure');
-          setIsNotificationOpen(true);
-        }}
-      >
-        Failure
-      </button>
-      <Notification
-        onClose={() => setIsNotificationOpen(false)}
-        isShown={isNotificationOpen}
-        status={notificationeType}
-      />
+      <Notification {...state} />
     </>
   );
 }
