@@ -40,7 +40,11 @@ export default async function Page({
         <DetailsImage src={imageURL} alt={title} />
         <Description description={description} />
         <div className="mx-auto mt-5 w-fit md:mt-10">
-          <ButtonLink navigateTo="/products" title="Продукти компанії" />
+          <ButtonLink
+            navigateTo="/products"
+            title="Продукти компанії"
+            size="l"
+          />
         </div>
       </Container>
     </Section>
