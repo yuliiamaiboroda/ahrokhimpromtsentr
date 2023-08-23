@@ -1,9 +1,6 @@
 'use client';
 
-import {
-  // useState,
-  useRef,
-} from 'react';
+import { useRef } from 'react';
 import { Formik, Form } from 'formik';
 import { resumeSchema } from '@/helpers/schemas';
 import FormField from '../FormField';
@@ -11,14 +8,15 @@ import TextareaField from '../TextareaField';
 import CheckboxField from '../CheckboxField';
 import SelectorField from '../SelectorField';
 import UploadFileField from '../UploadFileField';
-// import Notification from '../Notification';
+import Notification from '../Notification';
+import { useNotification } from '@/hooks';
 
 interface IProps {
   vacancies: { _id: string; title: string }[];
 }
 
 export default function ResumeForm({ vacancies }: IProps) {
-  // const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const { showSuccess, showFailure, ...state } = useNotification();
   const fileInput = useRef<HTMLInputElement>(null);
 
   return (
@@ -57,9 +55,9 @@ export default function ResumeForm({ vacancies }: IProps) {
             })
             .then(() => {
               actions.resetForm();
-              // setIsNotificationOpen(true);
+              showSuccess();
             })
-            .catch(err => console.log('Post error\n', err.message));
+            .catch(err => showFailure());
         }}
       >
         <Form
@@ -106,16 +104,7 @@ export default function ResumeForm({ vacancies }: IProps) {
           </button>
         </Form>
       </Formik>
-      {/* <button type="button" onClick={() => setIsNotificationOpen(true)}>
-        Notification
-      </button>
-      {isNotificationOpen && (
-        <Notification
-          setIsNotificationOpen={setIsNotificationOpen}
-          isNotificationOpen={isNotificationOpen}
-          status="success"
-        />
-      )} */}
+      <Notification {...state} />
     </>
   );
 }

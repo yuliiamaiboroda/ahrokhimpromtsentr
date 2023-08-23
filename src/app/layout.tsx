@@ -2,6 +2,7 @@ import './globals.css';
 import { IBMPlexSans, nunito } from './fonts';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SvgLightGradient from '@/components/SvgLightGradient';
 
 export const metadata = {
   title: 'Агрохімпромцентр',
@@ -21,6 +22,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <SvgLightGradient />
         <Footer />
       </body>
     </html>

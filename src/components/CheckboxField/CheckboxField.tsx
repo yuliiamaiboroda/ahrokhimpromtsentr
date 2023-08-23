@@ -7,10 +7,6 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
 }
 
-// 1: h-6 w-6 x-1/3 y-[60%];
-// 2: h-6 w-6 x-1/2 y-1/2;
-// 3: h-8 w-8 x-1/2 y-1/2;
-
 export default function CheckboxField({ label, name }: IProps) {
   const [field, meta] = useField(name);
   return (
@@ -24,7 +20,7 @@ export default function CheckboxField({ label, name }: IProps) {
       <div
         className="relative h-9 w-9 shrink-0 rounded-md 
                     border-2 border-solid border-accent 
-                    transition duration-200 md:h-10 md:w-10 "
+                    transition duration-200 md:h-10 md:w-10"
       >
         <svg
           className={`${
