@@ -5,7 +5,6 @@ interface IProps {
   status: keyof typeof NotificationStatus;
   hideNotification: () => void;
 }
-let timeoutId: NodeJS.Timeout;
 
 export default function Notification({
   hideNotification,

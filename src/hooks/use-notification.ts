@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { NotificationStatus } from '@/types';
 
+const TIMEOUT_DELAY = 3000;
+
 export function useNotification() {
   const [isShown, setIsShown] = useState(false);
   const [status, setStatus] = useState<keyof typeof NotificationStatus>(
@@ -13,7 +15,7 @@ export function useNotification() {
       const id = setTimeout(() => {
         setIsShown(false);
         setTimeoutId(null);
-      }, 3000);
+      }, TIMEOUT_DELAY);
       setTimeoutId(id);
     }
   }, [isShown]);

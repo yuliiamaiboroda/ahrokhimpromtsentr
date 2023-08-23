@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { Formik, Form } from 'formik';
 import { resumeSchema } from '@/helpers/schemas';
 import FormField from '../FormField';
