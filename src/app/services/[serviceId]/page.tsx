@@ -64,7 +64,11 @@ export default async function Page({
           <Contacts email={contactMail} phone={contactPhone} />
         </div>
         <div className="mx-auto w-fit">
-          <ButtonLink navigateTo="/services" title="Послуги компанії" />
+          <ButtonLink
+            navigateTo="/services"
+            title="Послуги компанії"
+            size="l"
+          />
         </div>
       </Container>
     </Section>
