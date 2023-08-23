@@ -39,23 +39,25 @@ export default function VacanciesCatalogue({ vacancies }: IProps) {
 
   return (
     <div className="mx-auto w-10/12">
-      <div className="flex justify-between">
+      <div className="flex flex-wrap justify-center gap-2 md:flex-nowrap md:justify-between md:gap-4">
         <Button
           type="button"
           variant={filterParams ? 'secondary' : 'primary'}
-          title="Всі вакансії"
           onClick={() => {
             setFilterParams(null);
           }}
-        />
+        >
+          Всі вакансії
+        </Button>
         <Button
           type="button"
           variant={filterParams ? 'primary' : 'secondary'}
-          title="Актуальні вакансії"
           onClick={() => {
             setFilterParams(VacancyCategories.actual);
           }}
-        />
+        >
+          Актуальні вакансії
+        </Button>
       </div>
       <ul className="mt-9 md:mt-16">
         {visibleVacancies.length ? (

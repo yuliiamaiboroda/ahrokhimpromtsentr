@@ -8,6 +8,7 @@ import TextareaField from '../TextareaField';
 import CheckboxField from '../CheckboxField';
 import SelectorField from '../SelectorField';
 import UploadFileField from '../UploadFileField';
+import Button from '../Button';
 import Notification from '../Notification';
 import { useNotification } from '@/hooks';
 
@@ -94,14 +95,11 @@ export default function ResumeForm({ vacancies }: IProps) {
             name="agreement"
             label="Я даю згоду на обробку персональних даних"
           />
-          <button
-            type="submit"
-            className="mx-auto min-w-[200px] rounded-xl bg-light-gradient
-                    px-2 py-3 text-center font-body text-base 
-                    font-bold text-secondary hover:shadow-hover md:text-xl xl:text-2xl"
-          >
-            Надіслати
-          </button>
+          <div className="mx-auto">
+            <Button type="submit" variant="primary">
+              Надіслати
+            </Button>
+          </div>
         </Form>
       </Formik>
       <Notification {...state} />

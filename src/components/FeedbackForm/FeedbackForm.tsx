@@ -5,6 +5,7 @@ import { feedbackSchema } from '@/helpers/schemas';
 import FormField from '../FormField';
 import TextareaField from '../TextareaField';
 import CheckboxField from '../CheckboxField';
+import Button from '../Button';
 import Notification from '../Notification';
 import { useNotification } from '@/hooks';
 
@@ -61,14 +62,11 @@ export default function FeedbackForm({}: IProps) {
             label="Я даю згоду на обробку
           персональний даних"
           />
-          <button
-            type="submit"
-            className="mx-auto min-w-[200px] rounded-xl bg-light-gradient
-                    px-2 py-3 text-center font-body text-base 
-                    font-bold text-secondary hover:shadow-hover md:text-xl xl:text-2xl"
-          >
-            Надіслати
-          </button>
+          <div className="mx-auto">
+            <Button type="submit" variant="primary">
+              Надіслати
+            </Button>
+          </div>
         </Form>
       </Formik>
       <Notification {...state} />
