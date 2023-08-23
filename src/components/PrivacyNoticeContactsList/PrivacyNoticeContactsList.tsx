@@ -86,7 +86,7 @@ export default function PrivacyNoticeContactsList() {
                 className="text-accent"
                 href="https://www.google.com/maps/place/%D0%9F%D0%9F%D0%A4+%22%D0%90%D0%B3%D1%80%D0%BE%D1%85%D1%96%D0%BC%D0%BF%D1%80%D0%BE%D0%BC%D1%86%D0%B5%D0%BD%D1%82%D1%80%22/@50.9077759,34.7942724,19z/data=!3m1!4b1!4m6!3m5!1s0x412901896d76e81b:0xb4f85292f702bf85!8m2!3d50.9077759!4d34.7949161!16s%2Fg%2F12qgtzxkz?hl=uk&entry=ttu"
               >
-                Покровська площа, 13, Суми, Сумська область, 40030
+                Покровська площа, 13, Суми, Сумська область, 40000
               </a>
             </span>
           </li>
