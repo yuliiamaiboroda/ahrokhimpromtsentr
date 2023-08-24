@@ -59,7 +59,7 @@ export default async function Page({
         >
           <Description description={description} />
           <Description
-            description={` Ціна: ${price}${!isNaN(Number(price)) && '₴'}`}
+            description={` Ціна: ${price}${!isNaN(Number(price)) ? '₴' : ''}`}
           />
           <Contacts email={contactMail} phone={contactPhone} />
         </div>
