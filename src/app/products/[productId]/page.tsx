@@ -25,6 +25,22 @@ async function getCurrentProduct(productId: string) {
   return res.json() as Promise<IProductItem>;
 }
 
+interface IProductItem {
+  _id: string;
+  title: string;
+  imageURL: string;
+  description: string;
+  createdAt: string;
+}
+
+export async function generateStaticParams() {
+  const res = await fetch(
+    'https://ahrokhimpromtsentr.cyclic.app/api/products/all'
+  ).then(res => res.json() as Promise<IProductItem[]>);
+
+  return res.map(product => ({ productId: product._id }));
+}
+
 export default async function Page({
   params,
 }: {

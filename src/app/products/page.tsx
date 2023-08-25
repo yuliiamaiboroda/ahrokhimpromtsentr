@@ -14,7 +14,8 @@ interface IProductItem {
 
 async function getProducts() {
   const res = await fetch(
-    'https://ahrokhimpromtsentr.cyclic.app/api/products/all'
+    'https://ahrokhimpromtsentr.cyclic.app/api/products/all',
+    { next: { revalidate: 3600 } }
   );
 
   if (!res.ok) {
