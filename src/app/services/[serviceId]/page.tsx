@@ -5,6 +5,7 @@ import DetailsImage from '@/components/DetailsImage';
 import ButtonLink from '@/components/ButtonLink';
 import Description from '@/components/Description';
 import Contacts from '@/components/Contacts';
+import { BASE_URL } from '@/helpers/constants';
 
 interface IServiceItem {
   _id: string;
@@ -18,9 +19,7 @@ interface IServiceItem {
 }
 
 async function getCurrentService(productId: string) {
-  const res = await fetch(
-    'https://ahrokhimpromtsentr.cyclic.app/api/services/getAll'
-  );
+  const res = await fetch(BASE_URL + '/api/services/getAll');
 
   if (!res.ok) {
     throw new Error('Error fetching services');

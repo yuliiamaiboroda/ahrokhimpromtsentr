@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SvgLightGradient from '@/components/SvgLightGradient';
 import type { Metadata } from 'next';
+import { REVALIDATION_DELAY } from '@/helpers/constants';
 
 export const metadata: Metadata = {
   title: 'Агрохімпромцентр',
@@ -47,6 +48,8 @@ export const metadata: Metadata = {
     'Логістика',
   ],
 };
+
+export const revalidate = REVALIDATION_DELAY;
 
 export default function RootLayout({
   children,

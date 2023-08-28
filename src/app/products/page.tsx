@@ -3,6 +3,7 @@ import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import OfferingsGallery from '@/components/OfferingsGallery';
 import Description from '@/components/Description';
+import { BASE_URL } from '@/helpers/constants';
 
 interface IProductItem {
   _id: string;
@@ -13,15 +14,13 @@ interface IProductItem {
 }
 
 async function getProducts() {
-  const res = await fetch(
-    'https://ahrokhimpromtsentr.cyclic.app/api/products/all',
-    { next: { revalidate: 3600 } }
-  );
+  const res = await fetch(BASE_URL + '/api/products/all');
 
   if (!res.ok) {
     throw new Error('Error fetching products');
   }
 
+  console.log('fetch products');
   return res.json() as Promise<IProductItem[]>;
 }
 
