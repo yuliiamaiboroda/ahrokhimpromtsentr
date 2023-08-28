@@ -8,6 +8,14 @@ import Description from '@/components/Description';
 import ResumeForm from '@/components/ResumeForm';
 import BushUpperDecoration from '@/components/BushUpperDecoration';
 import CornDecoration from '@/components/CornDecoration';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Агрохімпромцентр | Робота',
+  openGraph: {
+    title: 'Агрохімпромцентр | Робота',
+  },
+};
 
 interface IVacancyTitle {
   _id: string;
