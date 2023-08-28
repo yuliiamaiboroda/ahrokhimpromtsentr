@@ -4,6 +4,7 @@ import SectionTitle from '@/components/SectionTitle';
 import DetailsImage from '@/components/DetailsImage';
 import ButtonLink from '@/components/ButtonLink';
 import Description from '@/components/Description';
+import { BASE_URL } from '@/helpers/constants';
 
 interface IProductItem {
   _id: string;
@@ -14,13 +15,12 @@ interface IProductItem {
 }
 
 async function getCurrentProduct(productId: string) {
-  const res = await fetch(
-    `https://ahrokhimpromtsentr.cyclic.app/api/products/certain/${productId}`
-  );
+  const res = await fetch(`${BASE_URL}/api/products/certain/${productId}`);
 
   if (!res.ok) {
-    throw new Error('Error fetching products');
+    throw new Error('Error fetching product: ' + productId);
   }
+  console.log('fetch cureent product: ' + productId);
 
   return res.json() as Promise<IProductItem>;
 }

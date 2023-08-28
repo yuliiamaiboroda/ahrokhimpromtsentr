@@ -4,6 +4,7 @@ import SectionTitle from '@/components/SectionTitle';
 import Description from '@/components/Description';
 import ButtonLink from '@/components/ButtonLink';
 import VacanciesCatalogue from '@/components/VacanciesCatalogue';
+import { BASE_URL } from '@/helpers/constants';
 
 interface IVacancy {
   _id: string;
@@ -19,9 +20,7 @@ interface IVacancy {
 }
 
 async function getVacancies() {
-  const res = await fetch(
-    'https://ahrokhimpromtsentr.cyclic.app/api/vacancies/category/all-vacancies'
-  );
+  const res = await fetch(BASE_URL + '/api/vacancies/category/all-vacancies');
 
   if (!res.ok) {
     throw new Error('Error fetching vacancies titles');

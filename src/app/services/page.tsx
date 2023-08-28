@@ -3,6 +3,7 @@ import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import OfferingsGallery from '@/components/OfferingsGallery';
 import Description from '@/components/Description';
+import { BASE_URL } from '@/helpers/constants';
 
 interface IServiceItem {
   _id: string;
@@ -16,9 +17,7 @@ interface IServiceItem {
 }
 
 async function getServices() {
-  const res = await fetch(
-    'https://ahrokhimpromtsentr.cyclic.app/api/services/getAll'
-  );
+  const res = await fetch(BASE_URL + '/api/services/getAll');
 
   if (!res.ok) {
     throw new Error('Error fetching services');

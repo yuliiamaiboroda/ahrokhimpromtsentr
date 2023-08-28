@@ -1,4 +1,4 @@
-import ContactLink from '../ContactLink/ContactLink';
+import ContactLink from '../ContactLink';
 
 interface IProps {
   phone: string;

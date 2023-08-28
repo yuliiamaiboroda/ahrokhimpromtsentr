@@ -11,6 +11,7 @@ import UploadFileField from '../UploadFileField';
 import Button from '../Button';
 import Notification from '../Notification';
 import { useNotification } from '@/hooks';
+import { BASE_URL } from '@/helpers/constants';
 
 interface IProps {
   vacancies: { _id: string; title: string }[];
@@ -45,7 +46,7 @@ export default function ResumeForm({ vacancies }: IProps) {
             formData.append('resume', fileInput.current.files[0]);
           }
 
-          fetch('https://ahrokhimpromtsentr.cyclic.app/api/resumes', {
+          fetch(BASE_URL + '/api/resumes', {
             body: formData,
             method: 'POST',
           })
