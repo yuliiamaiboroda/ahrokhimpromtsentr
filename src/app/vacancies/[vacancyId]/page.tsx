@@ -2,6 +2,7 @@ import Section from '@/components/Section';
 import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import Contacts from '@/components/Contacts';
+import { BASE_URL } from '@/helpers/constants';
 
 interface IVacancy {
   _id: string;
@@ -17,9 +18,7 @@ interface IVacancy {
 }
 
 async function getCurrentVacancy(vacancyId: string) {
-  const res = await fetch(
-    `https://ahrokhimpromtsentr.cyclic.app/api/vacancies/certain/${vacancyId}`
-  );
+  const res = await fetch(`${BASE_URL}/api/vacancies/certain/${vacancyId}`);
 
   if (!res.ok) {
     throw new Error('Error fetching vacancies');

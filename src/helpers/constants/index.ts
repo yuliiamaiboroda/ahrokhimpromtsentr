@@ -5,3 +5,4 @@ export * from './button-sizes';
 export { ButtonSizes } from './button-sizes';
 
 export * from './awards-images';
+export * from './config';

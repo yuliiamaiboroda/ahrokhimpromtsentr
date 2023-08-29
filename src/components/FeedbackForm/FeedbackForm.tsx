@@ -8,6 +8,7 @@ import CheckboxField from '../CheckboxField';
 import Button from '../Button';
 import Notification from '../Notification';
 import { useNotification } from '@/hooks';
+import { BASE_URL } from '@/helpers/constants';
 
 const INITIAL_STATE = {
   name: '',
@@ -27,7 +28,7 @@ export default function FeedbackForm({}: IProps) {
         initialValues={INITIAL_STATE}
         validationSchema={feedbackSchema}
         onSubmit={(values, actions) => {
-          fetch('https://ahrokhimpromtsentr.cyclic.app/api/feedback', {
+          fetch(BASE_URL + '/api/feedback', {
             body: JSON.stringify(values),
             headers: { 'Content-type': 'application/json' },
             method: 'POST',
