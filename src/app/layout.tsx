@@ -8,7 +8,14 @@ import { REVALIDATION_DELAY } from '@/helpers/constants';
 
 export const metadata: Metadata = {
   title: 'Агрохімпромцентр',
-  robots: 'index, follow',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   description:
     'Агрохімпромцентр: Поколіннями засвоєна якість та сучасний розвиток у сільському господарстві. Відданість традиціям та інноваціям для якісних результатів. Технологічні можливості для повного циклу вирощування та обробки продукції. Спадщина минулих поколінь у службі сталого розвитку сільського господарства.',
   openGraph: {
