@@ -147,8 +147,6 @@
 }
 
 .custom_arrow {
-    display: none;
-    @media screen and (min-width: 1280px) {
         position: absolute;
         top: calc(50% + 256px);
         transform: translateY(-50%);
@@ -160,18 +158,12 @@
         align-items: center;
         cursor: pointer;
         z-index: 100;
-    }
 }
 
 .prev-arrow { 
     left: 500px;
-    @media screen and (min-width: 1280px) {
-        left: 500px;
-       }
 }
 
 .next-arrow {
     right: 500px;
-    @media screen and (min-width: 1280px) { 
-        right: 500px;}
 }
