@@ -8,6 +8,10 @@ export const resumeSchema = (fileField: React.RefObject<HTMLInputElement>) =>
       .trim()
       .min(2, "Ім'я занадто коротке - має містити мінімум 2 символи")
       .max(62, "Ім'я занадтно довге - має містити максимум 62 символів")
+      .matches(
+        /^[a-zA-Zа-яА-ЯіІїЇєЄ ]*$/,
+        "Ім'я повинно містити лише літери та пробіли"
+      )
       .required("Ім'я є обов'язковим полем"),
     phone: Yup.string()
       .trim()
