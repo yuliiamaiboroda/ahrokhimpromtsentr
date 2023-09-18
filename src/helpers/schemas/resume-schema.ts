@@ -31,6 +31,25 @@ export const resumeSchema = (fileField: React.RefObject<HTMLInputElement>) =>
         'Контактна пошта занадто довга - має містити максимум 63 символів.'
       )
       .email('Невалідна пошта')
+      .test(
+        'is-valid-email',
+        'Будь ласка введіть валідну адресу контактної пошти',
+        value => {
+          if (!value) return true;
+
+          const russianBelarusDomains = ['ru', 'by'];
+          const splitValue = value.split('@');
+          if (splitValue.length !== 2) return false;
+
+          const domain = splitValue[1].split('.')[1];
+
+          if (russianBelarusDomains.includes(domain)) {
+            return false;
+          }
+
+          return true;
+        }
+      )
       .matches(
         /^(\w+([.-]?\w+){1,})*@\w+([.-]?\w+)*(.\w{2,3})+$/,
         'Поле електронної пошти повинно містити тільки: латинські літери, цифри та знаки, на початку або в кінці електронної пошти не може бути дефіс, перед (@) повинно бути не менше 2 символів.'
