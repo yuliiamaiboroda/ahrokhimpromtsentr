@@ -14,14 +14,20 @@ interface IProductItem {
 }
 
 async function getProducts() {
-  const res = await fetch(BASE_URL + '/api/products/all');
+  try {
+    const res = await fetch(BASE_URL + '/api/products/all');
 
-  if (!res.ok) {
-    throw new Error('Error fetching products');
+    console.log('BASE_URL', BASE_URL);
+
+    if (!res.ok) {
+      throw new Error('Error fetching products');
+    }
+
+    return res.json() as Promise<IProductItem[]>;
+  } catch (error) {
+    console.log(error);
+    return [];
   }
-
-  console.log('fetch products');
-  return res.json() as Promise<IProductItem[]>;
 }
 
 export default async function Page() {

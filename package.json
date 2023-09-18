@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.10",
+    "jest-worker": "^29.6.4",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwind-clip-path": "^1.0.0"

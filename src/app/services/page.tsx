@@ -17,13 +17,18 @@ interface IServiceItem {
 }
 
 async function getServices() {
-  const res = await fetch(BASE_URL + '/api/services/getAll');
+  try {
+    const res = await fetch(BASE_URL + '/api/services/getAll');
 
-  if (!res.ok) {
-    throw new Error('Error fetching services');
+    if (!res.ok) {
+      throw new Error('Error fetching services');
+    }
+
+    return res.json() as Promise<IServiceItem[]>;
+  } catch (error) {
+    console.log(error);
+    return [];
   }
-
-  return res.json() as Promise<IServiceItem[]>;
 }
 
 export default async function Page() {

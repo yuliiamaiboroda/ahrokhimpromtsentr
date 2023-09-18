@@ -20,13 +20,18 @@ interface IVacancy {
 }
 
 async function getVacancies() {
-  const res = await fetch(BASE_URL + '/api/vacancies/category/all-vacancies');
+  try {
+    const res = await fetch(BASE_URL + '/api/vacancies/category/all-vacancies');
 
-  if (!res.ok) {
-    throw new Error('Error fetching vacancies titles');
+    if (!res.ok) {
+      throw new Error('Error fetching vacancies titles');
+    }
+
+    return res.json() as Promise<IVacancy[]>;
+  } catch (error) {
+    console.log(error);
+    return [];
   }
-
-  return res.json() as Promise<IVacancy[]>;
 }
 
 export default async function Page() {

@@ -15,14 +15,25 @@ interface IProductItem {
 }
 
 async function getCurrentProduct(productId: string) {
-  const res = await fetch(`${BASE_URL}/api/products/certain/${productId}`);
+  try {
+    const res = await fetch(`${BASE_URL}/api/products/certain/${productId}`);
 
-  if (!res.ok) {
-    throw new Error('Error fetching product: ' + productId);
+    if (!res.ok) {
+      throw new Error('Error fetching product: ' + productId);
+    }
+    console.log('fetch cureent product: ' + productId);
+
+    return res.json() as Promise<IProductItem>;
+  } catch (error) {
+    console.log(error);
+    return {
+      _id: 'string',
+      title: 'string',
+      imageURL: 'string',
+      description: 'string',
+      createdAt: 'string',
+    };
   }
-  console.log('fetch cureent product: ' + productId);
-
-  return res.json() as Promise<IProductItem>;
 }
 
 export default async function Page({
