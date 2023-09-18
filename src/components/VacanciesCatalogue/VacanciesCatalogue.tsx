@@ -68,9 +68,9 @@ export default function VacanciesCatalogue({ vacancies }: IProps) {
                         xl:text-2xl [&:not(:first-child)]:mt-6 [&:not(:first-child)]:md:mt-8"
             >
               <p
-                className="relative max-w-[60%] truncate font-semibold before:absolute
-                        before:bottom-0 before:left-0 before:h-0.5 before:w-full
-                        before:bg-underline-gradient"
+                className="relative max-w-[60%] truncate font-semibold first-letter:capitalize
+                        before:absolute before:bottom-0 before:left-0 before:h-0.5
+                        before:w-full before:bg-underline-gradient"
               >
                 {title}
               </p>

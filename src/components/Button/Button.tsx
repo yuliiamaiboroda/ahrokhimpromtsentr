@@ -7,7 +7,6 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 // Variants: primary : Кнопка повністю залита золотим градієнтом,secondary: Кнопка залалита темним градієнтом і обведена золотистою рамкою
 
-// TODO discuss about disabled variant for secondary vsriant
 
 export default function Button({
   type = 'button',

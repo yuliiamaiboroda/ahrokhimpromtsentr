@@ -29,8 +29,8 @@ export default function OfferingsItem({
           className="object-cover object-center"
         />
         <p
-          className="absolute left-0 top-1/2 w-full -translate-y-1/2 bg-[rgba(47,_64,_48,_0.67)] p-3 
-                                text-center font-body text-base font-bold md:p-2 md:text-xl xl:text-2xl"
+          className="absolute left-0 top-1/2 w-full -translate-y-1/2 bg-[rgba(47,_64,_48,_0.67)] p-3 text-center 
+                                font-body text-base font-bold first-letter:capitalize md:p-2 md:text-xl xl:text-2xl"
         >
           {title}
         </p>
