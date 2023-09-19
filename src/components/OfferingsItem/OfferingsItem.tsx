@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import emptyImage from '../../../public/images/empty-image.jpg';
 
 interface IProps {
   _id: string;
@@ -22,15 +23,15 @@ export default function OfferingsItem({
                    hover:shadow-hover "
       >
         <Image
-          src={imageURL}
+          src={imageURL ? imageURL : emptyImage}
           alt={title}
           fill
           sizes="(min-width: 1280px) 350px,  (min-width: 768px) 323px,  266px"
           className="object-cover object-center"
         />
         <p
-          className="absolute left-0 top-1/2 w-full -translate-y-1/2 bg-[rgba(47,_64,_48,_0.67)] p-3 
-                                text-center font-body text-base font-bold md:p-2 md:text-xl xl:text-2xl"
+          className="absolute left-0 top-1/2 w-full -translate-y-1/2 bg-[rgba(47,_64,_48,_0.67)] p-3 text-center 
+                                font-body text-base font-bold first-letter:capitalize md:p-2 md:text-xl xl:text-2xl"
         >
           {title}
         </p>

@@ -5,6 +5,7 @@ import DetailsImage from '@/components/DetailsImage';
 import ButtonLink from '@/components/ButtonLink';
 import Description from '@/components/Description';
 import { BASE_URL } from '@/helpers/constants';
+import emptyImage from '../../../../public/images/empty-image.jpg';
 
 interface IProductItem {
   _id: string;
@@ -37,7 +38,7 @@ export default async function Page({
     <Section>
       <Container>
         <SectionTitle title={title} />
-        <DetailsImage src={imageURL} alt={title} />
+        <DetailsImage alt={title} src={imageURL ? imageURL : emptyImage} />
         <Description description={description} />
         <div className="mx-auto mt-5 w-fit md:mt-10">
           <ButtonLink
