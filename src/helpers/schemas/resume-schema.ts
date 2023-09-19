@@ -4,21 +4,57 @@ import { fileFormat, fileSize } from '@/utils';
 
 export const resumeSchema = (fileField: React.RefObject<HTMLInputElement>) =>
   Yup.object({
-    name: Yup.string().trim().min(2).max(62).required(),
+    name: Yup.string()
+      .trim()
+      .min(2, "Ім'я занадто коротке - має містити мінімум 2 символи")
+      .max(62, "Ім'я занадтно довге - має містити максимум 62 символів")
+      .matches(
+        /^[a-zA-Zа-яА-ЯіІїЇєЄ ]*$/,
+        "Ім'я повинно містити лише літери та пробіли"
+      )
+      .required("Ім'я є обов'язковим полем"),
     phone: Yup.string()
       .trim()
       .matches(
         /^\+380\d{9}$/,
-        'Phone should containe +380 and another 9 numbers'
+        'Контактний номер повинен починатись з "+380" та містити 9 цифр після коду країни'
       )
-      .required(),
+      .required("Контактний телефон є обов'язковим полем"),
     email: Yup.string()
       .trim()
+      .min(
+        10,
+        'Контактна пошта занадто коротка - має містити мінімум 10 символів.'
+      )
+      .max(
+        63,
+        'Контактна пошта занадто довга - має містити максимум 63 символів.'
+      )
+      .email('Невалідна пошта')
+      .test(
+        'is-valid-email',
+        'Будь ласка введіть валідну адресу контактної пошти',
+        value => {
+          if (!value) return true;
+
+          const russianBelarusDomains = ['ru', 'by'];
+          const splitValue = value.split('@');
+          if (splitValue.length !== 2) return false;
+
+          const domain = splitValue[1].split('.')[1];
+
+          if (russianBelarusDomains.includes(domain)) {
+            return false;
+          }
+
+          return true;
+        }
+      )
       .matches(
         /^(\w+([.-]?\w+){1,})*@\w+([.-]?\w+)*(.\w{2,3})+$/,
         'Поле електронної пошти повинно містити тільки: латинські літери, цифри та знаки, на початку або в кінці електронної пошти не може бути дефіс, перед (@) повинно бути не менше 2 символів.'
       )
-      .required(),
+      .required("Контактна пошта є обов'язковим полем"),
     position: Yup.string()
       .trim()
       .matches(
@@ -27,7 +63,7 @@ export const resumeSchema = (fileField: React.RefObject<HTMLInputElement>) =>
       )
       .min(5)
       .max(30)
-      .required(),
+      .required("Поле позиції є обов'язковим полем"),
     resume: Yup.mixed()
       .test(
         'is-corrent-forat',
@@ -41,8 +77,8 @@ export const resumeSchema = (fileField: React.RefObject<HTMLInputElement>) =>
       ),
     comment: Yup.string()
       .trim()
-      .min(2)
-      .max(2000)
+      .min(2, 'Коментар занадтно короткий - має містити мінімум 10 символів.')
+      .max(2000, 'Коментар занадтно довга ий має містити максимум 63 символів.')
       .test(
         'word-length',
         'Одне або кілька слів перевищують максимальну довжину в 20 символів',
@@ -59,8 +95,8 @@ export const resumeSchema = (fileField: React.RefObject<HTMLInputElement>) =>
           return true;
         }
       )
-      .required(),
+      .required("Коментар є обов'язковим полем"),
     agreement: Yup.bool()
-      .oneOf([true], 'Agreement should be checked')
-      .required(),
+      .oneOf([true], 'Згода має бути надана')
+      .required("Згода на обробку даних є обов'язковим полем"),
   });

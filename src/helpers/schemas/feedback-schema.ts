@@ -32,6 +32,25 @@ export const feedbackSchema = Yup.object({
       'Контактна пошта занадто довга - має містити максимум 63 символів.'
     )
     .email('Невалідна пошта')
+    .test(
+      'is-valid-email',
+      'Будь ласка введіть валідну адресу контактної пошти',
+      value => {
+        if (!value) return true;
+
+        const russianBelarusDomains = ['ru', 'by'];
+        const splitValue = value.split('@');
+        if (splitValue.length !== 2) return false;
+
+        const domain = splitValue[1].split('.')[1];
+
+        if (russianBelarusDomains.includes(domain)) {
+          return false;
+        }
+
+        return true;
+      }
+    )
     .matches(
       /^(\w+([.-]?\w+){1,})*@\w+([.-]?\w+)*(.\w{2,3})+$/,
       'Будь ласка введіть валідну адресу контактної пошти'
@@ -44,8 +63,13 @@ export const feedbackSchema = Yup.object({
     )
     .required("Контактний телефон є обов'язковим полем"),
   name: Yup.string()
+    .trim()
     .min(4, "Ім'я занадто коротке - має містити мінімум 4 символи")
     .max(30, "Ім'я занадтно довге - має містити максимум 30 символів")
+    .matches(
+      /^[a-zA-Zа-яА-ЯіІїЇєЄ ]*$/,
+      "Ім'я повинно містити лише літери та пробіли"
+    )
     .required("Ім'я є обов'язковим полем"),
   agreement: Yup.bool()
     .oneOf([true], 'Згода має бути надана')
