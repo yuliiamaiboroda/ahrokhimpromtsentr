@@ -57,6 +57,7 @@ export const metadata: Metadata = {
 };
 
 export const revalidate = REVALIDATION_DELAY;
+// передали переменную с одного файла в другой и закончили упражнение, солидно
 
 export default function RootLayout({
   children,

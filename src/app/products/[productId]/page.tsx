@@ -21,6 +21,9 @@ async function getCurrentProduct(productId: string) {
     if (!res.ok) {
       throw new Error('Error fetching product: ' + productId);
     }
+
+    // remove logs
+    // or add more specification like console.info \ console.error
     console.log('fetch cureent product: ' + productId);
 
     return res.json() as Promise<IProductItem>;
