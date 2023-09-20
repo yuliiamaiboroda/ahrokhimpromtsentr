@@ -1,6 +1,6 @@
 import { historyPeriodsArray } from '@/helpers/constants';
 import ButtonLink from '../ButtonLink';
-import ListOneColumn from '../ListOneColumn';
+import ListOneColumn from '../ColossusDecoratedListOneColumn';
 
 export default function HistorySection() {
   return (
