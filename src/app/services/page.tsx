@@ -4,6 +4,7 @@ import SectionTitle from '@/components/SectionTitle';
 import OfferingsGallery from '@/components/OfferingsGallery';
 import Description from '@/components/Description';
 import { BASE_URL } from '@/helpers/constants';
+import data from '../../../public/data/data.json';
 
 interface IServiceItem {
   _id: string;
@@ -32,8 +33,8 @@ export default async function Page() {
     <>
       <Section>
         <Container>
-          <SectionTitle title="Послуги" />
-          <Description description="Підприємство надає комплекс послуг для аграріїв, котрим необхідно здійснити оброблення земель чи транспортування, збір та зберігання врожаю. " />
+          <SectionTitle title={data['services-page']['services-subtitle']} />
+          <Description description={data['services-page'].description} />
           <div className="mt-9 md:mt-12 xl:mt-20">
             <OfferingsGallery offers={services} navigateTo="/services" />
           </div>
