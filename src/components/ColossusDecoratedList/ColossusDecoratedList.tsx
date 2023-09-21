@@ -19,7 +19,7 @@ export default function ColossusDecoratedList({
 
   const classNameForList = isTwoColumns
     ? 'mx-auto  grid	max-w-[210px]  md:max-w-2xl  md:grid-cols-2 md:gap-x-[76px] xl:max-w-[752px]'
-    : 'mx-auto mb-[48px] grid max-w-[210px] md:mb-[68px] md:max-w-2xl xl:mb-[86px] xl:max-w-[752px]';
+    : 'mx-auto grid max-w-[210px]  md:max-w-2xl xl:max-w-[752px]';
 
   return (
     <ul className={classNameForList}>

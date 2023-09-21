@@ -9,12 +9,16 @@ import {
 import ColossusDecoratedList from '../ColossusDecoratedList';
 
 export default function AccessToPersonalDataSection() {
+  const classNameListWrapper = ' py-9 md:py-11 ';
+
   return (
     <Section>
       <Container>
         <SectionTitle title="Доступ до персональних даних користувача" />
         <Description description="В розділі сайту “Контакти” користувач може подати запит для отримання інформації щодо своїх персональних даних. Що отримує користувач після запиту:" />
-        <ColossusDecoratedList list={accessToPersonalDataArray} />
+        <div className={classNameListWrapper}>
+          <ColossusDecoratedList list={accessToPersonalDataArray} />
+        </div>
         <ul className="flex flex-col gap-9 md:gap-11 ">
           <li>
             <Description description="За допомогою налаштувань у браузері кожен користувач має право відмовитись або обмежити використання файлів Cookie. Однак слід розуміти, що в разі повної відмови, деякі особливості та функціонал сайту можуть не працювати або працювати обмежено." />
@@ -23,10 +27,13 @@ export default function AccessToPersonalDataSection() {
             <Description description="Як блокувати, відмовлятись або приймати налаштування файлів Cookie? Для цього варто скористатись вказівками для кожного браузера окремо." />
           </li>
         </ul>
-        <ColossusDecoratedList
-          list={personalDatainBrowsersArray}
-          isLinkInside
-        />
+        <div className={classNameListWrapper}>
+          <ColossusDecoratedList
+            list={personalDatainBrowsersArray}
+            isLinkInside
+          />
+        </div>
+
         <Description description="Зверніть увагу, що інструкція для кожного браузеру технічно відрізняється та згідно з оновленнями програмного забезпечення деякий функціонал може бути обмежений. " />
       </Container>
     </Section>
