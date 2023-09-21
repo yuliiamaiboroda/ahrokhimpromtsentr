@@ -1,14 +1,16 @@
 import { historyPeriodsArray } from '@/helpers/constants';
 import ButtonLink from '../ButtonLink';
-import ListOneColumn from '../ListOneColumn';
+import ListOneColumn from '../ColossusDecoratedList';
+import SectionTitle from '../SectionTitle';
 
 export default function HistorySection() {
+  const classNameWrapper = 'pb-[48px] md:pb-[68px] xl:pb-[86px]';
   return (
     <div className="flex  flex-col items-center justify-center ">
-      <ListOneColumn
-        title="Історичні періоди розвитку"
-        list={historyPeriodsArray}
-      />
+      <SectionTitle title="Історичні періоди розвитку" />
+      <div className={classNameWrapper}>
+        <ListOneColumn list={historyPeriodsArray} />
+      </div>
       <ButtonLink title="Зв’язатися з нами" navigateTo="/contacts" size="l" />
     </div>
   );

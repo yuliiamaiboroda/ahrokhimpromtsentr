@@ -8,3 +8,4 @@ export * from './awards-images';
 export * from './config';
 
 export * from './lists-data';
+export * from './jsx-lists-data';
