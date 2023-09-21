@@ -9,6 +9,7 @@ import Contacts from '@/components/Contacts';
 import SmallCotainer from '@/components/SmallContainer';
 import LocationMap from '@/components/LocationMap';
 import BushDecoration from '@/components/BushDecoration';
+import data from '../../../public/data/data.json';
 
 export default function Page() {
   return (
@@ -19,9 +20,16 @@ export default function Page() {
       />
       <Section>
         <Container>
-          <SectionTitle title="Контакти" />
+          <SectionTitle title={data['contact-page']['subtitle-first']} />
           <SmallCotainer>
-            <Description description="Покровська площа, 13, Суми, Сумська область, 40000" />
+            <div className="flex flex-col gap-5">
+              <Description
+                description={data['contact-page']['description-first']}
+              />
+              <Description
+                description={data['contact-page']['description-second']}
+              />
+            </div>
           </SmallCotainer>
           <Contacts phone="+380542225196" email="30452338@ukr.net" />
           <LocationMap />
@@ -29,9 +37,11 @@ export default function Page() {
       </Section>
       <Section>
         <Container>
-          <SectionTitle title="Відгукнутися" />
+          <SectionTitle title={data['contact-page']['subtitle-second']} />
           <SmallCotainer>
-            <Description description="Вкажіть свої контактні дані і ми надамо зворотній зв’язок" />
+            <Description
+              description={data['contact-page']['description-third']}
+            />
           </SmallCotainer>
           <FeedbackForm />
         </Container>
