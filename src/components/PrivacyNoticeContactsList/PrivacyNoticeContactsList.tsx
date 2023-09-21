@@ -1,5 +1,5 @@
 import { contactInformationArray } from '@/helpers/constants';
-import ColossusDecoratedListOneColumn from '../ColossusDecoratedList';
+import ColossusDecoratedList from '../ColossusDecoratedList';
 import Container from '../Container';
 import Description from '../Description';
 import Section from '../Section';
@@ -11,7 +11,7 @@ export default function PrivacyNoticeContactsList() {
       <Container>
         <SectionTitle title="Контактна інформація" />
         <Description description="Якщо у користувача виникли питання або складнощі, пропонується звернутись до представників компанії наступними способами:" />
-        <ColossusDecoratedListOneColumn list={contactInformationArray} />
+        <ColossusDecoratedList list={contactInformationArray} />
       </Container>
     </Section>
   );

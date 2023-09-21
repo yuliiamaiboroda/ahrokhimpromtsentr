@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import SectionTitle from '../SectionTitle';
 import ColossusIcon from 'public/images/colossus.svg';
 import ColossusDecoratedItem from '../ColossusDecoratedItem';
 
@@ -36,6 +35,15 @@ export default function ColossusDecoratedList({
           className="absolute -left-1.5 -top-2.5  h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
         />
       </li>
+      {isTwoColumns ? (
+        <li className="relative max-md:hidden">
+          <Image
+            src={ColossusIcon}
+            alt="colossus"
+            className="absolute -left-1.5 -top-2.5	h-6 w-6 md:h-7 md:w-7 xl:h-8 xl:w-8"
+          />
+        </li>
+      ) : null}
     </ul>
   );
 }
