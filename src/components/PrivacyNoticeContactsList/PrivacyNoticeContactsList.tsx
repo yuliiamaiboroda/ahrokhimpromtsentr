@@ -1,5 +1,5 @@
 import { contactInformationArray } from '@/helpers/constants';
-import ColossusDecoratedListOneColumn from '../ColossusDecoratedListOneColumn';
+import ColossusDecoratedListOneColumn from '../ColossusDecoratedList';
 import Container from '../Container';
 import Description from '../Description';
 import Section from '../Section';

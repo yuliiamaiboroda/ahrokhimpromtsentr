@@ -10,7 +10,7 @@ export default function ColossusItemWithLink({
   shownLink,
 }: IProps) {
   return (
-    <span className="overflow-hidden text-ellipsis py-5 font-body text-base font-bold	text-primary max-md:max-w-[210px] max-md:whitespace-nowrap	md:py-9	 md:text-xl xl:text-2xl">
+    <>
       {title}:{' '}
       <a
         href={linkTo}
@@ -18,8 +18,8 @@ export default function ColossusItemWithLink({
         rel="noreferrer noopener"
         className="text-accent"
       >
-        {shownLink}{' '}
+        {shownLink}
       </a>
-    </span>
+    </>
   );
 }

@@ -8,7 +8,7 @@ import {
   accessToPersonalDataArray,
   personalDatainBrowsersArray,
 } from '@/helpers/constants';
-import ColossusDecoratedListOneColumn from '../ColossusDecoratedListOneColumn';
+import ColossusDecoratedListOneColumn from '../ColossusDecoratedList';
 export default function AccessToPersonalDataSection() {
   return (
     <Section>
@@ -24,7 +24,10 @@ export default function AccessToPersonalDataSection() {
             <Description description="Як блокувати, відмовлятись або приймати налаштування файлів Cookie? Для цього варто скористатись вказівками для кожного браузера окремо." />
           </li>
         </ul>
-        <ColossusDecoratedListOneColumn list={personalDatainBrowsersArray} />
+        <ColossusDecoratedListOneColumn
+          list={personalDatainBrowsersArray}
+          isLinkInside
+        />
         <Description description="Зверніть увагу, що інструкція для кожного браузеру технічно відрізняється та згідно з оновленнями програмного забезпечення деякий функціонал може бути обмежений. " />
       </Container>
     </Section>
