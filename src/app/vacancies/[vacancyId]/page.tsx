@@ -63,8 +63,10 @@ export default async function Page({
                         xl:text-2xl [&:not(:first-child)]:mt-6 
                         [&:not(:first-child)]:md:mt-8"
             >
-              <p className="font-semibold">{label}:</p>
-              <p className="w-2/3 text-right font-bold">{value}</p>
+              <p className="font-semibold first-letter:capitalize">{label}:</p>
+              <p className="w-2/3 text-right font-bold first-letter:capitalize">
+                {value}
+              </p>
             </li>
           ))}
         </ul>
