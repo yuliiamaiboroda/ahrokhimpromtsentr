@@ -15,15 +15,17 @@ export default function Page() {
       <HeroSection src={aboutBackground} alt="Рука в колосках ячменю" />
       <Container>
         <Section>
-          <Description
-            description={data['about-page']['page-description-first']}
-          />
-          <Description
-            description={data['about-page']['page-description-second']}
-          />
-          <Description
-            description={data['about-page']['page-description-third']}
-          />
+          <div className="flex flex-col gap-5">
+            <Description
+              description={data['about-page']['description-first']}
+            />
+            <Description
+              description={data['about-page']['description-second']}
+            />
+            <Description
+              description={data['about-page']['description-third']}
+            />
+          </div>
         </Section>
       </Container>
       <Section>
