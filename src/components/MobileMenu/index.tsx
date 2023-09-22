@@ -7,7 +7,7 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock-upgrade';
-import { NAVIGATION_LINKS } from '../Navigation/Navigation';
+import { NAVIGATION_LINKS } from '../Navigation';
 import { usePathname } from 'next/navigation';
 
 interface IProps {

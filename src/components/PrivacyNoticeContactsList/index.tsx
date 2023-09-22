@@ -4,6 +4,7 @@ import Container from '../Container';
 import Description from '../Description';
 import Section from '../Section';
 import SectionTitle from '../SectionTitle';
+import data from '../../../public/data/data.json';
 
 export default function PrivacyNoticeContactsList() {
   const classNameWrapper =
@@ -11,8 +12,10 @@ export default function PrivacyNoticeContactsList() {
   return (
     <Section>
       <Container>
-        <SectionTitle title="Контактна інформація" />
-        <Description description="Якщо у користувача виникли питання або складнощі, пропонується звернутись до представників компанії наступними способами:" />
+        <SectionTitle title={data['privacy-page']['contacts-subtitle']} />
+        <Description
+          description={data['privacy-page']['contacts-description']}
+        />
         <div className={classNameWrapper}>
           <ColossusDecoratedList list={contactInformationArray} />
         </div>

@@ -1,6 +1,6 @@
 import Container from '../Container';
 import Description from '../Description';
-import Section from '../Section/Section';
+import Section from '../Section';
 import SectionTitle from '../SectionTitle';
 
 interface IProps {

@@ -11,7 +11,7 @@ export default function Header() {
   const [isMobileMenuShown, setIsMobileMenuShown] = useState(false);
 
   return (
-    <header className="absolute left-0 top-0 z-30 h-20 w-full mt-1">
+    <header className="absolute left-0 top-0 z-30 mt-1 h-20 w-full">
       <div className="flex items-center justify-around md:justify-center">
         <MobileMenuBtn
           isMobileMenuShown={isMobileMenuShown}

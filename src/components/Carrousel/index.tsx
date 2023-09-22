@@ -94,7 +94,7 @@ export default function Carrousel() {
         </Slider>
       ) : (
         <div
-          className={`flex snap-mandatory items-center overflow-auto scroll-smooth scrollbar`}
+          className={`scrollbar flex snap-mandatory items-center overflow-auto scroll-smooth`}
         >
           {awardsList.map(({ src, alt }, index) => {
             return (
