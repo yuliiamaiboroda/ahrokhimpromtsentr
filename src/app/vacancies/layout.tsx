@@ -1,6 +1,6 @@
 import HeroSection from '@/components/HeroSection';
 import vacanciesBackground from '../../../public/images/bg-vacancies-screen.jpg';
-import Section from '@/components/Section/Section';
+import Section from '@/components/Section';
 import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import SmallCotainer from '@/components/SmallContainer';

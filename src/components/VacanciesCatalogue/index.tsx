@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import Button from '../Button/Button';
+import Button from '../Button';
 import SmallCotainer from '../SmallContainer';
 
 enum VacancyCategories {

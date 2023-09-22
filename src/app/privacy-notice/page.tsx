@@ -1,4 +1,4 @@
-import HeroSection from '@/components/HeroSection/HeroSection';
+import HeroSection from '@/components/HeroSection';
 import contactsBackground from '../../../public/images/bg-contacts-screen.jpg';
 import PrivatyNoticeSection from '@/components/PrivacyNoticeSection';
 import PrivacyNoticeContactsList from '@/components/PrivacyNoticeContactsList';
