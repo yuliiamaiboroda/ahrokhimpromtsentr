@@ -21,16 +21,16 @@ export default function Page() {
       <Section>
         <Container>
           <SectionTitle title={data['contact-page']['subtitle-first']} />
-          <SmallCotainer>
-            <div className="flex flex-col gap-5">
-              <Description
-                description={data['contact-page']['description-first']}
-              />
+          <div className="flex flex-col gap-5">
+            <Description
+              description={data['contact-page']['description-first']}
+            />
+            <SmallCotainer>
               <Description
                 description={data['contact-page']['description-second']}
               />
-            </div>
-          </SmallCotainer>
+            </SmallCotainer>{' '}
+          </div>
           <Contacts phone="+380542225196" email="30452338@ukr.net" />
           <LocationMap />
         </Container>
