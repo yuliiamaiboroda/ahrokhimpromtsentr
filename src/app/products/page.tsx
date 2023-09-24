@@ -4,6 +4,7 @@ import SectionTitle from '@/components/SectionTitle';
 import OfferingsGallery from '@/components/OfferingsGallery';
 import Description from '@/components/Description';
 import { BASE_URL } from '@/helpers/constants';
+import data from '../../../public/data/data.json';
 
 interface IProductItem {
   _id: string;
@@ -31,8 +32,8 @@ export default async function Page() {
     <>
       <Section>
         <Container>
-          <SectionTitle title="Продукція компанії" />
-          <Description description="Агрохімпромцентр пропонує дізнатись про ключові продукти, які вирощуються, обробляються, зберігаються на власних потужностях. Підприємство пропонує до реалізації наступні культури: " />
+          <SectionTitle title={data['products-page']['products-subtitle']} />
+          <Description description={data['products-page'].description} />
           <div className="mt-9 md:mt-12 xl:mt-20">
             <OfferingsGallery offers={products} navigateTo="/products" />
           </div>

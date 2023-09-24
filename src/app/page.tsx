@@ -1,6 +1,6 @@
 import AdvantagesSection from '@/components/AdvantagesSection';
 import MainHero from '@/components/MainHero';
-import BushDecoration from '@/components/BushDecoration/BushDecoration';
+import BushDecoration from '@/components/BushDecoration';
 
 export default function Home() {
   return (

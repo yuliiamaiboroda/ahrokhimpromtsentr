@@ -5,6 +5,7 @@ import Description from '@/components/Description';
 import ButtonLink from '@/components/ButtonLink';
 import VacanciesCatalogue from '@/components/VacanciesCatalogue';
 import { BASE_URL } from '@/helpers/constants';
+import data from '../../../public/data/data.json';
 
 interface IVacancy {
   _id: string;
@@ -36,12 +37,20 @@ export default async function Page() {
     <>
       <Section>
         <Container>
-          <SectionTitle title="Робота" />
+          <SectionTitle title={data['vacancies-page']['job-subtitle']} />
           <div className="flex flex-col gap-5">
-            <Description description="Підприємство з багаторічним досвідом знаходиться у постійному пошуку кваліфікованих спеціалістів у різних галузях сільськогосподарського направлення. Майбутнім працівникам пропонується ряд переваг: гідна заробітна плата, повний соціальний пакет та якісні умови роботи." />
-            <Description description="Претендентам достатньо залишити онлайн заявку на сайті, щоб отримати швидкий зворотний зв'язок. Просимо звернути увагу, що відділ кадрів доступний виключно у робочий час. " />
-            <Description description="Бажаєте приєднатись?" />
-            <Description description="Дізнайтесь про відкриті вакансії прямо зараз!" />
+            <Description
+              description={data['vacancies-page']['description-first']}
+            />
+            <Description
+              description={data['vacancies-page']['description-second']}
+            />
+            <Description
+              description={data['vacancies-page']['description-third']}
+            />
+            <Description
+              description={data['vacancies-page']['description-fourth']}
+            />
           </div>
           <div className="mx-auto mt-5 w-fit md:mt-10">
             <ButtonLink
@@ -53,7 +62,7 @@ export default async function Page() {
       </Section>
       <Section>
         <Container>
-          <SectionTitle title="Вакансії" />
+          <SectionTitle title={data['vacancies-page']['vacancies-subtitle']} />
           <VacanciesCatalogue vacancies={vacanciesList} />
         </Container>
       </Section>
