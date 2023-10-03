@@ -11,6 +11,7 @@ export default function MobileMenuBtn({
     <button
       className="h-5 w-5 md:hidden"
       onClick={() => setIsMobileMenuShown(!isMobileMenuShown)}
+      aria-label="Кнопка відкриття мобільного меню"
     >
       <svg className="h-5 w-5 stroke-phoneScreenBtn">
         <use href="/images/icons.svg#burger"></use>
