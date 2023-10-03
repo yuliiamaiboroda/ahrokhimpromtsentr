@@ -18,7 +18,11 @@ export default function Header() {
           setIsMobileMenuShown={setIsMobileMenuShown}
         />
         <LogoImage />
-        <Link href="/contacts" className="h-5 w-5 md:hidden">
+        <Link
+          href="/contacts"
+          className="h-5 w-5 md:hidden"
+          aria-label="Кнопка контактів"
+        >
           <svg className="h-5 w-5 stroke-phoneScreenBtn">
             <use href="/images/icons.svg#phone"></use>
           </svg>
