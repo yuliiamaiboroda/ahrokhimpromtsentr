@@ -7,14 +7,19 @@ export default function LoadingMarkup() {
     <div className="h-screen w-full">
       <div className="flex animate-bounce justify-center">
         <Image
-          className="animate-ping"
+          className="h-auto w-20 animate-ping md:w-28 xl:w-32"
           src={Smoke}
           alt="Smoke"
-          width={90}
-          height={90}
+          sizes="100hw"
           quality={100}
         />
-        <Image src={Tractor} alt="Track" width={90} height={90} quality={100} />
+        <Image
+          className="h-auto w-20 md:w-28 xl:w-32"
+          src={Tractor}
+          alt="Track"
+          sizes="100hw"
+          quality={100}
+        />
       </div>
     </div>
   );
