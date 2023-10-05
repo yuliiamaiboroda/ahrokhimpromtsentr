@@ -21,7 +21,6 @@ async function getProducts() {
     throw new Error('Error fetching products');
   }
 
-  console.log('fetch products');
   return res.json() as Promise<IProductItem[]>;
 }
 
