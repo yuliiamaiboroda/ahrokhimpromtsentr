@@ -26,6 +26,7 @@ export default function ResumeForm({ vacancies }: IProps) {
       <Formik
         initialValues={{
           name: '',
+          countryCode: '+380',
           phone: '',
           email: '',
           position: '',
@@ -35,8 +36,17 @@ export default function ResumeForm({ vacancies }: IProps) {
         }}
         validationSchema={resumeSchema(fileInput)}
         onSubmit={(formValues, actions) => {
+          const updatedValues = {
+            name: formValues.name,
+            phone: `${formValues.countryCode}${formValues.phone}`,
+            email: formValues.email,
+            position: formValues.position,
+            resume: formValues.resume,
+            comment: formValues.comment,
+            agreement: formValues.agreement,
+          };
           const formData = new FormData();
-          Object.entries(formValues).forEach(([key, value]) => {
+          Object.entries(updatedValues).forEach(([key, value]) => {
             if (key !== 'resume') {
               formData.append(key, String(value));
             }
@@ -68,11 +78,23 @@ export default function ResumeForm({ vacancies }: IProps) {
                   md:max-w-[532px] md:gap-8 md:text-2xl xl:max-w-[576px] xl:text-3xl"
         >
           <FormField name="name" type="text" placeholder="Ім‘я" />
-          <FormField
-            name="phone"
-            type="text"
-            placeholder="Контактний телефон"
-          />
+          <div className=" flex gap-1">
+            <div className="basis-1/4 md:basis-1/5 xl:basis-1/4">
+              <FormField
+                type="text"
+                name="countryCode"
+                placeholder="Код країни"
+                disabled={true}
+              />
+            </div>
+            <div className="basis-3/4 md:basis-4/5 xl:basis-3/4">
+              <FormField
+                name="phone"
+                type="text"
+                placeholder="Контактний телефон"
+              />
+            </div>
+          </div>
           <FormField name="email" type="text" placeholder="Email" />
           <SelectorField
             name="position"

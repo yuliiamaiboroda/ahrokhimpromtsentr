@@ -14,6 +14,7 @@ const INITIAL_STATE = {
   name: '',
   comment: '',
   contactMail: '',
+  countryCode: '+380',
   contactPhone: '',
   agreement: false,
 };
@@ -28,8 +29,15 @@ export default function FeedbackForm({}: IProps) {
         initialValues={INITIAL_STATE}
         validationSchema={feedbackSchema}
         onSubmit={(values, actions) => {
+          const updatedValues = {
+            name: values.name,
+            comment: values.comment,
+            contactMail: values.contactMail,
+            contactPhone: `${values.countryCode}${values.contactPhone}`,
+            agreement: values.agreement,
+          };
           fetch(BASE_URL + '/api/feedback', {
-            body: JSON.stringify(values),
+            body: JSON.stringify(updatedValues),
             headers: { 'Content-type': 'application/json' },
             method: 'POST',
           })
@@ -51,11 +59,23 @@ export default function FeedbackForm({}: IProps) {
                   md:max-w-[532px] md:gap-8 md:text-2xl xl:max-w-[576px] xl:text-3xl"
         >
           <FormField type="text" name="name" placeholder="Ім‘я" />
-          <FormField
-            type="text"
-            name="contactPhone"
-            placeholder="Контактний телефон"
-          />
+          <div className=" flex gap-1">
+            <div className="basis-1/4 md:basis-1/5 xl:basis-1/4">
+              <FormField
+                type="text"
+                name="countryCode"
+                placeholder="Код країни"
+                disabled={true}
+              />
+            </div>
+            <div className="basis-3/4 md:basis-4/5 xl:basis-3/4">
+              <FormField
+                type="text"
+                name="contactPhone"
+                placeholder="Контактний телефон"
+              />
+            </div>
+          </div>
           <FormField type="email" name="contactMail" placeholder="Email" />
           <TextareaField name="comment" placeholder="Коментар" />
           <CheckboxField
