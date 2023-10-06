@@ -12,6 +12,7 @@ export default function LoadingMarkup() {
           alt="Smoke"
           sizes="100hw"
           quality={100}
+          priority={true}
         />
         <Image
           className="h-auto w-20 md:w-28 xl:w-32"
@@ -19,6 +20,7 @@ export default function LoadingMarkup() {
           alt="Track"
           sizes="100hw"
           quality={100}
+          priority={true}
         />
       </div>
     </div>

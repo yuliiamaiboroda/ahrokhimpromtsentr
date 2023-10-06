@@ -60,7 +60,7 @@ export default function FeedbackForm({}: IProps) {
         >
           <FormField type="text" name="name" placeholder="Ім‘я" />
           <div className=" flex gap-1">
-            <div className="basis-1/4 md:basis-1/5 xl:basis-1/4">
+            <div className="min-w-[64px] basis-1/4 md:basis-1/5 xl:basis-1/4">
               <FormField
                 type="text"
                 name="countryCode"
