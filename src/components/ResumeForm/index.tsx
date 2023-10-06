@@ -79,7 +79,7 @@ export default function ResumeForm({ vacancies }: IProps) {
         >
           <FormField name="name" type="text" placeholder="Ім‘я" />
           <div className=" flex gap-1">
-            <div className="basis-1/4 md:basis-1/5 xl:basis-1/4">
+            <div className="min-w-[64px] basis-1/4 md:basis-1/5 xl:basis-1/4">
               <FormField
                 type="text"
                 name="countryCode"
