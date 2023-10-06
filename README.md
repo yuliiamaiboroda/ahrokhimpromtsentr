@@ -90,8 +90,6 @@ errors must be fixed.**
 npm run lint
 ```
 
-**Similar to linting check, but automatically fixes simple errors.**
-
 ## License
 
 MIT
