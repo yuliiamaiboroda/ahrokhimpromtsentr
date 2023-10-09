@@ -7,7 +7,7 @@ import { BASE_URL } from '@/helpers/constants';
 import data from '../../../public/data/data.json';
 
 interface IProductItem {
-  _id: string;
+  id: string;
   title: string;
   imageURL: string;
   description: string;
@@ -15,7 +15,7 @@ interface IProductItem {
 }
 
 async function getProducts() {
-  const res = await fetch(BASE_URL + '/api/products/all');
+  const res = await fetch(BASE_URL + '/api/products/');
 
   if (!res.ok) {
     throw new Error('Error fetching products');

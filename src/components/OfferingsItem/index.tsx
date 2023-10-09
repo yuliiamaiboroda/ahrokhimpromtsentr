@@ -3,14 +3,14 @@ import Image from 'next/image';
 import emptyImage from '../../../public/images/empty-image.jpg';
 
 interface IProps {
-  _id: string;
+  id: string;
   title: string;
   imageURL: string;
   navigateTo: string;
 }
 
 export default function OfferingsItem({
-  _id,
+  id,
   title,
   imageURL,
   navigateTo,
@@ -18,7 +18,7 @@ export default function OfferingsItem({
   return (
     <li className="h-[186px] w-full max-w-[266px] md:h-[226px] md:max-w-[323px] xl:max-w-[350px]">
       <Link
-        href={`${navigateTo}/${_id}`}
+        href={`${navigateTo}/${id}`}
         className="golden-edge relative block h-full w-full bg-light-gradient
                    hover:shadow-hover "
       >

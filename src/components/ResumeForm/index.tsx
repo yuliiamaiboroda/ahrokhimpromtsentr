@@ -14,7 +14,7 @@ import { useNotification } from '@/hooks';
 import { BASE_URL } from '@/helpers/constants';
 
 interface IProps {
-  vacancies: { _id: string; title: string }[];
+  vacancies: { id: string; title: string }[];
 }
 
 export default function ResumeForm({ vacancies }: IProps) {
@@ -56,11 +56,13 @@ export default function ResumeForm({ vacancies }: IProps) {
             formData.append('resume', fileInput.current.files[0]);
           }
 
-          fetch(BASE_URL + '/api/resumes', {
+          fetch(BASE_URL + '/api/resumes/', {
             body: formData,
-            method: 'POST',
+            method: 'PUT',
           })
             .then(res => {
+              console.log(res);
+
               if (!res.ok) {
                 throw new Error('Error sending resume from data');
               }
