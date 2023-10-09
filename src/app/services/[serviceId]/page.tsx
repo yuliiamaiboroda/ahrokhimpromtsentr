@@ -9,7 +9,7 @@ import { BASE_URL } from '@/helpers/constants';
 import emptyImage from '../../../../public/images/empty-image.jpg';
 
 interface IServiceItem {
-  _id: string;
+  id: string;
   title: string;
   description: string;
   imageURL: string;
@@ -19,22 +19,14 @@ interface IServiceItem {
   createdAt: string;
 }
 
-async function getCurrentService(productId: string) {
-  const res = await fetch(BASE_URL + '/api/services/getAll');
+async function getCurrentService(serviceId: string) {
+  const res = await fetch(`${BASE_URL}/api/services/${serviceId}`);
 
   if (!res.ok) {
-    throw new Error('Error fetching services');
+    throw new Error('Error fetching product: ' + serviceId);
   }
 
-  const productsList = (await res.json()) as Promise<IServiceItem[]>;
-
-  const product = (await productsList).find(({ _id }) => _id === productId);
-
-  if (!product) {
-    throw new Error('Error fetching current service');
-  }
-
-  return product;
+  return res.json() as Promise<IServiceItem>;
 }
 
 // TODO: Change links hover style
@@ -44,9 +36,9 @@ export default async function Page({
 }: {
   params: { serviceId: string };
 }) {
-  const product = await getCurrentService(params.serviceId);
+  const service = await getCurrentService(params.serviceId);
   const { title, description, imageURL, price, contactMail, contactPhone } =
-    product;
+    service;
 
   return (
     <Section>

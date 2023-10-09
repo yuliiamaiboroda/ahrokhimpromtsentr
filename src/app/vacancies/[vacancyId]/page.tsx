@@ -5,7 +5,7 @@ import Contacts from '@/components/Contacts';
 import { BASE_URL } from '@/helpers/constants';
 
 interface IVacancy {
-  _id: string;
+  id: string;
   category: string;
   title: string;
   description: string;
@@ -18,7 +18,7 @@ interface IVacancy {
 }
 
 async function getCurrentVacancy(vacancyId: string) {
-  const res = await fetch(`${BASE_URL}/api/vacancies/certain/${vacancyId}`);
+  const res = await fetch(`${BASE_URL}/api/vacancies/${vacancyId}`);
 
   if (!res.ok) {
     throw new Error('Error fetching vacancies');

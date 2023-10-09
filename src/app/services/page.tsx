@@ -7,7 +7,7 @@ import { BASE_URL } from '@/helpers/constants';
 import data from '../../../public/data/data.json';
 
 interface IServiceItem {
-  _id: string;
+  id: string;
   title: string;
   description: string;
   imageURL: string;
@@ -18,7 +18,7 @@ interface IServiceItem {
 }
 
 async function getServices() {
-  const res = await fetch(BASE_URL + '/api/services/getAll');
+  const res = await fetch(BASE_URL + '/api/services/');
 
   if (!res.ok) {
     throw new Error('Error fetching services');

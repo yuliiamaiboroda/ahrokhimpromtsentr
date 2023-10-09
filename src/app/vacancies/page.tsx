@@ -8,7 +8,7 @@ import { BASE_URL } from '@/helpers/constants';
 import data from '../../../public/data/data.json';
 
 interface IVacancy {
-  _id: string;
+  id: string;
   category: string;
   title: string;
   description: string;

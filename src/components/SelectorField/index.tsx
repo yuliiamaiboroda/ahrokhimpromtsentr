@@ -65,9 +65,9 @@ export default function SelectorField({
   return (
     <div className="relative cursor-pointer">
       <div
-        className={`golden-edge ${
-          meta.touched && meta.error ? 'warning-edge' : ''
-        }`}
+        className={`golden-edge 
+        first-letter:uppercase
+        ${meta.touched && meta.error ? 'warning-edge' : ''}`}
       >
         <input
           type="text"
@@ -78,9 +78,9 @@ export default function SelectorField({
             switchDropdown();
           }}
           className="block h-full w-full cursor-pointer bg-transparent
-                  py-5 pl-3 pr-9 outline-none transition duration-200 placeholder:text-placeholder 
-                  focus:shadow-hover md:py-6 
-                  md:pl-4 md:pr-12 xl:pl-6 xl:pr-14"
+                  py-5 pl-3 pr-9 outline-none transition duration-200 
+                  placeholder:text-placeholder focus:shadow-hover 
+                  md:py-6 md:pl-4 md:pr-12 xl:pl-6 xl:pr-14"
         />
         <svg
           className={`${
@@ -114,7 +114,7 @@ export default function SelectorField({
                   } px-3 py-1 transition duration-200 hover:bg-accent hover:text-secondary
                 md:px-4 md:py-2 xl:px-6`}
                 >
-                  <p>{label}</p>
+                  <p className="first-letter:uppercase">{label}</p>
                 </li>
               ))
             ) : (
