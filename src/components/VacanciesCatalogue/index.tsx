@@ -11,7 +11,7 @@ enum VacancyCategories {
 }
 
 interface IVacancy {
-  _id: string;
+  id: string;
   category: string;
   title: string;
   description: string;
@@ -61,9 +61,9 @@ export default function VacanciesCatalogue({ vacancies }: IProps) {
       </div>
       <ul className="mt-9 md:mt-16">
         {visibleVacancies.length ? (
-          visibleVacancies.map(({ _id, title, ...rest }) => (
+          visibleVacancies.map(({ id, title, ...rest }) => (
             <li
-              key={_id}
+              key={id}
               className="flex justify-between gap-1 font-body text-base md:text-xl
                         xl:text-2xl [&:not(:first-child)]:mt-6 [&:not(:first-child)]:md:mt-8"
             >
@@ -75,7 +75,7 @@ export default function VacanciesCatalogue({ vacancies }: IProps) {
                 {title}
               </p>
               <Link
-                href={`vacancies/${_id}`}
+                href={`vacancies/${id}`}
                 className="relative font-bold transition-colors
                         duration-200 before:absolute before:bottom-0 before:left-0
                         before:h-0.5 before:w-full before:bg-underline-gradient 

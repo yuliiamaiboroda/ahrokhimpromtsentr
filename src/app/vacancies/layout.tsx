@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 interface IVacancyTitle {
-  _id: string;
+  id: string;
   title: string;
 }
 

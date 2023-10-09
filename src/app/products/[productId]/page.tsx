@@ -6,17 +6,21 @@ import ButtonLink from '@/components/ButtonLink';
 import Description from '@/components/Description';
 import { BASE_URL } from '@/helpers/constants';
 import emptyImage from '../../../../public/images/empty-image.jpg';
+import Contacts from '@/components/Contacts';
 
 interface IProductItem {
-  _id: string;
+  id: string;
   title: string;
-  imageURL: string;
   description: string;
+  imageURL: string;
+  price: string;
+  contactMail: string;
+  contactPhone: string;
   createdAt: string;
 }
 
 async function getCurrentProduct(productId: string) {
-  const res = await fetch(`${BASE_URL}/api/products/certain/${productId}`);
+  const res = await fetch(`${BASE_URL}/api/products/${productId}`);
 
   if (!res.ok) {
     throw new Error('Error fetching product: ' + productId);
@@ -31,14 +35,24 @@ export default async function Page({
   params: { productId: string };
 }) {
   const product = await getCurrentProduct(params.productId);
-  const { title, description, imageURL } = product;
+  const { title, description, imageURL, price, contactMail, contactPhone } =
+    product;
 
   return (
     <Section>
       <Container>
         <SectionTitle title={title} />
         <DetailsImage alt={title} src={imageURL ? imageURL : emptyImage} />
-        <Description description={description} />
+        <div
+          className="mb-5 flex flex-col items-center gap-3
+                        md:mb-10 md:gap-7"
+        >
+          <Description description={description} />{' '}
+          <Description
+            description={` Ціна: ${price}${!isNaN(Number(price)) ? '₴' : ''}`}
+          />
+          <Contacts email={contactMail} phone={contactPhone} />
+        </div>
         <div className="mx-auto mt-5 w-fit md:mt-10">
           <ButtonLink
             navigateTo="/products"

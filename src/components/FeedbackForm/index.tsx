@@ -36,12 +36,14 @@ export default function FeedbackForm({}: IProps) {
             contactPhone: `${values.countryCode}${values.contactPhone}`,
             agreement: values.agreement,
           };
-          fetch(BASE_URL + '/api/feedback', {
+          fetch(BASE_URL + '/api/feedback/', {
             body: JSON.stringify(updatedValues),
             headers: { 'Content-type': 'application/json' },
-            method: 'POST',
+            method: 'PUT',
           })
             .then(res => {
+              console.log(res);
+
               if (!res.ok) {
                 throw new Error('Error sending feedback form data');
               }
