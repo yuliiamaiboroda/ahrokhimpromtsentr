@@ -16,7 +16,6 @@ import { NextArrow, PrevArrow } from '../ArrowButtons';
 
 interface Size {
   width: number;
-  height: number;
 }
 
 // TODO Remove resize listener on prod
@@ -27,7 +26,7 @@ export default function Carrousel() {
     alt: string;
     index: number;
   } | null>(null);
-  const [size, setSize] = useState<Size>();
+  const [size, setSize] = useState<Size>({ width: window.innerWidth });
 
   const sliderRef = useRef<Slider>(null);
 
@@ -61,11 +60,9 @@ export default function Carrousel() {
 
   const resizeHanlder = () => {
     const width = window.innerWidth;
-    const height = window.innerHeight;
 
     setSize({
       width: width,
-      height: height,
     });
   };
 
@@ -78,7 +75,7 @@ export default function Carrousel() {
 
   return (
     <div className="xl:mx-auto  xl:mb-[135px] xl:w-[1326px]">
-      {!size || size?.width >= 1280 ? (
+      {size.width >= 1280 ? (
         <Slider {...settings}>
           {awardsList.map(({ src, alt }, index) => {
             return (
@@ -109,7 +106,7 @@ export default function Carrousel() {
           })}
         </div>
       )}
-      {fullImage && (!size || size?.width >= 1280) ? (
+      {fullImage && size.width >= 1280 ? (
         <Modal onClose={handleCloseImage} isModalOpen={isModalOpen}>
           <CarrusselModal
             fullImage={fullImage}
