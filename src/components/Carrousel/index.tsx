@@ -13,6 +13,7 @@ import CarrouselItem from '../CarrouselItem';
 import Modal from '../Modal';
 import { NextArrow, PrevArrow } from '../ArrowButtons';
 import { useIsClient } from '../IsClient';
+import LoadingMarkup from '../LoadingMarkup';
 
 interface Size {
   width: number;
@@ -29,7 +30,7 @@ export default function Carrousel() {
     index: number;
   } | null>(null);
   const [size, setSize] = useState<Size>({
-    width: isClient ? window.innerWidth : 0,
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
   });
 
   const sliderRef = useRef<Slider>(null);
@@ -77,9 +78,9 @@ export default function Carrousel() {
     };
   }, []);
 
-  return (
+  return isClient ? (
     <div className="xl:mx-auto  xl:mb-[135px] xl:w-[1326px]">
-      {!size.width || size.width >= 1280 ? (
+      {size.width >= 1280 ? (
         <Slider {...settings}>
           {awardsList.map(({ src, alt }, index) => {
             return (
@@ -120,5 +121,7 @@ export default function Carrousel() {
         </Modal>
       ) : null}
     </div>
+  ) : (
+    <LoadingMarkup />
   );
 }
