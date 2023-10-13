@@ -8,11 +8,11 @@ import '../../../public/css/slick-theme.css';
 
 import { useModal } from '@/hooks';
 import { awardsList } from '@/helpers/constants';
-
 import CarrusselModal from '../CarrouselModal';
 import CarrouselItem from '../CarrouselItem';
 import Modal from '../Modal';
 import { NextArrow, PrevArrow } from '../ArrowButtons';
+import { useIsClient } from '../IsClient';
 
 interface Size {
   width: number;
@@ -21,12 +21,16 @@ interface Size {
 // TODO Remove resize listener on prod
 
 export default function Carrousel() {
+  const isClient = useIsClient();
+
   const [fullImage, setFullImage] = useState<{
     src: StaticImageData;
     alt: string;
     index: number;
   } | null>(null);
-  const [size, setSize] = useState<Size>({ width: window.innerWidth });
+  const [size, setSize] = useState<Size>({
+    width: isClient ? window.innerWidth : 0,
+  });
 
   const sliderRef = useRef<Slider>(null);
 
@@ -75,7 +79,7 @@ export default function Carrousel() {
 
   return (
     <div className="xl:mx-auto  xl:mb-[135px] xl:w-[1326px]">
-      {size.width >= 1280 ? (
+      {!size.width || size.width >= 1280 ? (
         <Slider {...settings}>
           {awardsList.map(({ src, alt }, index) => {
             return (
