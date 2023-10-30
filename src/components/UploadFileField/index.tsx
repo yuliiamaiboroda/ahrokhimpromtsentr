@@ -6,6 +6,7 @@ interface IProps {
   label: string;
   placeholder?: string;
   fileRef: React.RefObject<HTMLInputElement>;
+  accept?: string;
 }
 
 export default function UploadFileField({
@@ -13,12 +14,13 @@ export default function UploadFileField({
   label,
   placeholder = 'Завантажити файл',
   fileRef,
+  accept,
 }: IProps) {
   const [field, meta] = useField(name);
 
   return (
     <label className="relative cursor-pointer">
-      <input type="file" ref={fileRef} {...field} hidden />
+      <input type="file" accept={accept} ref={fileRef} {...field} hidden />
       <div
         className={`golden-edge ${
           meta.touched && meta.error && 'warning-edge'
