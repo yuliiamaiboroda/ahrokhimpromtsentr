@@ -61,8 +61,6 @@ export default function ResumeForm({ vacancies }: IProps) {
             method: 'PUT',
           })
             .then(res => {
-              console.log(res);
-
               if (!res.ok) {
                 throw new Error('Error sending resume from data');
               }
@@ -113,6 +111,7 @@ export default function ResumeForm({ vacancies }: IProps) {
             name="resume"
             label="Завантажити файл"
             placeholder="Прикріпити резюме"
+            accept=".pdf"
             fileRef={fileInput}
           />
           <TextareaField name="comment" placeholder="Коментар" />
