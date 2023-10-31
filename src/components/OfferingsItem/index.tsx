@@ -1,6 +1,8 @@
+'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import emptyImage from '../../../public/images/empty-image.jpg';
+import emptyImage from '../../../public/images/brokenTractor.svg';
 
 interface IProps {
   id: string;
@@ -15,6 +17,8 @@ export default function OfferingsItem({
   imageURL,
   navigateTo,
 }: IProps) {
+  const [imgSrc, setImgSrc] = useState(imageURL);
+
   return (
     <li className="h-[186px] w-full max-w-[266px] md:h-[226px] md:max-w-[323px] xl:max-w-[350px]">
       <Link
@@ -23,11 +27,14 @@ export default function OfferingsItem({
                    hover:shadow-hover "
       >
         <Image
-          src={imageURL ? imageURL : emptyImage}
+          src={imgSrc}
           alt={title}
           fill
           sizes="(min-width: 1280px) 350px,  (min-width: 768px) 323px,  266px"
           className="object-cover object-center"
+          onError={() => {
+            setImgSrc(emptyImage.src);
+          }}
         />
         <p
           className="absolute left-0 top-1/2 w-full -translate-y-1/2 bg-[rgba(47,_64,_48,_0.67)] p-3 text-center 

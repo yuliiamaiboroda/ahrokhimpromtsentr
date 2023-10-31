@@ -6,7 +6,6 @@ import ButtonLink from '@/components/ButtonLink';
 import Description from '@/components/Description';
 import Contacts from '@/components/Contacts';
 import { BASE_URL } from '@/helpers/constants';
-import emptyImage from '../../../../public/images/empty-image.jpg';
 
 interface IServiceItem {
   id: string;
@@ -44,7 +43,7 @@ export default async function Page({
     <Section>
       <Container>
         <SectionTitle title={title} />
-        <DetailsImage src={imageURL ? imageURL : emptyImage} alt={title} />
+        <DetailsImage src={imageURL} alt={title} />
         <div
           className="mb-5 flex flex-col items-center gap-3
                         md:mb-10 md:gap-7"
