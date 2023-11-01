@@ -19,7 +19,9 @@ interface IProductItem {
 }
 
 async function getCurrentProduct(productId: string) {
-  const res = await fetch(`${BASE_URL}/api/products/${productId}`);
+  const res = await fetch(`${BASE_URL}/api/products/${productId}`, {
+    cache: 'no-cache',
+  });
 
   if (!res.ok) {
     throw new Error('Error fetching product: ' + productId);
