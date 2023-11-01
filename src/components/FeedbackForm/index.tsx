@@ -42,8 +42,6 @@ export default function FeedbackForm({}: IProps) {
             method: 'PUT',
           })
             .then(res => {
-              console.log(res);
-
               if (!res.ok) {
                 throw new Error('Error sending feedback form data');
               }

@@ -5,7 +5,6 @@ import DetailsImage from '@/components/DetailsImage';
 import ButtonLink from '@/components/ButtonLink';
 import Description from '@/components/Description';
 import { BASE_URL } from '@/helpers/constants';
-import emptyImage from '../../../../public/images/empty-image.jpg';
 import Contacts from '@/components/Contacts';
 
 interface IProductItem {
@@ -42,7 +41,7 @@ export default async function Page({
     <Section>
       <Container>
         <SectionTitle title={title} />
-        <DetailsImage alt={title} src={imageURL ? imageURL : emptyImage} />
+        <DetailsImage alt={title} src={imageURL} />
         <div
           className="mb-5 flex flex-col items-center gap-3
                         md:mb-10 md:gap-7"
