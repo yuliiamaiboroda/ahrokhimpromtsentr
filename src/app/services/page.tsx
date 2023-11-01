@@ -18,7 +18,9 @@ interface IServiceItem {
 }
 
 async function getServices() {
-  const res = await fetch(BASE_URL + '/api/services/');
+  const res = await fetch(BASE_URL + '/api/services/', {
+    cache: 'no-cache',
+  });
 
   if (!res.ok) {
     throw new Error('Error fetching services');
