@@ -15,7 +15,9 @@ interface IProductItem {
 }
 
 async function getProducts() {
-  const res = await fetch(BASE_URL + '/api/products/');
+  const res = await fetch(BASE_URL + '/api/products/', {
+    cache: 'no-cache',
+  });
 
   if (!res.ok) {
     throw new Error('Error fetching products');
