@@ -6,7 +6,6 @@ import ButtonLink from '@/components/ButtonLink';
 import Description from '@/components/Description';
 import Contacts from '@/components/Contacts';
 import { BASE_URL } from '@/helpers/constants';
-import emptyImage from '../../../../public/images/empty-image.jpg';
 
 interface IServiceItem {
   id: string;
@@ -20,7 +19,9 @@ interface IServiceItem {
 }
 
 async function getCurrentService(serviceId: string) {
-  const res = await fetch(`${BASE_URL}/api/services/${serviceId}`);
+  const res = await fetch(`${BASE_URL}/api/services/${serviceId}`, {
+    cache: 'no-cache',
+  });
 
   if (!res.ok) {
     throw new Error('Error fetching product: ' + serviceId);
@@ -30,7 +31,6 @@ async function getCurrentService(serviceId: string) {
 }
 
 // TODO: Change links hover style
-// TODO: Change access rights on backend for current service (to not Auth)
 export default async function Page({
   params,
 }: {
@@ -44,7 +44,7 @@ export default async function Page({
     <Section>
       <Container>
         <SectionTitle title={title} />
-        <DetailsImage src={imageURL ? imageURL : emptyImage} alt={title} />
+        <DetailsImage src={imageURL} alt={title} />
         <div
           className="mb-5 flex flex-col items-center gap-3
                         md:mb-10 md:gap-7"
