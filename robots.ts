@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/error',
     },
-    sitemap: 'https:///ahrokhimpromtsentr.vercel.app/sitemap.xml',
+    sitemap: 'https:///ahrohimpromcentr.com/sitemap.xml',
   };
 }
